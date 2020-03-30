@@ -1,0 +1,45 @@
+[options]
+#font = Iosevka Nerd Font
+font =  DejaVuSansMono Nerd Font 8
+cursor_shape = ibeam
+allow_bold = true
+audible_bell = true
+
+[colors]
+# special
+foreground      = #ffffff
+foreground_bold = #cad0c4
+cursor          = #cad0c4
+background      = rgba(1, 1 , 1, 0.4)
+
+# black
+color0  = #121212
+color8  = #2e3436
+
+# red
+color1  = #d64541
+color9  = #e74c3c
+
+# green
+color2  = #1793d1
+color10 = #addef6
+
+# yellow
+color3  = #f7ca18
+color11 = #f5d76e
+
+# blue
+color4  = #4183d7
+color12 = #59abe3
+
+# magenta
+color5  = #8e44ad
+color13 = #9b59b6
+
+# cyan
+color6  = #6bb9f0
+color14 = #89c4f4
+
+# white
+color7  = #bdc3c7
+color15 = #ececec

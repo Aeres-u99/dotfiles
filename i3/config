@@ -1,0 +1,286 @@
+#  -- set modifier
+set $super Mod4
+set $alt Mod1
+set $super2 Mod1
+# set font
+font pango: Noto Sans 8
+
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
+
+# ---------------------------------------------------------
+# |                    autostart                          |
+# ---------------------------------------------------------
+
+#i3-gaps
+gaps inner 10
+gaps outer 13
+
+#Initial setup
+
+#Scratchpad Setup
+bindsym $super+Tab move scratchpad
+bindsym $super+$alt+Tab scratchpad show
+
+
+exec --no-startup-id qbittorrent
+exec --no-startup-id xsettingsd &
+exec_always --no-startup-id compton --config /home/akuma/.config/compton/compton.conf 
+exec --no-startup-id nm-applet
+exec --no-startup-id battery-monitor
+bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/black/*
+exec --no-startup-id feh --recursive --randomize --bg-fill /home/akuma/Pictures/black/*
+
+exec --no-startup-id indicator-cpufreq
+exec --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
+exec --no-startup-id conky -bc ~/.config/conky/informant/inf-cyan.conkyrc
+exec --no-startup-id tint2 -c ~/.config/tint2/minima/minima.tint2rc 
+#exec --no-startup-id tint2 -c ~/.config/tint2/raven/raven-cyan.tint2rc 
+
+#Polkit authenticator for password related settings
+#https://askubuntu.com/questions/799125/authentication-agent-and-i3wm
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+
+#Container Layout
+bindsym $super+s layout stacking 
+bindsym $super+t layout tabbed
+bindsym $super+e layout toggle split
+ 
+# start a terminal
+#cuz urxvt is <3
+bindsym $super+Return exec termite
+#I betrayed urxvt , mew heartbreaker UwU 
+
+set $mode_launcher Launch Terminals
+bindsym $super+x mode "$mode_launcher"
+mode "$mode_launcher" {
+	bindsym x exec xterm
+	bindsym z exec st
+	bindsym t exec tilix
+	bindsym u exec urxvt
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
+
+bindsym $super+b layout tabbed exec surf 
+# start dmenu (a program launcher)
+bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
+bindsym $super+Shift+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'
+
+#For audio and backlight
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+for_window [class="^.*"] border pixel 0
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbright +10 && notify-send "Brightness: $(cat /sys/class/backlight/radeon_bl0/brightness)" # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbright -10 && notify-send "Brightness: $(cat /sys/class/backlight/radeon_bl0/brightness)" #  decrease screen brightness
+
+# common apps keybinds
+bindsym $super+Print exec scrot '/home/akuma/Screenshots/Cheese_%a-%d%b%y_%H.%M.png' -e 'feh $f'
+bindsym $super+l exec i3lock -i ~/Pictures/lockscreen/28.png    
+bindsym $super+Shift+w exec firefox
+bindsym $super+Shift+f exec thunar;workspace 3;focus
+bindsym $super+Shift+h exec skippy-xd
+
+#change volume
+# music control
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc stop
+
+# kill focused window
+bindsym $super+c kill
+bindsym $alt+F4 kill
+
+# change focus
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+
+# move focused window
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+
+# split in horizontal orientation
+bindsym $super+h split h
+
+# split in vertical orientation
+bindsym $super+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $super+f fullscreen toggle
+
+# change container layout split
+bindsym $super+Shift+S layout toggle split
+
+# toggle tiling / floating
+bindsym $super+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $super+Shift+space focus mode_toggle
+
+set $ws1 "[1: ⌘ ]"
+set $ws2 "[2: ✠ ]"
+set $ws3 "[3: ⏏ ]"
+set $ws4 "[4: 〜]"
+set $ws5 "[5: ♫ ]"
+set $ws6 "[6: ⚔ ]"
+set $ws7 "[7: ≒ ]"
+set $ws8 "[8: ≒ ]"
+set $ws9 "[9: ≒ ]"
+set $ws0 "[0: ⎇ ]"
+set $ws11 "[11: ☯ ]"
+set $ws12 "[12: ✇ ]"
+set $ws13 "[13: ✿ ]"
+set $ws14 "[14: ❀ ]"
+set $ws15 "[15: ✵ ]"
+set $ws16 "[16: ♕ ]"
+set $ws17 "[17: ♔ ]"
+set $ws18 "[18: ♘ ]"
+set $ws19 "[19: ☣ ]"
+set $ws20 "[Social: ☠ ]"
+
+
+
+
+
+# switch to workspace
+bindsym $super+k workspace next
+bindsym $super+j workspace prev
+bindsym $super+0 workspace $ws0
+bindsym $super+1 workspace $ws1
+bindsym $super+2 workspace $ws2
+bindsym $super+3 workspace $ws3
+bindsym $super+4 workspace $ws4
+bindsym $super+5 workspace $ws5
+bindsym $super+6 workspace $ws6
+bindsym $super+7 workspace $ws7
+bindsym $super+8 workspace $ws8
+bindsym $super+9 workspace $ws9
+
+
+bindsym $super2+Ctrl+1 workspace $ws11
+bindsym $super2+Ctrl+2 workspace $ws12
+bindsym $super2+Ctrl+3 workspace $ws13
+bindsym $super2+Ctrl+4 workspace $ws14
+bindsym $super2+Ctrl+5 workspace $ws15
+bindsym $super2+Ctrl+6 workspace $ws16
+bindsym $super2+Ctrl+7 workspace $ws17
+bindsym $super2+Ctrl+8 workspace $ws18
+bindsym $super2+Ctrl+9 workspace $ws19
+bindsym $super2+Ctrl+0 workspace $ws20
+
+#Working with the numeric keypad.
+
+#bindcode $super+90 workspace $ws0
+bindcode $super+87 workspace $ws1
+bindcode $super+88 workspace $ws2
+bindcode $super+89 workspace $ws3
+bindcode $super+83 workspace $ws4
+bindcode $super+84 workspace $ws5
+bindcode $super+85 workspace $ws6
+bindcode $super+79 workspace $ws7
+bindcode $super+80 workspace $ws8
+bindcode $super+81 workspace $ws9
+
+
+# move focused container to workspace
+bindsym $super+Shift+0 move container to workspace $ws0
+bindsym $super+Shift+1 move container to workspace $ws1
+bindsym $super+Shift+2 move container to workspace $ws2
+bindsym $super+Shift+3 move container to workspace $ws3
+bindsym $super+Shift+4 move container to workspace $ws4
+bindsym $super+Shift+5 move container to workspace $ws5
+bindsym $super+Shift+6 move container to workspace $ws6
+bindsym $super+Shift+7 move container to workspace $ws7
+bindsym $super+Shift+8 move container to workspace $ws8
+bindsym $super+Shift+9 move container to workspace $ws9
+
+bindsym $super2+Shift+0 move container to workspace $ws20
+bindsym $super2+Shift+1 move container to workspace $ws11
+bindsym $super2+Shift+2 move container to workspace $ws12
+bindsym $super2+Shift+3 move container to workspace $ws13
+bindsym $super2+Shift+4 move container to workspace $ws14
+bindsym $super2+Shift+5 move container to workspace $ws15
+bindsym $super2+Shift+6 move container to workspace $ws16
+bindsym $super2+Shift+7 move container to workspace $ws17
+bindsym $super2+Shift+8 move container to workspace $ws18
+bindsym $super2+Shift+9 move container to workspace $ws19
+
+#
+#moving focused containers with numeric keypad
+bindsym $super+Shift+KP_0 move container to workspace $ws0
+bindsym $super+Shift+KP_1 move container to workspace $ws1
+bindsym $super+Shift+KP_2 move container to workspace $ws2
+bindsym $super+Shift+KP_3 move container to workspace $ws3
+bindsym $super+Shift+KP_4 move container to workspace $ws4
+bindsym $super+Shift+KP_5 move container to workspace $ws5
+bindsym $super+Shift+KP_6 move container to workspace $ws6
+bindsym $super+Shift+KP_7 move container to workspace $ws7
+bindsym $super+Shift+KP_8 move container to workspace $ws8
+bindsym $super+Shift+KP_9 move container to workspace $ws9
+
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $super+Shift+r restart
+
+# exit i3
+bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
+
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Return mode "default"
+}
+bindsym $super+r mode "resize"
+
+# panel
+bar {
+	mode hide
+	hidden_state hide
+	modifier Mod1
+	position top
+    #status_command i3status
+    #status_command bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t solarized
+    status_command bumblebee-status -m nic network_traffic disk:root sensors cpu memory battery date pasink -p root.path=/ time.format="%H:%M CW %V" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0" date.format="%a, %b %d %Y" -t solarized-powerline
+    font pango:DejaVu Sans Mono 7
+    #status_command exec ~/bin/mybar
+}
+
+# window rules, you can find the window class using xprop
+for_window [class=".*"] border pixel 0
+assign [class=mpv] [media]
+assign [class=feh] [Screenshot]
+assign [class=Telegram|Weechat*] $ws20
+#assign [class=Firefox|Transmission-gtk] 2
+#assign [class=Thunar|File-roller] 3
+#assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
+#assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
+#assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
+#for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
+#for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
+#for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
+
+# colour of border, background, text, indicator, and child_border
+client.focused			#bf616a #2f343f #d8dee8 #bf616a #d8dee8
+client.focused_inactive	#2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.unfocused		#2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.urgent			#2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.placeholder		#2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.background		#2f343f
+
+#Screen brightness
+#https://github.com/snobb/xbright
+bindsym $super+m exec xbright +1 # increase screen brightness
+bindsym $super+n exec xbright -1 # decrease screen brightness
