@@ -22,8 +22,20 @@ So without a further ado,
 * **FONT**: Noto Sans
 * **SHELL**: ZSH+Oh-my-zsh
 * **ZSH THEME**: powerlevel10k
+* **CAT Alternative**: bat
+* **Compositor**: Compton+kawase blur fork
 
 # Screenshots: 
+### Nincolors+mpd+ncmpcpp
+![Nincolors+mpd+ncmpcpp](./screenshot/Cheese_Wed-01Apr20_16.41.png)
+### ncmpcppLyrics+Taskwarrior+Ranger
+![ncmpcppLyrics+Taskwarrior+Ranger](./screenshot/Cheese_Wed-01Apr20_16.50.png)
+### Conky + Neofetch 
+![Conky+neofetch](./screenshot/Cheese_Wed-01Apr20_16.52.png)
+### Chromium + jq + nvim
+![chromium+jq+nvim](./screenshot/Cheese_Wed-01Apr20_17.22.png)
+### Bumblebee status + Manga for kindle script
+![Bb+script](./screenshot/Cheese_Wed-01Apr20_17.24.png)
 
 # TODO:
 
@@ -35,4 +47,15 @@ So without a further ado,
 - [ ]	Add .bashrc + .zshrc
 - [ ]   Add custom scripts
 - [ ]	pewpew :D 
+
+# Shamefully stolen from: 
+* Starter pack, base configs and built everything from scratch on this.
+[Base Config](https://github.com/addy-dclxvi/i3-starterpack)
+
+* Collection of Conkies and Tints really good.
+[Conkies](https://github.com/addy-dclxvi/conky-theme-collections)
+[Tint2](https://github.com/addy-dclxvi/tint2-theme-collections)
+
+* Really Awesome Neovim configs
+[Neovim](https://github.com/Optixal/neovim-init.vim)
 
