@@ -32,7 +32,7 @@ bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/b
 exec --no-startup-id feh --recursive --randomize --bg-fill /home/akuma/Pictures/black/*
 
 exec --no-startup-id indicator-cpufreq
-exec --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
+#exec --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
 exec --no-startup-id conky -bc ~/.config/conky/informant/inf-cyan.conkyrc
 exec --no-startup-id tint2 -c ~/.config/tint2/minima/minima.tint2rc 
 #exec --no-startup-id tint2 -c ~/.config/tint2/raven/raven-cyan.tint2rc 
