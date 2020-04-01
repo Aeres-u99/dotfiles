@@ -23,4 +23,16 @@ So without a further ado,
 * **SHELL**: ZSH+Oh-my-zsh
 * **ZSH THEME**: powerlevel10k
 
-Screenshots: 
+# Screenshots: 
+
+# TODO:
+
+- [x]	Add conkies config
+- [x] 	Add tint2 configs
+- [x]   Add termite configs
+- [ ]   Create installation script
+- [ ]	Add mpd.conf, ncmpcpp config
+- [ ]	Add .bashrc + .zshrc
+- [ ]   Add custom scripts
+- [ ]	pewpew :D 
+
