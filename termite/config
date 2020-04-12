@@ -1,9 +1,49 @@
 [options]
-#font = Iosevka Nerd Font
-font =  DejaVuSansMono Nerd Font 8
+
+#allow_bold = true
+#audible_bell = false
+bold_is_bright = true
+#cell_height_scale = 1.0
+#cell_width_scale = 1.0
+clickable_url = false
+dynamic_title = true
+
+font = DejaVuSansMono Nerd Font 8
 cursor_shape = ibeam
 allow_bold = true
 audible_bell = true
+#fullscreen = true
+#icon_name = terminal
+mouse_autohide = false
+#scroll_on_output = false
+scroll_on_keystroke = true
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = -1
+#search_wrap = true
+#urgent_on_bell = true
+#hyperlinks = false
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+#browser = xdg-open
+
+# "system", "on" or "off"
+#cursor_blink = system
+
+# "block", "underline" or "ibeam"
+cursor_shape = ibeam
+
+# Hide links that are no longer valid in url select overlay mode
+#filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+# set size hints for the window
+size_hints = false
+
+# "off", "left" or "right"
+scrollbar = off
 
 [colors]
 # special
@@ -13,33 +53,68 @@ cursor          = #cad0c4
 background      = rgba(1, 1 , 1, 0.4)
 
 # black
-color0  = #121212
-color8  = #2e3436
+#color0  = #121212
+#color8  = #2e3436
 
 # red
-color1  = #d64541
-color9  = #e74c3c
+#color1  = #d64541
+#color9  = #e74c3c
 
 # green
-color2  = #1793d1
-color10 = #addef6
+#color2  = #1793d1
+#color10 = #addef6
 
 # yellow
-color3  = #f7ca18
-color11 = #f5d76e
+#color3  = #f7ca18
+#color11 = #f5d76e
 
 # blue
-color4  = #4183d7
-color12 = #59abe3
+#color4  = #4183d7
+#color12 = #59abe3
 
 # magenta
-color5  = #8e44ad
-color13 = #9b59b6
+#color5  = #8e44ad
+#color13 = #9b59b6
 
 # cyan
-color6  = #6bb9f0
-color14 = #89c4f4
+#color6  = #6bb9f0
+#color14 = #89c4f4
 
 # white
-color7  = #bdc3c7
-color15 = #ececec
+#color7  = #bdc3c7
+#color15 = #ececec
+
+#colors
+# black
+color0  = #2d2d2d
+color8  = #747369
+
+# red
+color1  = #f2777a
+color9  = #f2777a
+
+# green
+color2  = #99cc99
+color10 = #99cc99
+
+# yellow
+color3  = #ffcc66
+color11 = #ffcc66
+
+# blue
+color4  = #6699cc
+color12 = #6699cc
+
+# magenta
+color5  = #cc99cc
+color13 = #cc99cc
+
+# cyan
+color6  = #66cccc
+color14 = #66cccc
+
+# white
+color7  = #d3d0c8
+color15 = #f2f0ec
+
+
