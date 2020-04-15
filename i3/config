@@ -39,6 +39,7 @@ for_window [title="tty-clock"] floating enable sticky enable border pixel $borde
 
 bindsym $alt+y fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 870 25
 
+bindsym $alt+shift+d exec "appl run"
 
 exec --no-startup-id xsettingsd &
 exec_always --no-startup-id compton --config /home/akuma/.config/compton/compton.conf 
@@ -268,7 +269,7 @@ bar {
 	position top
     #status_command i3status
     #status_command bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t solarized
-    status_command bumblebee-status -m nic network_traffic disk:root sensors cpu memory battery date pasink -p root.path=/ time.format="%H:%M CW %V" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0" date.format="%a, %b %d %Y" -t solarized-powerline
+    status_command bumblebee-status -m nic network_traffic disk:root sensors cpu memory battery date pasink -p root.path=/ time.format="%H:%M CW %V" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0" date.format="%a, %b %d %Y" -t greyish-powerline
     font pango:DejaVu Sans Mono 7
     #status_command exec ~/bin/mybar
 }
@@ -278,6 +279,7 @@ for_window [class=".*"] border pixel 0
 assign [class=mpv] [media]
 assign [class=feh] [Screenshot]
 assign [class=Telegram|Weechat*|Kotatogram] $ws20
+for_window [class=Terminology|appl|terminology] floating enable
 #assign [class=Firefox|Transmission-gtk] 2
 #assign [class=Thunar|File-roller] 3
 #assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
