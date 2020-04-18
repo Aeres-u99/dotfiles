@@ -51,6 +51,16 @@ exec --no-startup-id feh --recursive --randomize --bg-fill /home/akuma/Pictures/
 exec --no-startup-id indicator-cpufreq
 #exec --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
 exec --no-startup-id conky -bc ~/.config/conky/informant/inf-cyan.conkyrc
+#exec --no-startup-id conky -bc ~/.config/conky/conkyrings/inf-cyan
+exec --no-startup-id conky -bc ~/.config/conky/conkyrings/rings
+exec --no-startup-id conky -bc ~/.config/conky/conkyrings/notes
+exec --no-startup-id conky -bc ~/.config/conky/conkyrings/mem
+exec --no-startup-id conky -bc ~/.config/conky/conkyrings/cpu
+
+
+
+
+
 bindsym $super+w exec --no-startup-id tint2 -c ~/.config/tint2/minima/minima.tint2rc
 bindsym $super+Shift+w exec pkill tint2
 #exec --no-startup-id tint2 -c ~/.config/tint2/raven/raven-cyan.tint2rc 
@@ -275,7 +285,7 @@ bar {
 }
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 0 
 assign [class=mpv] [media]
 assign [class=feh] [Screenshot]
 assign [class=Telegram|Weechat*|Kotatogram] $ws20

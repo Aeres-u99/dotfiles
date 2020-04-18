@@ -1,0 +1,49 @@
+  ____            _              ____  _                    ____                                          _ 
+ / ___|___  _ __ | | ___   _    |  _ \(_)_ __   __ _ ___   |  _ \ _____   ____ _ _ __ ___  _ __   ___  __| |
+| |   / _ \| '_ \| |/ / | | |   | |_) | | '_ \ / _` / __|  | |_) / _ \ \ / / _` | '_ ` _ \| '_ \ / _ \/ _` |
+| |__| (_) | | | |   <| |_| |   |  _ <| | | | | (_| \__ \  |  _ <  __/\ V / (_| | | | | | | |_) |  __/ (_| |
+ \____\___/|_| |_|_|\_\\__, |   |_| \_\_|_| |_|\__, |___/  |_| \_\___| \_/ \__,_|_| |_| |_| .__/ \___|\__,_|
+                       |___/                   |___/                                      |_|               
+
+--------------------------------------------------------------------------------------------------------------
+
+Hi,
+
+The whole setup is based on Conky Conky Conky theme by YesThisIsMe. However, I found the theme to be very old, 
+so I made a lot of modifications of my own in it.
+
+There are four separate Conky widgets in the whole setup:
+	- the main one with rings
+	- memory
+	- CPU
+	- notes (lists the contents of file "~/notes.txt")
+	
+Use the startconky.sh script to start them in proper order.
+
+Put all the files in ~/.Conky/ and run the script to start them. You can autostart the script at startup to make it
+load at every boot.
+
+Enjoy, experiment, share your results!
+
+Regards,
+Amit
+
+--------------------------------------------------------------------------------------------------------------
+
+My modifications to the original theme:
+	
+	- Made it look even more minimal.
+	- Added 4 cpu bars instead of 2, since many modern CPUs now have four cores. Thickened the battery and RAM
+	  bars to give it a consistent look.
+	- CPU and memory conkys now show 4 items instead of 3.
+	- Reduced the size of clock hands.
+	- Added labels "Home" and "Root" to the space indicator.
+	- Removed minute and hour rings to make it look less cluttered.
+	- Removed the battery percentage level indicator, since the method it followed is deprecated in the recent
+	  kernel versions.
+	- Fixed the repeated "conky: unknown variable" error in the console upon execution of the script
+	- Improved the "notes" conky a lot. Added a label "TO-DO" to it, and now it shows the number of items you have
+	  in your to-do list (~/notes.txt).
+	- Removed the gmailnotify.sh. Gmail has apparently blocked such scripts since they're not secure enough.
+	- Moved everything in "~/.Conky", so no need of creating two different folders.
+	- A few more minor changes in font and positioning that I probably will remember after I've uploaded it. :D
