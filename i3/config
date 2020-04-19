@@ -74,7 +74,11 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 bindsym $super+s layout stacking 
 bindsym $super+t layout tabbed
 bindsym $super+e layout toggle split
- 
+
+bindsym $super+greater fullscreen disable;focus right;fullscreen enable
+bindsym $super+less fullscreen disable;focus left;fullscreen enable
+
+
 # start a terminal
 #cuz urxvt is <3
 bindsym $super+Return exec termite
@@ -178,8 +182,9 @@ set $ws20 "[Social: ☠ ]"
 
 
 # switch to workspace
-bindsym $super+k workspace next
-bindsym $super+j workspace prev
+bindsym $super+bracketright workspace next
+bindsym $super+bracketleft workspace prev
+
 bindsym $super+0 workspace $ws0
 bindsym $super+1 workspace $ws1
 bindsym $super+2 workspace $ws2
@@ -309,5 +314,5 @@ client.background		#2f343f
 
 #Screen brightness
 #https://github.com/snobb/xbright
-bindsym $super+m exec xbright +1 # increase screen brightness
-bindsym $super+n exec xbright -1 # decrease screen brightness
+#bindsym $super+m exec xbright +1 # increase screen brightness
+#bindsym $super+n exec xbright -1 # decrease screen brightness
