@@ -1,4 +1,4 @@
-#  -- set modifier
+#-- set modifier
 set $super Mod4
 set $alt Mod1
 set $super2 Mod1
@@ -10,7 +10,7 @@ floating_modifier $super
 
 #i3-gaps
 gaps inner 10
-gaps outer 13
+gaps outer 15
 
 #Initial setup
 
@@ -69,16 +69,16 @@ exec --no-startup-id feh --recursive --randomize --bg-fill /home/akuma/Pictures/
 
 exec --no-startup-id indicator-cpufreq
 #exec --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
-exec --no-startup-id conky -bc ~/.config/conky/informant/inf-cyan.conkyrc
+#exec --no-startup-id conky -bc ~/.config/conky/informant/inf-paper.conkyrc
 #exec --no-startup-id conky -bc ~/.config/conky/conkyrings/inf-cyan
 exec --no-startup-id conky -bc ~/.config/conky/conkyrings/rings
-exec --no-startup-id conky -bc ~/.config/conky/conkyrings/notes
-exec --no-startup-id conky -bc ~/.config/conky/simpleone/conkyrc
+#exec --no-startup-id conky -bc ~/.config/conky/conkyrings/notes
+#exec --no-startup-id conky -bc ~/.config/conky/simpleone/conkyrc
 
 
 
-bindsym $super+w exec --no-startup-id tint2 -c ~/.config/tint2/minima/minima.tint2rc
-bindsym $super+Shift+w exec pkill tint2
+bindsym $super+apostrophe exec --no-startup-id tint2 -c ~/.config/tint2/minima/minima.tint2rc
+bindsym $super+Shift+apostrophe exec pkill tint2
 #exec --no-startup-id tint2 -c ~/.config/tint2/raven/raven-cyan.tint2rc 
 
 #Polkit authenticator for password related settings
@@ -89,7 +89,7 @@ exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agen
 #Container Layout
 bindsym $super+s layout stacking 
 bindsym $super+t layout tabbed
-bindsym $super+e layout toggle split
+bindsym $super+e layout toggle all
 
 bindsym $super+greater fullscreen disable;focus right;fullscreen enable
 bindsym $super+less fullscreen disable;focus left;fullscreen enable
@@ -115,8 +115,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 for_window [class="^.*"] border pixel 0
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbright +10 && notify-send "Brightness: $(cat /sys/class/backlight/radeon_bl0/brightness)" # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbright -10 && notify-send "Brightness: $(cat /sys/class/backlight/radeon_bl0/brightness)" #  decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbright +5 && notify-send "Brightness: $(cat /sys/class/backlight/radeon_bl0/brightness)" # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbright -5 && notify-send "Brightness: $(cat /sys/class/backlight/radeon_bl0/brightness)" #  decrease screen brightness
 
 # common apps keybinds
 bindsym $super+Print exec scrot '/home/akuma/Screenshots/Cheese_%a-%d%b%y_%H.%M.png' -e 'feh $f'
@@ -303,8 +303,8 @@ set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) re
 mode "$mode_system" {
     bindsym l exec --no-startup-id $i3lockwall, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $i3lockwall && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $i3lockwall && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
