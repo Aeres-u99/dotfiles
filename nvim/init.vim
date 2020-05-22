@@ -109,7 +109,7 @@ autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 " Disable documentation window
 set completeopt-=preview
 
@@ -128,7 +128,7 @@ nmap ga <Plug>(EasyAlign)
 " indentLine
 let g:indentLine_char = '▏'
 let g:indentLine_color_gui = '#363949'
-
+let g:indentLine_concealcursor = "nv"
 " TagBar
 let g:tagbar_width = 30
 let g:tagbar_iconchars = ['↠', '↡']
@@ -179,8 +179,8 @@ endfunction
 
 " Dracula Mode (Dark)
 function! ColorDracula()
-    let g:airline_theme=''
-    color dracula
+    let g:airline_theme='ayu_dark'
+    color ayu_dark
     IndentLinesEnable
 endfunction
 " hehe
@@ -202,7 +202,7 @@ endfunction
 
 " Zazen Mode (Black & White)
 function! ColorZazen()
-    let g:airline_theme='badcat'
+    let g:airline_theme='ayu_dark'
     color zazen
     IndentLinesEnable
 endfunction
@@ -219,7 +219,7 @@ nmap <leader>e1 :call ColorDracula()<CR>
 nmap <leader>e2 :call ColorSeoul256()<CR>
 nmap <leader>e3 :call ColorForgotten()<CR>
 nmap <leader>e4 :call ColorZazen()<CR>
-"nmap <leader>r :so ~/.config/nvim/init.vim<CR>
+nmap <leader>r :so ~/.config/nvim/init.vim<CR>
 "Reloads config
 nmap <leader>z :so ~/.config/nvim/init.vim<CR> 
 nmap <leader>t :call TrimWhitespace()<CR>
@@ -248,8 +248,7 @@ nnoremap <C-H> <C-W><C-H>
 
 
 "Turn on backup option
-set backup
-
+set backup 
 "Where to store backups
 set backupdir=~/.vim/backup//
 
@@ -261,3 +260,5 @@ set backupcopy=yes
 "set cursorline        " highlight current line
 "Meaningful backup name, filename@2015-04-05.14:59
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
+
+let g:airline_theme='ayu_dark'
