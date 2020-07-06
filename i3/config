@@ -188,7 +188,6 @@ set $ws20  "[ ☠ ]"
 
 
 
-
 # switch to workspace
 bindsym $super+bracketright workspace next
 bindsym $super+bracketleft workspace prev
@@ -315,12 +314,11 @@ bindsym $super+BackSpace mode "$mode_system"
 
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 1 
+for_window [class=".*"] border pixel 0 
 assign [class=mpv] [media]
 assign [class=feh] [Screenshot]
 assign [class=Telegram|Weechat*|Kotatogram] $ws20
 for_window [class=Terminology|appl|terminology] floating enable
-for_window [class="mpv"] fullscreen disable; floating enable; resize set 640 480;
 #assign [class=Firefox|Transmission-gtk] 2
 #assign [class=Thunar|File-roller] 3
 #assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
