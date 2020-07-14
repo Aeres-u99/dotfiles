@@ -319,14 +319,15 @@ assign [class=mpv] [media]
 assign [class=feh] [Screenshot]
 assign [class=Telegram|Weechat*|Kotatogram] $ws20
 for_window [class=Terminology|appl|terminology] floating enable
-#assign [class=Firefox|Transmission-gtk] 2
-#assign [class=Thunar|File-roller] 3
-#assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
-#assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
-#assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
-#for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
-#for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
-#for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
+for_window [class=p avucontrol|Pavucontrol] floating enable
+#assign [class=Fire fox|Transmission-gtk] 2
+#assign [class=Thun ar|File-roller] 3
+#assign [class=Gean y|Evince|Gucharmap|Soffice|libreoffice*] 4
+#assign [class=Auda city|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
+#assign [class=Lxap pearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
+#for_window [class= Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
+#for_window [class= URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
+#for_window [class= Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
 
 # colour of border, background, text, indicator, and child_border
 client.focused			#d8dee8 #2f343f #d8dee8 #d8dee8 #d8dee8
