@@ -15,18 +15,18 @@ Plug 'junegunn/vim-journal'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'nightsense/forgotten'
 Plug 'zaki/zazen'
-Plug 'severin-lemaignan/vim-minimap'
-"""Plug 'lervag/vimtex'
-"""Plug 'WolfgangMehner/c-support'"""
-"""A Vim Plugin for Lively Previewing LaTeX PDF Output
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'gabrielelana/vim-markdown'
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 " Aethetics - Additional
 Plug 'nightsense/nemo'
 Plug 'yuttie/hydrangea-vim'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'rhysd/vim-color-spring-night'
-Plug 'gyim/vim-boxdraw'
+
 " Functionalities
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
@@ -35,18 +35,19 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-abolish'
 Plug 'Yggdroot/indentLine'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/Colorizer'
-Plug 'heavenshell/vim-pydocstring'
+Plug 'KabbAmine/vCoolor.vim'
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 Plug 'vim-scripts/loremipsum'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -54,7 +55,7 @@ Plug 'metakirby5/codi.vim'
 Plug 'dkarter/bullets.vim'
 
 " Entertainment
-Plug 'dansomething/vim-hackernews'
+"Plug 'ryanss/vim-hackernews'
 
 call plug#end()
 
@@ -70,7 +71,7 @@ highlight Normal gui=none
 highlight NonText guibg=none
 
 " Opaque Background (Comment out to use terminal's profile)
-"set termguicolors
+set termguicolors
 
 " Transparent Background (For i3 and compton)
 highlight Normal guibg=NONE ctermbg=NONE
@@ -109,9 +110,12 @@ autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
 " Deoplete
-let g:deoplete#enable_at_startup = 0
+let g:deoplete#enable_at_startup = 1
 " Disable documentation window
 set completeopt-=preview
+
+" vim-pydocstring
+let g:pydocstring_doq_path = '~/.config/nvim/env/bin/doq'
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "<C-n>"
@@ -128,7 +132,7 @@ nmap ga <Plug>(EasyAlign)
 " indentLine
 let g:indentLine_char = '▏'
 let g:indentLine_color_gui = '#363949'
-let g:indentLine_concealcursor = "nv"
+
 " TagBar
 let g:tagbar_width = 30
 let g:tagbar_iconchars = ['↠', '↡']
@@ -179,11 +183,11 @@ endfunction
 
 " Dracula Mode (Dark)
 function! ColorDracula()
-    let g:airline_theme='ayu_dark'
-    color ayu_dark
+    let g:airline_theme=''
+    color dracula
     IndentLinesEnable
 endfunction
-" hehe
+
 " Seoul256 Mode (Dark & Light)
 function! ColorSeoul256()
     let g:airline_theme='silver'
@@ -202,7 +206,7 @@ endfunction
 
 " Zazen Mode (Black & White)
 function! ColorZazen()
-    let g:airline_theme='ayu_dark'
+    let g:airline_theme='badcat'
     color zazen
     IndentLinesEnable
 endfunction
@@ -220,8 +224,6 @@ nmap <leader>e2 :call ColorSeoul256()<CR>
 nmap <leader>e3 :call ColorForgotten()<CR>
 nmap <leader>e4 :call ColorZazen()<CR>
 nmap <leader>r :so ~/.config/nvim/init.vim<CR>
-"Reloads config
-nmap <leader>z :so ~/.config/nvim/init.vim<CR> 
 nmap <leader>t :call TrimWhitespace()<CR>
 xmap <leader>a gaip*
 nmap <leader>a gaip*
@@ -233,14 +235,14 @@ nmap <leader>g :Goyo<CR>
 nmap <leader>h :RainbowParentheses!!<CR>
 nmap <leader>j :set filetype=journal<CR>
 nmap <leader>k :ColorToggle<CR>
+nmap <leader>v :set conceallevel=0
 nmap <leader>l :Limelight!!<CR>
 xmap <leader>l :Limelight!!<CR>
 autocmd FileType python nmap <leader>x :0,$!~/.config/nvim/env/bin/python -m yapf<CR>
-nmap <leader>n :HackerNews best<CR>J
+"nmap <leader>n :HackerNews best<CR>J
 nmap <silent> <leader><leader> :noh<CR>
 nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>
-
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -262,26 +264,18 @@ set backupcopy=yes
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 
 let g:airline_theme='ayu_dark'
-" Enable folding
-" configure expanding of tabs for various file types
-au BufRead,BufNewFile *.py set expandtab
-au BufRead,BufNewFile *.c set expandtab
-au BufRead,BufNewFile *.h set expandtab
-au BufRead,BufNewFile Makefile* set noexpandtab
+" disable header folding
+let g:vim_markdown_folding_disabled = 1
 
-" --------------------------------------------------------------------------------
-" configure editor with tabs and nice stuff...
-" --------------------------------------------------------------------------------
-set expandtab           " enter spaces when tab is pressed
-set textwidth=120       " break lines when line length increases
-set tabstop=4           " use 4 spaces to represent tab
-set softtabstop=4
-set shiftwidth=4        " number of spaces to use for auto indent
-set autoindent          " copy indent from current line when starting a new line
+" do not use conceal feature, the implementation is not so good
+let g:vim_markdown_conceal = 0
 
-" make backspaces more powerfull
-set backspace=indent,eol,start
+" disable math tex conceal feature
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
 
-set ruler                           " show line and column number
-syntax on               " syntax highlighting
-set showcmd             " show (partial) command in status line
+" support front matter of various format
+let g:vim_markdown_frontmatter = 1  " for YAML format
+let g:vim_markdown_toml_frontmatter = 1  " for TOML format
+let g:vim_markdown_json_frontmatter = 1  " for JSON format
+" set conceallevel=0

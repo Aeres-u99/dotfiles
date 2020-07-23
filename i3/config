@@ -31,7 +31,7 @@ mode "Screen: [n]o,[s]mall,[j]rnl,[r]eset" {
 }
 # Usability stuffs
 workspace_auto_back_and_forth yes
-title_align center
+#title_align center
 
 #browser launcher, each has its own benefit. I prefer to use surfer for mouse based browsing,
 #dweb for documentations and luakit for browsing
@@ -45,6 +45,8 @@ mode "Browser: [l]uakit,[d]wb,[s]urfer" {
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
+
+
 
 bindsym $super+shift+z exec "xterm -geometry 35x9+1020+580 -e tty-clock -b -c -C 4 -D"
 for_window [title="tty-clock"] floating enable sticky enable border pixel $borders
@@ -98,13 +100,14 @@ bindsym $super+less fullscreen disable;focus left;fullscreen enable
 # start a terminal
 #cuz urxvt is <3
 bindsym $super+Return exec termite
+bindsym $super+Shift+Return exec tinyterm -e "tcsh"
 #I betrayed urxvt , mew heartbreaker UwU 
 
 # start dmenu (a program launcher)
 #bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
 
 bindsym $super+d exec dmenu_run
-bindsym $super+Shift+d exec "rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 1 -font 'Noto Sans 8'
+bindsym $super+Shift+d exec "rofi -show drun -sidebar-mode -columns 1 -font 'Noto Sans 8'
 # For use of windows, sometimes I end up with too many windows.
 bindsym $super+y exec rofi -show window -width 50 -font 'Noto Sans 8'
 
@@ -183,7 +186,7 @@ set $ws16  "[16: ♕ ]"
 set $ws17  "[17: ♔ ]"
 set $ws18  "[18: ♘ ]"
 set $ws19  "[19: ☣ ]"
-set $ws20  "[ ☠ ]"
+set $ws20  "[ ☠ Social ]"
 
 
 
@@ -319,7 +322,7 @@ assign [class=mpv] [media]
 assign [class=feh] [Screenshot]
 assign [class=Telegram|Weechat*|Kotatogram] $ws20
 for_window [class=Terminology|appl|terminology] floating enable
-for_window [class=p avucontrol|Pavucontrol] floating enable
+for_window [class=pavucontrol|Pavucontrol] floating enable
 #assign [class=Fire fox|Transmission-gtk] 2
 #assign [class=Thun ar|File-roller] 3
 #assign [class=Gean y|Evince|Gucharmap|Soffice|libreoffice*] 4
