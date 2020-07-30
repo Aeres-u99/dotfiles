@@ -53,9 +53,10 @@ for_window [title="tty-clock"] floating enable sticky enable border pixel $borde
 
 # Mini pip for [A/G]MV, code, notes.
 
-bindsym $alt+y fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 870 25
+bindsym $alt+y fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 870 20
+bindsym $alt+z fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 870 450
 
-bindsym $alt+shift+d exec "appl run"
+bindsym $alt+shift+d exec "tinyterm -e tcsh"
 
 # ---------------------------------------------------------
 # |                    autostart                          |
@@ -67,7 +68,9 @@ exec_always --no-startup-id compton --config /home/akuma/.config/compton/compton
 exec --no-startup-id nm-applet
 exec --no-startup-id battery-monitor
 bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/WallpaperSet/*
-exec --no-startup-id feh --recursive --randomize --bg-fill /home/akuma/Pictures/black/*
+exec --no-startup-id feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
+bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
+
 
 exec --no-startup-id indicator-cpufreq
 #exec --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
@@ -100,7 +103,7 @@ bindsym $super+less fullscreen disable;focus left;fullscreen enable
 # start a terminal
 #cuz urxvt is <3
 bindsym $super+Return exec termite
-bindsym $super+Shift+Return exec tinyterm -e "tcsh"
+bindsym $super+Shift+Return exec tinyterm -e "bash"
 #I betrayed urxvt , mew heartbreaker UwU 
 
 # start dmenu (a program launcher)
@@ -185,7 +188,7 @@ set $ws15  "[15: ✵ ]"
 set $ws16  "[16: ♕ ]"
 set $ws17  "[17: ♔ ]"
 set $ws18  "[18: ♘ ]"
-set $ws19  "[19: ☣ ]"
+set $ws19  "[workspace]"
 set $ws20  "[ ☠ Social ]"
 
 
@@ -317,12 +320,14 @@ bindsym $super+BackSpace mode "$mode_system"
 
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 0 
+for_window [class=".*"] border pixel 1 
 assign [class=mpv] [media]
 assign [class=feh] [Screenshot]
-assign [class=Telegram|Weechat*|Kotatogram] $ws20
+assign [class=Telegram|Weechat*|Kotatogram|Flock|flock] $ws20
+assign [class=workspacesclient|Workspacesclient] $ws19
 for_window [class=Terminology|appl|terminology] floating enable
 for_window [class=pavucontrol|Pavucontrol] floating enable
+
 #assign [class=Fire fox|Transmission-gtk] 2
 #assign [class=Thun ar|File-roller] 3
 #assign [class=Gean y|Evince|Gucharmap|Soffice|libreoffice*] 4
