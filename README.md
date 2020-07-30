@@ -27,11 +27,11 @@ So without a further ado,
 
 # Screenshots: 
 ### Nincolors+mpd+ncmpcpp
-![Nincolors+mpd+ncmpcpp](./screenshot/Cheese_Wed-01Apr20_16.41.png)
+![Nincolors+mpd+ncmpcpp](./screenshot/Cheese_Fri-27Mar20_06.41.png)
 ### ncmpcppLyrics+Taskwarrior+Ranger
 ![ncmpcppLyrics+Taskwarrior+Ranger](./screenshot/Cheese_Wed-01Apr20_16.50.png)
 ### Conky + Neofetch 
-![Conky+neofetch](./screenshot/Cheese_Wed-01Apr20_16.52.png)
+![Conky+neofetch](./screenshot/Cheese_Thu-23Apr20_05.15.png)
 ### Chromium + jq + nvim
 ![chromium+jq+nvim](./screenshot/Cheese_Wed-01Apr20_17.22.png)
 ### Bumblebee status + Manga for kindle script
