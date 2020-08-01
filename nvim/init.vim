@@ -20,7 +20,9 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
+Plug 'gyim/vim-boxdraw'
+" Vim Wiki for Notes needs
+Plug 'vimwiki/vimwiki'
 " Aethetics - Additional
 Plug 'nightsense/nemo'
 Plug 'yuttie/hydrangea-vim'
@@ -53,7 +55,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 Plug 'dkarter/bullets.vim'
-
 " Entertainment
 "Plug 'ryanss/vim-hackernews'
 
@@ -236,6 +237,7 @@ nmap <leader>h :RainbowParentheses!!<CR>
 nmap <leader>j :set filetype=journal<CR>
 nmap <leader>k :ColorToggle<CR>
 nmap <leader>v :set conceallevel=0
+nmap <leader>b :set virtualedit=all
 nmap <leader>l :Limelight!!<CR>
 xmap <leader>l :Limelight!!<CR>
 autocmd FileType python nmap <leader>x :0,$!~/.config/nvim/env/bin/python -m yapf<CR>
@@ -279,3 +281,6 @@ let g:vim_markdown_frontmatter = 1  " for YAML format
 let g:vim_markdown_toml_frontmatter = 1  " for TOML format
 let g:vim_markdown_json_frontmatter = 1  " for JSON format
 " set conceallevel=0
+let g:vimwiki_list = [{'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md'}]
+" Preview markdown
+command Pewpew :"pandoc --from=gfm %:t --output=/tmp/temp.html && surf /tmp/temp.html && rm /tmp/temp.html"
