@@ -1,0 +1,44 @@
+include /usr/share/doc/newsboat/contrib/colorschemes/inkpot
+auto-reload yes
+browser "/usr/bin/w3m %u"
+macro y set browser "mpv %u" ; open-in-browser ; set browser "/usr/bin/w3m %u"
+macro i set browser "viewnior %u" ; open-in-browser ; set browser "/usr/bin/w3m %u"
+# Related to the custom configuration
+notify-format "%d new articles"
+notify-program "/usr/bin/notify-send"
+reload-threads 2
+reload-time 10
+save-path ~/.local/share/newsboat/saved
+show-read-feeds no
+text-width 80
+
+# Related to the key bindings
+bind-key G end
+bind-key S save
+bind-key g home
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key s sort
+bind-key ^F pagedown
+bind-key ^B pageup
+
+# Related to the title formats of the dialog boxes
+articlelist-title-format "—[%T]——(%u unread, %t total)——%>——(%U)—"
+datetime-format "%b %d %H:%M"
+feedlist-title-format "—[%u feeds with new articles]——%>——(%N %V)—"
+
+color listfocus_unread black green standout bold
+
+# Related to the highlighted text
+highlight article "^(Feed|Title|Author|Link|Date|Linux):.*" color5 default
+highlight article "^Links:" color74 default underline
+highlight article "\\[[0-9][0-9]*\\]" color72 default bold
+highlight article "\\[image [0-9][0-9]*\\]" color72 default bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" color72 default bold
+highlight article ":.*\\(link\\)$" color74 default
+highlight article ":.*\\(image\\)$" color74 default
+highlight article ":.*\\(embedded flash\\)$" color74 default
+highlight articlelist "^ *[0-9]+ *N " color156 default
+highlight feedlist "^ *[0-9]+ *N " color156 default

@@ -11,41 +11,42 @@ floating_modifier $super
 #i3-gaps
 gaps inner 10
 gaps outer 15
-
+#border_radius 10
 #Initial setup
 
+# ---------------------------------------------------------
+# |                    autostart                          |
+# ---------------------------------------------------------
+
+#I dont know, picom dies this way :( and its very bad so a hackyaf script
+exec_always --no-startup-id compton --config /home/akuma/.config/compton/compton2.conf 
+#exec --no-startup-id "sudo xlaunch_picom"
+exec --no-startup-id "thunar --daemon"
+exec --no-startup-id nm-applet
+exec --no-startup-id dunst
+exec_always "battmon --interval 5 --low 72 --critical 74 --dark"
+bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/WallpaperSet/*
+#bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
+exec_always feh --recursive --randomize --bg-fill /home/akuma/Pictures/WallpaperSet/*
+
+#exec --no-startup-id indicator-cpufreq
+#exec --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
+#exec --no-startup-id conky -bc ~/.config/conky/informant/inf-paper.conkyrc
+#exec --no-startup-id conky -bc ~/.config/conky/conkyrings/inf-cyan
+#exec --no-startup-id conky -bc ~/.config/conky/conkyrings/rings
+#exec --no-startup-id conky -bc ~/.config/conky/conkyrings/notes
+#exec --no-startup-id conky -bc ~/.config/conky/simpleone/conkyrc
+
+
+
+bindsym $super+Shift+plus border pixel 1
+bindsym $super+minus border none
 #Scratchpad Setup
 bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
 
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better
-bindsym $super+o mode "Screen: [n]o,[s]mall,[j]rnl,[r]eset"
-mode "Screen: [n]o,[s]mall,[j]rnl,[r]eset" {
-	bindsym n gaps inner current set 0; gaps outer current set 0
-	bindsym s gaps inner current set 10; gaps outer current set 10
-	bindsym j gaps inner current set 10; gaps outer current set 200	
-	bindsym r gaps inner current set 10; gaps outer current set 13
-    bindsym Escape mode "default"
-	bindsym Return mode "default"
-}
-# Usability stuffs
-workspace_auto_back_and_forth yes
-#title_align center
-
-#browser launcher, each has its own benefit. I prefer to use surfer for mouse based browsing,
-#dweb for documentations and luakit for browsing
-
-
-bindsym $super+b mode "Browser: [l]uakit,[d]wb,[s]urfer"
-mode "Browser: [l]uakit,[d]wb,[s]urfer" {
-    bindsym l exec luakit
-    bindsym d exec dwb
-    bindsym s exec surfer
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-}
-
 
 
 bindsym $super+shift+z exec "xterm -geometry 35x9+1020+580 -e tty-clock -b -c -C 4 -D"
@@ -57,38 +58,13 @@ bindsym $alt+y fullscreen disable; floating enable; resize set 422 240; sticky e
 bindsym $alt+z fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 870 450
 
 bindsym $alt+shift+d exec "tinyterm -e tcsh"
-
-# ---------------------------------------------------------
-# |                    autostart                          |
-# ---------------------------------------------------------
-
-
-exec --no-startup-id xsettingsd &
-exec_always --no-startup-id compton --config /home/akuma/.config/compton/compton.conf 
-exec --no-startup-id nm-applet
-exec --no-startup-id battery-monitor
-bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/WallpaperSet/*
-exec --no-startup-id feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
-bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
-
-
-exec --no-startup-id indicator-cpufreq
-#exec --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
-#exec --no-startup-id conky -bc ~/.config/conky/informant/inf-paper.conkyrc
-#exec --no-startup-id conky -bc ~/.config/conky/conkyrings/inf-cyan
-exec --no-startup-id conky -bc ~/.config/conky/conkyrings/rings
-#exec --no-startup-id conky -bc ~/.config/conky/conkyrings/notes
-#exec --no-startup-id conky -bc ~/.config/conky/simpleone/conkyrc
-
-
-
 bindsym $super+apostrophe exec --no-startup-id tint2 -c ~/.config/tint2/minima/minima.tint2rc
 bindsym $super+Shift+apostrophe exec pkill tint2
 #exec --no-startup-id tint2 -c ~/.config/tint2/raven/raven-cyan.tint2rc 
 
 #Polkit authenticator for password related settings
 #https://askubuntu.com/questions/799125/authentication-agent-and-i3wm
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+#exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 
 #Container Layout
@@ -103,7 +79,7 @@ bindsym $super+less fullscreen disable;focus left;fullscreen enable
 # start a terminal
 #cuz urxvt is <3
 bindsym $super+Return exec termite
-bindsym $super+Shift+Return exec tinyterm -e "bash"
+bindsym $super+Shift+Return exec tilix
 #I betrayed urxvt , mew heartbreaker UwU 
 
 # start dmenu (a program launcher)
@@ -126,6 +102,7 @@ bindsym XF86MonBrightnessDown exec xbright -5 && notify-send "Brightness: $(cat 
 
 # common apps keybinds
 bindsym $super+Print exec scrot '/home/akuma/Screenshots/Cheese_%a-%d%b%y_%H.%M.png' -e 'feh $f' 
+bindsym $super+Shift+Print exec "flameshot gui"
 bindsym $super+Shift+h exec skippy-xd
 
 #change volume
@@ -134,6 +111,33 @@ bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioStop exec mpc stop
+# screen usabiity
+bindsym $super+o mode "Screen: [n]o,[s]mall,[j]rnl,[r]eset"
+mode "Screen: [n]o,[s]mall,[j]rnl,[r]eset" {
+	bindsym n gaps inner current set 0; gaps outer current set 0
+	bindsym s gaps inner current set 10; gaps outer current set 10
+	bindsym j gaps inner current set 10; gaps outer current set 60	
+	bindsym r gaps inner current set 10; gaps outer current set 13
+    bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
+# Usability stuffs
+workspace_auto_back_and_forth yes
+#title_align center
+
+#browser launcher, each has its own benefit. I prefer to use surfer for mouse based browsing,
+#dweb for documentations and luakit for browsing
+
+
+bindsym $super+b mode "Browser: [l]uakit,[d]wb,[s]urfer"
+mode "Browser: [l]uakit,[d]wb,[s]urfer" {
+    bindsym l exec luakit
+    bindsym d exec dwb
+    bindsym s exec surfer
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
 
 # kill focused window
 bindsym $super+c kill
@@ -173,7 +177,8 @@ bindsym $super+Shift+space focus mode_toggle
 set $ws1   "[1: ⌘ ]"
 set $ws2   "[2: ✠ ]"
 set $ws3   "[3: ⏏ ]"
-set $ws4   "[4: 〜]"
+set $ws4   "[4: ✇ ]"
+set $ws12  "[12: ✇ ]"
 set $ws5   "[5: ♫ ]"
 set $ws6   "[6: ⚔ ]"
 set $ws7   "[7: ≒ ]"
@@ -187,7 +192,7 @@ set $ws14  "[14: ❀ ]"
 set $ws15  "[15: ✵ ]"
 set $ws16  "[16: ♕ ]"
 set $ws17  "[17: ♔ ]"
-set $ws18  "[18: ♘ ]"
+set $ws18  "[lariza]"
 set $ws19  "[workspace]"
 set $ws20  "[ ☠ Social ]"
 
@@ -281,10 +286,10 @@ bindsym $super+Escape exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
         bindsym Return mode "default"
 }
 bindsym $super+r mode "resize"
@@ -318,16 +323,16 @@ mode "$mode_system" {
 }
 bindsym $super+BackSpace mode "$mode_system"
 
-
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 1 
+for_window [class=".*"] border pixel 0 
 assign [class=mpv] [media]
 assign [class=feh] [Screenshot]
 assign [class=Telegram|Weechat*|Kotatogram|Flock|flock] $ws20
 assign [class=workspacesclient|Workspacesclient] $ws19
+assign [class=surf|Lariza] $ws18
 for_window [class=Terminology|appl|terminology] floating enable
 for_window [class=pavucontrol|Pavucontrol] floating enable
-
+for_window [class=viewnior|Viewnior] floating enable
 #assign [class=Fire fox|Transmission-gtk] 2
 #assign [class=Thun ar|File-roller] 3
 #assign [class=Gean y|Evince|Gucharmap|Soffice|libreoffice*] 4

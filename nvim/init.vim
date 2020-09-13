@@ -36,8 +36,8 @@ Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-jedi'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
@@ -111,7 +111,7 @@ autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 " Disable documentation window
 set completeopt-=preview
 
@@ -283,4 +283,4 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 " set conceallevel=0
 let g:vimwiki_list = [{'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md'}]
 " Preview markdown
-command Pewpew :"pandoc --from=gfm %:t --output=/tmp/temp.html && surf /tmp/temp.html && rm /tmp/temp.html"
+command Mdpew !pandoc --from=gfm %:t -s --highlight-style kate --output=/tmp/temp.html && surf /tmp/temp.html && rm /tmp/temp.html
