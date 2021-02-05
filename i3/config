@@ -9,30 +9,31 @@ font pango: Noto Sans 8
 floating_modifier $super
 
 #i3-gaps
-gaps inner 10
-gaps outer 15
+gaps inner 3 
+gaps outer 5
 #border_radius 10
 #Initial setup
 
 # ---------------------------------------------------------
 # |                    autostart                          |
 # ---------------------------------------------------------
-
+# xrandr --output HDMI-1 --auto --right-of eDP-1
 #I dont know, picom dies this way :( and its very bad so a hackyaf script
 exec_always --no-startup-id compton --config /home/akuma/.config/compton/compton2.conf 
-#exec --no-startup-id "sudo xlaunch_picom"
+exec_always unclutter --timeout 5
+# exec --no-startup-id "sudo xlaunch_picom"
+exec --no-startup-id emacs --daemon
 exec --no-startup-id "thunar --daemon"
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec_always "battmon --interval 5 --low 72 --critical 74 --dark"
-bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/WallpaperSet/*
+exec "battmon --interval 5 --low 72 --critical 74 --dark"
+bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
 #bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
-exec_always feh --recursive --randomize --bg-fill /home/akuma/Pictures/WallpaperSet/*
-
+exec_always feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
+bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/Chika/
 #exec --no-startup-id indicator-cpufreq
 #exec --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
 #exec --no-startup-id conky -bc ~/.config/conky/informant/inf-paper.conkyrc
-#exec --no-startup-id conky -bc ~/.config/conky/conkyrings/inf-cyan
 #exec --no-startup-id conky -bc ~/.config/conky/conkyrings/rings
 #exec --no-startup-id conky -bc ~/.config/conky/conkyrings/notes
 #exec --no-startup-id conky -bc ~/.config/conky/simpleone/conkyrc
@@ -67,18 +68,20 @@ bindsym $super+Shift+apostrophe exec pkill tint2
 
 
 #Container Layout
-bindsym $super+s layout stacking 
+#bindsym $super+s layout stacking 
+# Freeing it up in favour of Emacsclient
+bindsym $super+e exec "emacsclient -ncq"
 bindsym $super+t layout tabbed
-bindsym $super+e layout toggle all
+bindsym $super+s layout toggle all
 
-bindsym $super+greater fullscreen disable;focus right;fullscreen enable
-bindsym $super+less fullscreen disable;focus left;fullscreen enable
+bindsym $super+greater fullscreen disable;focus left;fullscreen enable
+bindsym $super+less fullscreen disable;focus right;fullscreen enable
 
 
 # start a terminal
 #cuz urxvt is <3
 bindsym $super+Return exec termite
-bindsym $super+Shift+Return exec urxvt -e "fish"
+bindsym $super+Shift+Return exec xst
 #I betrayed urxvt , mew heartbreaker UwU 
 
 # start dmenu (a program launcher)
@@ -139,7 +142,7 @@ mode "Browser: [l]uakit,[d]wb,[s]urfer" {
 
 
 # kill focused window
-bindsym $super+c kill
+bindsym $super+grave kill
 bindsym $alt+F4 kill
 
 # change focus
@@ -214,7 +217,7 @@ set $ws15  "[15]"
 set $ws16  "[16]"
 set $ws17  "[17]"
 set $ws18  "[lz]"
-set $ws19  "[ws]"
+set $ws19  "[E]"
 set $ws20  "[☠]"
 set $ws21  "[S]"
 
@@ -318,15 +321,16 @@ bindsym $super+r mode "resize"
 
 # panel
 bar {
-    #mode hide
-	#hidden_state hide
-	modifier Mod1
-	position bottom
-    #status_command i3status --config ~/.config/i3/i3status.conf
+    mode hide
+	hidden_state hide
+	modifier Shift+Mod1
+	position top
+    status_command i3status --config ~/.config/i3/i3status.conf
     #status_command bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t solarized
-    status_command bumblebee-status -m nic network_traffic disk:root sensors cpu memory battery date pasink -p root.path=/ time.format="%H:%M CW %V" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0" date.format="%a, %b %d %Y" -t greyish-powerline
+    #status_command bumblebee-status -m nic network_traffic disk:root sensors cpu memory battery date pasink -p root.path=/ time.format="%H:%M CW %V" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0" date.format="%a, %b %d %Y" -t gruvbox-powerline
+    #iceberg-contrast
     #gruvbox-powerline #greyish-powerline
-    font pango:DejaVu Sans Mono 7
+    font pango:DejaVu Sans Mono 8
     #status_command exec ~/bin/mybar
 }
 set $i3lockwall i3lock-fancy # shutdown / restart / suspend...
@@ -350,8 +354,8 @@ bindsym $super+Shift+l mode "$mode_system"
 for_window [class=".*"] border pixel 0 
 assign [class=mpv] [media]
 assign [title="Screenshot"] [S]
+assign [class=emacs|Emacs] $ws19 
 assign [class=Telegram|Weechat*|Kotatogram|Flock|flock] $ws20
-assign [class=workspacesclient|Workspacesclient] $ws19
 assign [class=surf|Lariza] $ws18
 for_window [class=Terminology|appl|terminology] floating enable
 for_window [class=pavucontrol|Pavucontrol] floating enable
@@ -366,12 +370,12 @@ for_window [class=viewnior|Viewnior|feh] floating enable
 #for_window [class= Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
 
 # colour of border, background, text, indicator, and child_border
-client.focused			#d8dee8 #2f343f #d8dee8 #d8dee8 #d8dee8
-client.focused_inactive	#2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.unfocused		#2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.urgent			#2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.placeholder		#2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.background		#2f343f
+client.focused			#d8dee8 #000000 #d8dee8 #d8dee8 #d8dee8
+client.focused_inactive	#000000 #000000 #d8dee8 #000000 #000000
+client.unfocused		#000000 #000000 #d8dee8 #000000 #000000
+client.urgent			#000000 #000000 #d8dee8 #000000 #000000
+client.placeholder		#000000 #000000 #d8dee8 #000000 #000000
+client.background		#000000
 
 #Screen brightness
 #https://github.com/snobb/xbright
