@@ -35,3 +35,6 @@ go-cataloguer /home/akuma/go/src/cataloguer
 go-src /home/akuma/go/src
 Rust /home/akuma/SoopaProject/Study/Rust
 home /home/akuma
+tgHack /home/akuma/SoopaProject/hacking/tgHack
+pentest /home/akuma/SoopaProject/hacking/kalibox
+bin /home/akuma/bin

@@ -24,12 +24,13 @@ exec_always --no-startup-id emacs --daemon
 exec --no-startup-id "thunar --daemon"
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-#exec_always "battmon --interval 5 --low 72 --critical 74 --dark"
+exec_always "battmon --interval 10 --low 12 --critical 8 --dark"
 #exec_always --no-startup-id "autotiling"
 bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
 #bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
 exec_always feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
 bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/Chika/
+bindsym $alt+o exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/black/
 #exec --no-startup-id indicator-cpufreq
 #exec_always --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
 #exec_always --no-startup-id conky -bc ~/.config/conky/informant/inf-paper.conkyrc
@@ -78,7 +79,7 @@ bindsym $super+less fullscreen disable;focus right;fullscreen enable
 # start a terminal
 #cuz urxvt is <3
 bindsym $super+Return exec termite
-bindsym $super+Shift+Return exec xst
+bindsym $super+Shift+Return exec tym
 #I betrayed urxvt , mew heartbreaker UwU 
 
 # start dmenu (a program launcher)
@@ -99,7 +100,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 # Additional Bindsym
 # These are for Minikeyboard
 
-bindsym XF86HomePage workspace $ws18 ; exec google-chrome-stable
+#bindsym XF86HomePage workspace $ws18 ; exec google-chrome-stable
 bindsym XF86WWW exec surf www.duckduckgo.com
 bindsym XF86Mail exec google-chrome-stable www.gmail.com
 bindsym XF86Tools exec termite -e "mpd -v"
@@ -214,7 +215,6 @@ set $ws1   "[1]"
 set $ws2   "[2]"
 set $ws3   "[3]"
 set $ws4   "[4]"
-set $ws12  "[12]"
 set $ws5   "[5]"
 set $ws6   "[6]"
 set $ws7   "[7]"
@@ -232,9 +232,6 @@ set $ws18  "[lz]"
 set $ws19  "[E]"
 set $ws20  "[☠]"
 set $ws21  "[S]"
-
-
-
 
 # switch to workspace
 bindsym $super+bracketright workspace next
@@ -263,18 +260,6 @@ bindsym $super2+Ctrl+8 workspace $ws18
 bindsym $super2+Ctrl+9 workspace $ws19
 bindsym $super2+Ctrl+0 workspace $ws20
 bindsym $alt+$super+0 workspace $ws21
-#Working with the numeric keypad.
-
-#bindcode $super+90 workspace $ws0
-bindcode $super+87 workspace $ws1
-bindcode $super+88 workspace $ws2
-bindcode $super+89 workspace $ws3
-bindcode $super+83 workspace $ws4
-bindcode $super+84 workspace $ws5
-bindcode $super+85 workspace $ws6
-bindcode $super+79 workspace $ws7
-bindcode $super+80 workspace $ws8
-bindcode $super+81 workspace $ws9
 
 
 # move focused container to workspace
@@ -289,30 +274,16 @@ bindsym $super+Shift+7 move container to workspace $ws7
 bindsym $super+Shift+8 move container to workspace $ws8
 bindsym $super+Shift+9 move container to workspace $ws9
 
-bindsym $super2+Shift+0 move container to workspace $ws20
-bindsym $super2+Shift+1 move container to workspace $ws11
-bindsym $super2+Shift+2 move container to workspace $ws12
-bindsym $super2+Shift+3 move container to workspace $ws13
-bindsym $super2+Shift+4 move container to workspace $ws14
-bindsym $super2+Shift+5 move container to workspace $ws15
-bindsym $super2+Shift+6 move container to workspace $ws16
-bindsym $super2+Shift+7 move container to workspace $ws17
-bindsym $super2+Shift+8 move container to workspace $ws18
-bindsym $super2+Shift+9 move container to workspace $ws19
-
-#
-#moving focused containers with numeric keypad
-bindsym $super+Shift+KP_0 move container to workspace $ws0
-bindsym $super+Shift+KP_1 move container to workspace $ws1
-bindsym $super+Shift+KP_2 move container to workspace $ws2
-bindsym $super+Shift+KP_3 move container to workspace $ws3
-bindsym $super+Shift+KP_4 move container to workspace $ws4
-bindsym $super+Shift+KP_5 move container to workspace $ws5
-bindsym $super+Shift+KP_6 move container to workspace $ws6
-bindsym $super+Shift+KP_7 move container to workspace $ws7
-bindsym $super+Shift+KP_8 move container to workspace $ws8
-bindsym $super+Shift+KP_9 move container to workspace $ws9
-
+bindsym $super2+$super+Shift+0 move container to workspace $ws20
+bindsym $super2+$super+Shift+1 move container to workspace $ws11
+bindsym $super2+$super+Shift+2 move container to workspace $ws12
+bindsym $super2+$super+Shift+3 move container to workspace $ws13
+bindsym $super2+$super+Shift+4 move container to workspace $ws14
+bindsym $super2+$super+Shift+5 move container to workspace $ws15
+bindsym $super2+$super+Shift+6 move container to workspace $ws16
+bindsym $super2+$super+Shift+7 move container to workspace $ws17
+bindsym $super2+$super+Shift+8 move container to workspace $ws18
+bindsym $super2+$super+Shift+9 move container to workspace $ws19
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $super+Shift+r restart
@@ -340,8 +311,7 @@ bar {
     #status_command i3blocks -c ~/.config/i3/i3blocks.conf
     #status_command i3status --config ~/.config/i3/i3status.conf
     #status_command bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t solarized
-    status_command bumblebee-status -m nic disk:root memory battery date -p root.path=/ time.format="%H:%M CW %V" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t greyish-powerline
-    #iceberg-contrast
+    status_command bumblebee-status -m nic pomodoro disk:root memory battery date -p root.path=/ time.format="%H:%M CW %V" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t night-powerline
     #gruvbox-powerline #greyish-powerline
     font pango:DejaVu Sans Mono 8
     #status_command exec ~/bin/mybar
@@ -369,7 +339,7 @@ assign [class=mpv] [media]
 assign [title="Screenshot"] [S]
 # assign [class=emacs|Emacs] $ws19
 assign [class=Telegram|Weechat*|Kotatogram|Flock|flock] $ws20
-assign [class=surf|Lariza] $ws18
+assign [class=surf|Lariza|VirtualBox*] $ws18
 for_window [class=Terminology|appl|terminology] floating enable
 for_window [class=pavucontrol|Pavucontrol] floating enable
 for_window [class=viewnior|Viewnior|feh] floating enable

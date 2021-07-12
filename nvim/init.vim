@@ -70,7 +70,8 @@ let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
 
 """ Coloring
 syntax on
-color dracula
+" color dracula
+color hydrangea
 highlight Pmenu guibg=white guifg=black gui=bold
 highlight Comment gui=bold
 highlight Normal gui=none
@@ -270,7 +271,7 @@ set backupcopy=yes
 "Meaningful backup name, filename@2015-04-05.14:59
 au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 
-let g:airline_theme='ayu_dark'
+let g:airline_theme='transparent'
 " disable header folding
 let g:vim_markdown_folding_disabled = 1
 
