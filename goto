@@ -38,3 +38,6 @@ home /home/akuma
 tgHack /home/akuma/SoopaProject/hacking/tgHack
 pentest /home/akuma/SoopaProject/hacking/kalibox
 bin /home/akuma/bin
+nvim /home/akuma/.config/nvim
+defendtheweb /home/akuma/SoopaProject/hacking/CTF/defendtheweb
+tmp /home/akuma/tmp

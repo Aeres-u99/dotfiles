@@ -24,7 +24,7 @@ border_inner_margin 0
 border_outer_margin 0
  
 minimum_size 920 300
-maximum_width 1024
+maximum_width 580
  
 alignment tl
 gap_x 10
@@ -55,4 +55,4 @@ ${voffset 105}${goto 123}${font Santana:size=24}${time %H:%M}${voffset -10}${fon
 ${voffset -28}${goto 268}${hr 2}
 ${voffset -70}${goto 278}${cpugraph 50,285 d5dcde ffffff} #${voffset -18} ${alignr} ${execi 60 ~/.Conky/gmailnotify.sh}
 ${voffset 16}${goto 285}${time %A, %d %B %Y}						
-#${font Santana:size=14}${voffset -120}${goto 300}BATTERY     ${battery BAT0}
+${font Santana:size=14}${voffset -120}${goto 300}BATTERY     ${battery BAT1}

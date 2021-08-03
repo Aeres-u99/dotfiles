@@ -1,12 +1,16 @@
 include /usr/share/doc/newsboat/contrib/colorschemes/inkpot
-auto-reload yes
+# auto-reload yes
 browser "/usr/bin/w3m %u"
-macro y set browser "mpv %u" ; open-in-browser ; set browser "/usr/bin/w3m %u"
-macro i set browser "viewnior %u" ; open-in-browser ; set browser "/usr/bin/w3m %u"
+# Set browser to mpv for videos
+macro y set browser "mpv %u" 
+# Set it to image viewer for images
+macro i set browser "feh %u" 
+#Restore it 
+macro r set browser "/usr/bin/w3m %u"
 # Related to the custom configuration
 notify-format "%d new articles"
 notify-program "/usr/bin/notify-send"
-reload-threads 2
+reload-threads 4
 reload-time 10
 save-path ~/.local/share/newsboat/saved
 show-read-feeds no

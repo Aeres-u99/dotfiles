@@ -20,11 +20,11 @@ gaps outer 5
 # xrandr --output HDMI-1 --auto --right-of eDP-1
 exec_always --no-startup-id compton --config /home/akuma/.config/compton/compton2.conf 
 exec_always unclutter --timeout 5
-exec_always --no-startup-id emacs --daemon
+#exec_always --no-startup-id emacs --daemon
 exec --no-startup-id "thunar --daemon"
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec_always "battmon --interval 10 --low 12 --critical 8 --dark"
+exec_always "battmon --interval 10 --low 15 --critical 8 --dark"
 #exec_always --no-startup-id "autotiling"
 bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
 #bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
@@ -43,11 +43,11 @@ bindsym $super+minus border none
 #Scratchpad Setup
 bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
-
+bindsym $super+period exec conky -c /home/akuma/.config/conky/test/conky-test.conky
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better
 
-
+bindsym $super+p exec termite move scratchpad 
 bindsym $super+shift+z exec "xterm -geometry 35x9+1020+580 -e tty-clock -b -c -C 4 -D"
 for_window [title="tty-clock"] floating enable sticky enable border pixel $borders
 
@@ -58,6 +58,8 @@ bindsym $super+$alt+z fullscreen disable; floating enable; resize set 422 240; s
 # [Free] $alt+shift+d exec "tinyterm -e tcsh"
 bindsym $super+apostrophe exec --no-startup-id tint2 -c ~/.config/tint2/minima/minima.tint2rc
 bindsym $super+Shift+apostrophe exec pkill tint2
+bindsym $super+semicolon exec --no-startup-id plank
+bindsym $super+Shift+semicolon exec pkill plank
 #exec --no-startup-id tint2 -c ~/.config/tint2/raven/raven-cyan.tint2rc 
 
 #Polkit authenticator for password related settings
@@ -72,8 +74,8 @@ bindsym $super+e exec "emacsclient -ncq"
 bindsym $super+t layout tabbed
 bindsym $super+l layout toggle all
 
-bindsym $super+greater fullscreen disable;focus left;fullscreen enable
-bindsym $super+less fullscreen disable;focus right;fullscreen enable
+bindsym $super+j fullscreen disable;focus left;fullscreen enable
+bindsym $super+k fullscreen disable;focus right;fullscreen enable
 
 
 # start a terminal
@@ -306,14 +308,15 @@ bindsym $super+r mode "resize"
 bar {
     #mode hide
 	#hidden_state hide
-	modifier Shift+Mod1
+	#modifier Mod1
 	position top
     #status_command i3blocks -c ~/.config/i3/i3blocks.conf
     #status_command i3status --config ~/.config/i3/i3status.conf
     #status_command bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t solarized
     status_command bumblebee-status -m nic pomodoro disk:root memory battery date -p root.path=/ time.format="%H:%M CW %V" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t night-powerline
     #gruvbox-powerline #greyish-powerline
-    font pango:DejaVu Sans Mono 8
+    #font pango:DejaVu Sans Mono 8
+    font pango:FuraCode Nerd Font 8
     #status_command exec ~/bin/mybar
 }
 set $i3lockwall i3lock-fancy # shutdown / restart / suspend...
@@ -332,17 +335,18 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $super+BackSpace mode "$mode_system"
-
+title_align center
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 0 
 assign [class=mpv] [media]
 assign [title="Screenshot"] [S]
 # assign [class=emacs|Emacs] $ws19
-assign [class=Telegram|Weechat*|Kotatogram|Flock|flock] $ws20
+assign [class=Telegram|Weechat*|Kotatogram|Flock|flock|element-nightly] $ws20
 assign [class=surf|Lariza|VirtualBox*] $ws18
 for_window [class=Terminology|appl|terminology] floating enable
 for_window [class=pavucontrol|Pavucontrol] floating enable
 for_window [class=viewnior|Viewnior|feh] floating enable
+#assign [title="ncmpcpp"] [S]
 #assign [class=Fire fox|Transmission-gtk] 2
 #assign [class=Thun ar|File-roller] 3
 #assign [class=Gean y|Evince|Gucharmap|Soffice|libreoffice*] 4

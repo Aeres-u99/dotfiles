@@ -21,6 +21,8 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'nightsense/forgotten'
 Plug 'zaki/zazen'
 Plug 'gabrielelana/vim-markdown'
+
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -193,6 +195,9 @@ function! ColorDracula()
     let g:airline_theme=''
     color dracula
     IndentLinesEnable
+" Transparent Background (For i3 and compton)
+highlight Normal guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
 endfunction
 
 " Seoul256 Mode (Dark & Light)
@@ -200,6 +205,9 @@ function! ColorSeoul256()
     let g:airline_theme='silver'
     color seoul256
     IndentLinesDisable
+" Transparent Background (For i3 and compton)
+highlight Normal guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
 endfunction
 
 " Forgotten Mode (Light)
@@ -209,6 +217,9 @@ function! ColorForgotten()
     let g:airline_theme='tomorrow'
     color forgotten-light
     IndentLinesDisable
+" Transparent Background (For i3 and compton)
+highlight Normal guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
 endfunction
 
 " Zazen Mode (Black & White)
@@ -216,6 +227,9 @@ function! ColorZazen()
     let g:airline_theme='badcat'
     color zazen
     IndentLinesEnable
+" Transparent Background (For i3 and compton)
+highlight Normal guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
 endfunction
 
 """ Custom Mappings
@@ -229,7 +243,12 @@ nmap <leader>ea :AirlineTheme
 nmap <leader>e1 :call ColorDracula()<CR>
 nmap <leader>e2 :call ColorSeoul256()<CR>
 nmap <leader>e3 :call ColorForgotten()<CR>
-nmap <leader>e4 :call ColorZazen()<CR>
+nmap <leader>e4 :call ColorSeoul256()<CR>
+nmap <leader>e5 :call ColorSeoul256()<CR>
+nmap <leader>e6 :call ColorSeoul256()<CR>
+nmap <leader>e7 :call ColorSeoul256()<CR>
+nmap <leader>e8 :call ColorSeoul256()<CR>
+nmap <leader>e9 :call ColorSeoul256()<CR>
 nmap <leader>r :so ~/.config/nvim/init.vim<CR>
 nmap <leader>t :call TrimWhitespace()<CR>
 xmap <leader>a gaip*
@@ -289,4 +308,4 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 " set conceallevel=0
 let g:vimwiki_list = [{'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md'}]
 " Preview markdown
-command Mdpew !pandoc --from=gfm %:t -s --highlight-style kate --output=/tmp/temp.html && surf /tmp/temp.html && rm /tmp/temp.html
+command Mdpew !pandoc --from=gfm %:t -s --highlight-style kate --output=/tmp/temp.html && min /tmp/temp.html && rm /tmp/temp.html
