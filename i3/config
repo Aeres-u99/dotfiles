@@ -24,12 +24,11 @@ exec_always unclutter --timeout 5
 exec --no-startup-id "thunar --daemon"
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec_always "battmon --interval 10 --low 15 --critical 8 --dark"
 #exec_always --no-startup-id "autotiling"
 bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
 #bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
 exec_always feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
-bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/Chika/
+bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/minimal/
 bindsym $alt+o exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/black/
 #exec --no-startup-id indicator-cpufreq
 #exec_always --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
@@ -313,10 +312,13 @@ bar {
     #status_command i3blocks -c ~/.config/i3/i3blocks.conf
     #status_command i3status --config ~/.config/i3/i3status.conf
     #status_command bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t solarized
-    status_command bumblebee-status -m nic pomodoro disk:root memory battery date -p root.path=/ time.format="%H:%M CW %V" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t night-powerline
+    status_command bumblebee-status -m nic pomodoro disk:root memory battery date -p root.path=/ time.format="%H:%M CW %V" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t gruvbox-powerline
+    #iceberg-dark-powerline
+    #iceberg-powerline
+    # night-powerline
     #gruvbox-powerline #greyish-powerline
-    #font pango:DejaVu Sans Mono 8
-    font pango:FuraCode Nerd Font 8
+    font pango:DejaVu Sans Mono 8
+    #font pango:FuraCode Nerd Font 8
     #status_command exec ~/bin/mybar
 }
 set $i3lockwall i3lock-fancy # shutdown / restart / suspend...
