@@ -36,8 +36,13 @@ go-src /home/akuma/go/src
 Rust /home/akuma/SoopaProject/Study/Rust
 home /home/akuma
 tgHack /home/akuma/SoopaProject/hacking/tgHack
-pentest /home/akuma/SoopaProject/hacking/kalibox
 bin /home/akuma/bin
 nvim /home/akuma/.config/nvim
 defendtheweb /home/akuma/SoopaProject/hacking/CTF/defendtheweb
 tmp /home/akuma/tmp
+windows /home/akuma/Partition/Boxes/windows
+reversing /home/akuma/SoopaProject/Reversing
+pentest /home/akuma/Partition/Boxes/pentest
+crackmes /home/akuma/Partition/Boxes/crackmes
+corc /home/akuma/Partition/Boxes/crackmes/corctf
+tco /home/akuma/SoopaProject/FOSS/tco
