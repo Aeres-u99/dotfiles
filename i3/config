@@ -43,7 +43,7 @@ bindsym $super+minus border none
 bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
 bindsym $super+period exec conky -c /home/akuma/.config/conky/test/conky-test.conky
-bindsym $super+comma exec termite -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 127.0.0.1 --port 8080 --verbose";
+bindsym $super+comma exec termite -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 127.0.0.1 --port 8080 --verbose 'green-tunnel:*'";
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better
 
@@ -211,27 +211,50 @@ bindsym $super+Shift+space focus mode_toggle
 #set $ws20  "[ ☠ Social ]"
 
 
-set $ws1   "[1]"
-set $ws2   "[2]"
-set $ws3   "[3]"
-set $ws4   "[4]"
-set $ws5   "[5]"
-set $ws6   "[6]"
-set $ws7   "[7]"
-set $ws8   "[8]"
-set $ws9   "[9]"
-set $ws0   "[0]"
-set $ws11  "[11]"
-set $ws12  "[12]"
-set $ws13  "[13]"
-set $ws14  "[14]"
-set $ws15  "[15]"
-set $ws16  "[16]"
-set $ws17  "[bg]"
-set $ws18  "[vm]"
-set $ws19  "[E]"
-set $ws20  "[☠]"
-set $ws21  "[S]"
+#set $ws1   "1: [1]"
+#set $ws2   "2: [2]"
+#set $ws3   "3: [3]"
+#set $ws4   "4: [4]"
+#set $ws5   "5: [5]"
+#set $ws6   "6: [6]"
+#set $ws7   "7: [7]"
+#set $ws8   "8: [8]"
+#set $ws9   "9: [9]"
+#set $ws0   "0: [0]"
+#set $ws11  "11: [11]"
+#set $ws12  "12: [12]"
+#set $ws13  "13: [13]"
+#set $ws14  "14: [14]"
+#set $ws15  "15: [15]"
+#set $ws16  "16: [16]"
+#set $ws17  "17: [bg]"
+#set $ws18  "18: [vm]"
+#set $ws19  "19: [E]"
+#set $ws20  "20: [☠]"
+#set $ws21  "21: [S]"
+
+set $ws1   "1 "
+set $ws2   "2 "
+set $ws3   "3 "
+set $ws4   "4 "
+set $ws5   "5 "
+set $ws6   "6 "
+set $ws7   "7 "
+set $ws8   "8 "
+set $ws9   "9 "
+set $ws0   "0 "
+set $ws11  "11 "
+set $ws12  "12 "
+set $ws13  "13 "
+set $ws14  "14  "
+set $ws15  "15 "
+set $ws16  "16 "
+set $ws17  "17 "
+set $ws18  "18 " 
+set $ws19  "19 "
+set $ws20  "20 "
+set $ws21  "21 []"
+
 
 # switch to workspace
 bindsym $super+bracketright workspace next
@@ -339,15 +362,15 @@ bindsym $super+BackSpace mode "$mode_system"
 title_align center
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 0 
-assign [class=mpv] [media]
-assign [title="Screenshot"] [S]
+assign [class=mpv] []
+assign [title="Screenshot"] []
 # assign [class=emacs|Emacs] $ws19
 assign [class=Telegram|Weechat*|Kotatogram|Flock|flock|element-nightly] $ws20
 assign [class=surf|Lariza|VirtualBox*] $ws18
 for_window [class=Terminology|appl|terminology] floating enable
 for_window [class=pavucontrol|Pavucontrol] floating enable
 for_window [class=viewnior|Viewnior|feh] floating enable
-assign [title="green-tunnel"] [bg]
+assign [title="green-tunnel"] $ws17
 #assign [class=Fire fox|Transmission-gtk] 2
 #assign [class=Thun ar|File-roller] 3
 #assign [class=Gean y|Evince|Gucharmap|Soffice|libreoffice*] 4
