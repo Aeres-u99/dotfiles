@@ -3,14 +3,14 @@
  * Copyright: deadguy
  */
 
-configuration {
+/* configuration {
 	display-drun:    "Activate";
 	display-run:     "Execute";
 	display-window:  "Window";
 	show-icons:      true;
 	sidebar-mode:    true;
 }
-
+*/
 * {
 	background-color:            #080808;
 	text-color:                  #d3d7cf;
@@ -24,14 +24,14 @@ configuration {
 	selected-normal-background:  @actbg;
 	normal-background:           @background-color;
 
-	selected-urgent-foreground:  @background-color;
+	selected-urgent-foreground:  @urgbg;
 	urgent-foreground:           @text-color;
 	selected-urgent-background:  @urgbg;
 	urgent-background:           @background-color;
 
 	selected-active-foreground:  @winbg;
 	active-foreground:           @text-color;
-	selected-active-background:  @actbg;
+	selected-active-background:  @selbg;
 	active-background:           @selbg;
 
 	line-margin:                 2;
@@ -99,10 +99,10 @@ element normal.active {
 }
 
 element selected.normal {
-	background-color: @selected-normal-background;
+	background-color: @background-color;
 	text-color:       @selected-normal-foreground;
-	border:           0 5px solid 0 0;
-	border-color:	    @active-background;
+	border:           0 3px solid 2 0;
+	border-color:	  @active-background;
 }
 
 element selected.urgent {
