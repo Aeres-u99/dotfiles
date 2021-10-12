@@ -20,6 +20,7 @@ gaps outer 5
 # xrandr --output HDMI-1 --auto --right-of eDP-1
 exec_always --no-startup-id compton --config /home/akuma/.config/compton/compton2.conf 
 exec_always unclutter --timeout 5
+exec_always xmodmap /home/akuma/.xmodmap && notify-send 'Keys Remapped'
 #exec_always --no-startup-id emacs --daemon
 exec --no-startup-id "thunar --daemon"
 exec --no-startup-id nm-applet
@@ -33,9 +34,9 @@ bindsym $alt+o exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/b
 #exec --no-startup-id indicator-cpufreq
 #exec_always --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
 #exec_always --no-startup-id conky -bc ~/.config/conky/informant/inf-paper.conkyrc
-#exec --no-startup-id conky -bc ~/.config/conky/conkyrings/rings
+#exec_always --no-startup-id conky -bc ~/.config/conky/conkyrings/rings
 #exec --no-startup-id conky -bc ~/.config/conky/conkyrings/notes
-#exec --no-startup-id conky -bc ~/.config/conky/simpleone/conkyrc
+#exec_always --no-startup-id conky -bc ~/.config/conky/simpleone/conkyrc
 
 bindsym $super+Shift+plus border pixel 1
 bindsym $super+minus border none
@@ -58,7 +59,7 @@ bindsym $super+$alt+z fullscreen disable; floating enable; resize set 422 240; s
 # [Free] $alt+shift+d exec "tinyterm -e tcsh"
 bindsym $super+apostrophe exec --no-startup-id tint2 -c ~/.config/tint2/minima/minima.tint2rc
 bindsym $super+Shift+apostrophe exec pkill tint2
-bindsym $super+semicolon exec --no-startup-id plank
+bindsym $super+semicolon exec --no-startup-id 'XDG_SESSION_TYPE=x11 plank'
 bindsym $super+Shift+semicolon exec pkill plank
 #exec --no-startup-id tint2 -c ~/.config/tint2/raven/raven-cyan.tint2rc 
 
@@ -134,6 +135,7 @@ mode "Screen: [n]o,[s]mall,[j]rnl,[r]eset" {
     bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
+
 # Usability stuffs
 workspace_auto_back_and_forth yes
 #title_align center
@@ -154,7 +156,7 @@ mode "[l]uakit,[m]in,[c]hrome,[f]irefox,[s]urf" {
 }
 
 # kill focused window
-bindsym $super+grave kill
+bindsym $super+c kill
 bindsym $alt+F4 kill
 
 # change focus
@@ -233,11 +235,11 @@ bindsym $super+Shift+space focus mode_toggle
 #set $ws20  "20: [☠]"
 #set $ws21  "21: [S]"
 
-set $ws1   "1 "
+set $ws1   "1 "
 set $ws2   "2 "
 set $ws3   "3 "
 set $ws4   "4 "
-set $ws5   "5 "
+set $ws5   "5 "
 set $ws6   "6 "
 set $ws7   "7 "
 set $ws8   "8 "
@@ -312,7 +314,7 @@ bindsym $super2+$super+Shift+9 move container to workspace $ws19
 bindsym $super+Shift+r restart
 
 # exit i3
-bindsym $super+Escape exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
+bindsym $super+shift+Escape exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
 
 
 # resize window (you can also use the mouse for that)
@@ -327,6 +329,31 @@ bindsym $super+r mode "resize"
 
 # panel
 bar {
+colors {
+		# Whole color settings
+		background #1f1f1f
+		statusline #1f1f00
+		separator  #666666
+
+		
+		focused_workspace  #afafaf #1f1f1f #afafaf
+		active_workspace   #ffffff #ffffff #afafaf
+		inactive_workspace #504945 #1f1f1f #afafaf
+		urgent_workspace   #2ab5b2 #2ab5b2 #504945
+	}
+#colors {
+# Solarized
+#		# Whole color settings
+#		background #3c383690
+#		statusline #ebdbb2
+#		separator  #666666
+#
+#		
+#		focused_workspace  #458588 #458588 #ebdbb2
+#		active_workspace   #1d2021 #83a598 #ebdbb2
+#		inactive_workspace #504945 #504945 #ebdbb2
+#		urgent_workspace   #cc241d #cc241d #504945
+#	}
     #mode hide
 	#hidden_state hide
 	#modifier Mod1
@@ -334,10 +361,10 @@ bar {
     #status_command i3blocks -c ~/.config/i3/i3blocks.conf
     #status_command i3status --config ~/.config/i3/i3status.conf
     #status_command bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t solarized
-    status_command bumblebee-status -m nic pomodoro disk:root memory battery date -p root.path=/ time.format="%H:%M CW %V" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t gruvbox-powerline
+    status_command bumblebee-status -m nic pomodoro battery time disk:root memory date -p root.path=/ time.format="%H:%M" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t night-powerline 
+    #gruvbox-powerline
     #iceberg-dark-powerline
     #iceberg-powerline
-    # night-powerline
     #gruvbox-powerline #greyish-powerline
     font pango:DejaVu Sans Mono 8
     #font pango:FuraCode Nerd Font 8
@@ -362,8 +389,9 @@ bindsym $super+BackSpace mode "$mode_system"
 title_align center
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 0 
-assign [class=mpv] []
-assign [title="Screenshot"] []
+assign [class=mpv] 
+assign [title="Screenshot"] 
+assign [title='devdocsapidocumentation-nativefier-49fe5b'] $ws12
 # assign [class=emacs|Emacs] $ws19
 assign [class=Telegram|Weechat*|Kotatogram|Flock|flock|element-nightly] $ws20
 assign [class=surf|Lariza|VirtualBox*] $ws18
