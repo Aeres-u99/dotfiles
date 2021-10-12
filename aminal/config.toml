@@ -1,0 +1,37 @@
+debug = false               # Enable debug logging to stdout. Defaults to false.
+slomo = false               # Enable slow motion output mode, useful for debugging shells/terminal GUI apps etc. Defaults to false.
+shell = "/bin/bash"         # The shell to run for the terminal session. Defaults to the users shell.
+search_url = "https://www.google.com/search?q=$QUERY" # The search engine to use for the "search selected text" action. Defaults to google. Set this to your own search url using $QUERY as the keywords to replace when searching.
+max_lines = 10000            # Maximum number of lines in the terminal buffer.
+copy_and_paste_with_mouse = true # Text selected with the mouse is copied to the clipboard on end selection, and is pasted on right mouse button click.
+dpi-scale = 0.0             # Override DPI scale. Defaults to 0.0 (let Aminal determine the DPI scale itself).
+
+[colours]
+  cursor        = "#e8dfd6" 
+  foreground    = "#e8dfd6" 
+  background    = "#021b21" 
+  black         = "#032c36" 
+  red           = "#c2454e" 
+  green         = "#7cbf9e"
+  yellow        = "#8a7a63"
+  blue          = "#065f73"
+  magenta       = "#ff5879"
+  cyan          = "#44b5b1"
+  light_grey    = "#f2f1b9"
+  dark_grey     = "#3e4360"
+  light_red     = "#ef5847"
+  light_green   = "#a2db91"
+  light_yellow  = "#beb090"
+  light_blue    = "#61778d"
+  light_magenta = "#ff99a1"
+  light_cyan    = "#9ed9d8"
+  white         = "#f6f6c9"
+  selection     = "#333366" # Mouse selection background colour
+
+[keys]
+  copy      = "ctrl + shift + c"    # Copy highlighted text to system clipboard
+  paste     = "ctrl + shift + v"    # Paste text from system clipboard
+  debug     = "ctrl + shift + d"    # Toggle debug panel overlay
+  google    = "ctrl + shift + g"    # Google selected text
+  report    = "ctrl + shift + r"    # Send bug report
+  slomo     = "ctrl + shift + ;"    # Toggle slow motion output mode (useful for debugging)
