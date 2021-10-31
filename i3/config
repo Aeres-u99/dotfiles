@@ -3,8 +3,9 @@ set $super Mod4
 set $alt Mod1
 set $super2 Mod1
 # set font
-font pango: Noto Sans 8
-
+#font pango: Noto Sans 8
+#font pango:DejaVu Sans Mono 10
+font pango:FuraCode Nerd Font 10
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
@@ -44,7 +45,7 @@ bindsym $super+minus border none
 bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
 bindsym $super+period exec conky -c /home/akuma/.config/conky/test/conky-test.conky
-bindsym $super+comma exec termite -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 127.0.0.1 --port 8080 --verbose 'green-tunnel:*'";
+bindsym $super+comma exec termite -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 127.0.0.1 --port 9090 --verbose 'green-tunnel:*'";
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better
 
@@ -156,7 +157,7 @@ mode "[l]uakit,[m]in,[c]hrome,[f]irefox,[s]urf" {
 }
 
 # kill focused window
-bindsym $super+c kill
+bindsym $super+grave kill
 bindsym $alt+F4 kill
 
 # change focus
@@ -361,13 +362,13 @@ colors {
     #status_command i3blocks -c ~/.config/i3/i3blocks.conf
     #status_command i3status --config ~/.config/i3/i3status.conf
     #status_command bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t solarized
-    status_command bumblebee-status -m nic pomodoro battery time disk:root memory date -p root.path=/ time.format="%H:%M" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp3s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t night-powerline 
+    status_command bumblebee-status -m nic pomodoro battery time disk:root memory date -p root.path=/ time.format="%H:%M" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp45s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t night-powerline 
     #gruvbox-powerline
     #iceberg-dark-powerline
     #iceberg-powerline
     #gruvbox-powerline #greyish-powerline
-    font pango:DejaVu Sans Mono 8
-    #font pango:FuraCode Nerd Font 8
+    #font pango:DejaVu Sans Mono 9
+    font pango:FuraCode Nerd Font 8
     #status_command exec ~/bin/mybar
 }
 set $i3lockwall i3lock-fancy # shutdown / restart / suspend...
