@@ -21,7 +21,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'nightsense/forgotten'
 Plug 'zaki/zazen'
 Plug 'gabrielelana/vim-markdown'
-
+Plug 'severin-lemaignan/vim-minimap'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Markdown
 Plug 'godlygeek/tabular'

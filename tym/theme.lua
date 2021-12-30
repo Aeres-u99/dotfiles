@@ -1,40 +1,46 @@
--- hybrid
-local bg = '#1f1f1f'
-local fg = '#fce8c3'
-local cursor = '#fbb829'
-local cursor_fg = '#1c1b19'
-return {
-  color_foreground        = fg,
-  color_background        = bg,
-  color_cursor            = cursor,
-  color_cursor_foreground = cursor_fg,
-    color_0 = "#1c1b19",
-    color_1 = "#918175",
-    color_2 = "#ef2f27",
-    color_3 = "#f75341",
-    color_4 = "#519f50",
-    color_5 = "#98bc37",
-    color_6 = "#fbb829",
-    color_7 = "#fed06e",
-    color_8 = "#2c78bf",
-    color_9 = "#68a8e4",
-    color_10 = "#e02c6d",
-    color_11 = "#ff5c8f",
-    color_12 = "#0aaeb3",
-    color_13 = "#2be4d0",
-    color_14 = "#baa67f",
-    color_15 = "#fce8c3",
+---------------------------
+--  Dracula Colorscheme  --
+---------------------------
+
+return {	
+	-- Special
+	color_foreground		= '#f8f8f2',
+	color_background		= '#000000',
+	color_cursor			= '#f8f8f2',
+	color_cursor_foreground		= '#282a36',
+	color_highlight			= '#44475a',
+	color_highlight_foreground	= '#f8f8f2',
+	color_bold			= '#f8f8f2',
+
+	-- Black
+	color_0				= '#21222c',
+	color_8				= '#000000',
+
+	-- Red
+	color_1				= '#ff5555',
+	color_9				= '#ff6e6e',
+
+	-- Green
+	color_2				= '#50fa7b',
+	color_10			= '#69ff94',
+
+	-- Yellow
+	color_3				= '#f1fa8c',
+	color_11			= '#ffffa5',
+
+	-- Blue
+	color_4				= '#bd93f9',
+	color_12			= '#d6acff',
+
+	-- Magenta
+	color_5				= '#ff79c6',
+	color_13			= '#ff92df',
+
+	-- Cyan
+	color_6				= '#8be9fd',
+	color_14			= '#a4ffff',
+
+	-- White
+	color_7				= '#f8f8f2',
+	color_15			= '#ffffff',
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

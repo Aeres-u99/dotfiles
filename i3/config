@@ -31,7 +31,6 @@ bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/N
 #bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
 exec_always feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
 bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/minimal/
-bindsym $alt+o exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/black/
 #exec --no-startup-id indicator-cpufreq
 #exec_always --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
 #exec_always --no-startup-id conky -bc ~/.config/conky/informant/inf-paper.conkyrc
@@ -45,7 +44,8 @@ bindsym $super+minus border none
 bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
 bindsym $super+period exec conky -c /home/akuma/.config/conky/test/conky-test.conky
-bindsym $super+comma exec termite -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 127.0.0.1 --port 9090 --verbose 'green-tunnel:*'";
+bindsym $super+comma exec termite -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 0.0.0.0 --port 9090 --verbose 'green-tunnel:*'";
+bindsym $super+x exec termite -t "TaskWarrior" -e "tmux new-session -t 'Tasks'";
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better
 
@@ -55,12 +55,12 @@ for_window [title="tty-clock"] floating enable sticky enable border pixel $borde
 
 # Mini pip for [A/G]MV, code, notes.
 
-bindsym $super+$alt+y fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 950 10
-bindsym $super+$alt+z fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 930 490
+bindsym $super+$alt+y fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 1490 10
+bindsym $super+$alt+z fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 1490 800
 # [Free] $alt+shift+d exec "tinyterm -e tcsh"
 bindsym $super+apostrophe exec --no-startup-id tint2 -c ~/.config/tint2/minima/minima.tint2rc
 bindsym $super+Shift+apostrophe exec pkill tint2
-bindsym $super+semicolon exec --no-startup-id 'XDG_SESSION_TYPE=x11 plank'
+bindsym $super+semicolon exec --no-startup-id  'plank'
 bindsym $super+Shift+semicolon exec pkill plank
 #exec --no-startup-id tint2 -c ~/.config/tint2/raven/raven-cyan.tint2rc 
 
@@ -83,7 +83,7 @@ bindsym $super+k fullscreen disable;focus right;fullscreen enable
 # start a terminal
 #cuz urxvt is <3
 bindsym $super+Return exec termite
-bindsym $super+Shift+Return exec tym
+bindsym $super+Shift+Return exec sakura
 #I betrayed urxvt , mew heartbreaker UwU 
 
 # start dmenu (a program launcher)
@@ -284,8 +284,8 @@ bindsym $super2+Ctrl+6 workspace $ws16
 bindsym $super2+Ctrl+7 workspace $ws17
 bindsym $super2+Ctrl+8 workspace $ws18
 bindsym $super2+Ctrl+9 workspace $ws19
-bindsym $super2+Ctrl+0 workspace $ws20
-bindsym $alt+$super+0 workspace $ws21
+bindsym $super2+Ctrl+s workspace $ws20
+#bindsym $alt+$super+0 workspace $ws21
 
 
 # move focused container to workspace
@@ -400,6 +400,7 @@ for_window [class=Terminology|appl|terminology] floating enable
 for_window [class=pavucontrol|Pavucontrol] floating enable
 for_window [class=viewnior|Viewnior|feh] floating enable
 assign [title="green-tunnel"] $ws17
+assign [title="TaskWarrior"] $ws6
 #assign [class=Fire fox|Transmission-gtk] 2
 #assign [class=Thun ar|File-roller] 3
 #assign [class=Gean y|Evince|Gucharmap|Soffice|libreoffice*] 4
