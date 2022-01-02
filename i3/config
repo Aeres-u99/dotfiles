@@ -21,16 +21,16 @@ gaps outer 5
 # xrandr --output HDMI-1 --auto --right-of eDP-1
 exec_always --no-startup-id compton --config /home/akuma/.config/compton/compton2.conf 
 exec_always unclutter --timeout 5
-exec_always xmodmap /home/akuma/.xmodmap && notify-send 'Keys Remapped'
 #exec_always --no-startup-id emacs --daemon
 exec --no-startup-id "thunar --daemon"
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 #exec_always --no-startup-id "autotiling"
-bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
 #bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
-exec_always feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
+exec_always feh --recursive --randomize --bg-fill /home/akuma/Pictures/4kwalls/*
 bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/minimal/
+bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
+bindsym $alt+x exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/4kwalls/*
 #exec --no-startup-id indicator-cpufreq
 #exec_always --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
 #exec_always --no-startup-id conky -bc ~/.config/conky/informant/inf-paper.conkyrc
