@@ -244,7 +244,7 @@ nmap <leader>e1 :call ColorDracula()<CR>
 nmap <leader>e2 :call ColorSeoul256()<CR>
 nmap <leader>e3 :call ColorForgotten()<CR>
 nmap <leader>e4 :call ColorSeoul256()<CR>
-nmap <leader>e5 :call ColorSeoul256()<CR>
+nmap <leader>e5 :call ColorZazen()<CR>
 nmap <leader>e6 :call ColorSeoul256()<CR>
 nmap <leader>e7 :call ColorSeoul256()<CR>
 nmap <leader>e8 :call ColorSeoul256()<CR>
@@ -274,7 +274,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
+nnoremap <Leader>+ :exe "resize +15"<CR>
+nnoremap <Leader>- :exe "resize -15"<CR>
+nnoremap <Leader>> :exe "vertical resize +15"<CR>
+nnoremap <Leader>< :exe "vertical resize -15"<CR>
 
 "Turn on backup option
 set backup 
