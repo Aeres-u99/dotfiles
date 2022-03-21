@@ -36,7 +36,9 @@ set highlight-color             "#ffb86c" # Orange
 set highlight-active-color      "#ff79c6" # Pink
 
 set default-bg                  "#ADADAD" # Background
-set default-fg                  "#1f1f1f" # Foreground
+#set default-bg                  "#D8D2C7" # Background
+#set default-fg                  "#1f1f1f" # Foreground
+set default-fg                  "#D8D2C7" # Foreground
 
 set render-loading              true
 set render-loading-fg           "#1f1f1f" # Background
@@ -46,8 +48,9 @@ set render-loading-bg           "#ADADAD" # Foreground
 # Recolor mode settings
 #
 
-set recolor-lightcolor          "#1f1f1f" # Background
-set recolor-darkcolor           "#ADADAD" # Foreground
+set recolor-lightcolor          "#D8D2C7" # Background
+set recolor-darkcolor           "#1f1f1f" # Foreground
+#set recolor-darkcolor           "#ADADAD" # Foreground
 
 #
 # Startup options

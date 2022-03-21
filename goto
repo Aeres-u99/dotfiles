@@ -1,4 +1,3 @@
-ubuntubox /home/akuma/Additionals/Boxes/ubuntuBox
 alpineBox /home/akuma/Additionals/Boxes/alpineBox
 mptcp /home/akuma/SoopaProject/MPTCP
 i3 /home/akuma/.config/i3
@@ -7,35 +6,21 @@ books /home/akuma/Additionals/BooksPirated
 wiki /home/akuma/vimwiki
 foss /home/akuma/SoopaProject/FOSS
 projects /home/akuma/SoopaProject
-SourceCodes /home/akuma/Additionals/Sources
 boxes /home/akuma/Additionals/Boxes
-testBox /home/akuma/Additionals/testServer
 newsw /home/akuma/NewSoftwares
 StudyPython /home/akuma/SoopaProject/Study/Python3
 Study /home/akuma/SoopaProject/Study
 CollegePrj /home/akuma/SoopaProject/CollegePrj
-office /home/akuma/Additionals/Boxes/office
 CompetitiveProgramming /home/akuma/SoopaProject/CompetitiveProgramming
-pypi /home/akuma/pythonPackages/bin
 lect /home/akuma/SoopaProject/Projects/hacking
 mathsresearch /home/akuma/SoopaProject/maths-research
 cplusplus /home/akuma/SoopaProject/Study/C++
-Emacs /home/akuma/.emacs.d
-FL /home/akuma/SoopaProject/FreeLancing
-AddonDev /home/akuma/SoopaProject/KodiAddonDevelopment/KodiApplications/src
-xbmcswiftAnimeone /home/akuma/Additionals/projects/xbmcswift2Addons
 Courses /home/akuma/Additionals/Courses
-bthacking /home/akuma/SoopaProject/hacking/bthacking
 hacking /home/akuma/SoopaProject/hacking
-Catalogue /home/akuma/SoopaProject/Projects/Cataloguer
 gitbooks /home/akuma/Additionals/BooksPirated/gitbooks
 learn-by-examples /home/akuma/Additionals/BooksPirated/gitbooks/learn-by-example
-CTFs /home/akuma/Additionals/CTF and Reversing
-go-cataloguer /home/akuma/go/src/cataloguer
-go-src /home/akuma/go/src
 Rust /home/akuma/SoopaProject/Study/Rust
 home /home/akuma
-tgHack /home/akuma/SoopaProject/hacking/tgHack
 bin /home/akuma/bin
 nvim /home/akuma/.config/nvim
 defendtheweb /home/akuma/SoopaProject/hacking/CTF/defendtheweb
@@ -43,7 +28,6 @@ tmp /home/akuma/tmp
 reversing /home/akuma/SoopaProject/Reversing
 pentest /home/akuma/Additionals/Boxes/pentest
 crackmes /home/akuma/Additionals/Boxes/crackmes
-corc /home/akuma/Additionals/Boxes/crackmes/corctf
 tco /home/akuma/SoopaProject/FOSS/tco
 ctfnotes /home/akuma/vimwiki/CTFNotes
 research /home/akuma/SoopaProject/research
@@ -54,3 +38,7 @@ lcthw /home/akuma/SoopaProject/Study/LCTHW/attempt2
 Rev /home/akuma/SoopaProject/StudyCourses/reversing_and_exploit_development
 windows /home/akuma/Additionals/Boxes/win
 mpr /home/akuma/Additionals/Boxes/debian
+addondev /home/akuma/SoopaProject/kodi
+competition /home/akuma/ctf/knightctf
+21centuryC /home/akuma/SoopaProject/Study/C/21centuryC
+pew /home/akuma/ctf/dicectf

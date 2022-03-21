@@ -62,6 +62,15 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 Plug 'dkarter/bullets.vim'
+" Plug 'vlime/vlime', {'rtp': 'vim/'}
+Plug 'Olical/vim-scheme', { 'for': 'scheme', 'on': 'SchemeConnect' }
+
+" You'll need vim-sexp too for selecting forms.
+Plug 'guns/vim-sexp'
+
+" And while you're here, tpope's bindings make vim-sexp a little nicer to use.
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+
 " Entertainment
 "Plug 'ryanss/vim-hackernews'
 
@@ -249,7 +258,7 @@ nmap <leader>e6 :call ColorSeoul256()<CR>
 nmap <leader>e7 :call ColorSeoul256()<CR>
 nmap <leader>e8 :call ColorSeoul256()<CR>
 nmap <leader>e9 :call ColorSeoul256()<CR>
-nmap <leader>r :so ~/.config/nvim/init.vim<CR>
+nmap <leader>,r :so ~/.config/nvim/init.vim<CR>
 nmap <leader>t :call TrimWhitespace()<CR>
 xmap <leader>a gaip*
 nmap <leader>a gaip*
@@ -311,4 +320,6 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 " set conceallevel=0
 let g:vimwiki_list = [{'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md'}]
 " Preview markdown
+let g:scheme_split_size = -30
+
 command Mdpew !pandoc --from=gfm %:t -s --highlight-style kate --output=/tmp/temp.html && min /tmp/temp.html && rm /tmp/temp.html
