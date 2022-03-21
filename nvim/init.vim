@@ -320,6 +320,6 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 " set conceallevel=0
 let g:vimwiki_list = [{'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md'}]
 " Preview markdown
-let g:scheme_split_size = -30
+let g:scheme_split_size = -20
 
 command Mdpew !pandoc --from=gfm %:t -s --highlight-style kate --output=/tmp/temp.html && min /tmp/temp.html && rm /tmp/temp.html
