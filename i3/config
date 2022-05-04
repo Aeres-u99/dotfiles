@@ -30,14 +30,15 @@ exec --no-startup-id dunst
 exec_always feh --recursive --randomize --bg-fill /home/akuma/Pictures/4kwalls/*
 bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/minimal/
 bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
-bindsym $alt+x exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/4kwalls/*
+bindsym $alt+v exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/4kwalls/*
 #exec --no-startup-id indicator-cpufreq
 #exec_always --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
 #exec_always --no-startup-id conky -bc ~/.config/conky/informant/inf-paper.conkyrc
 #exec_always --no-startup-id conky -bc ~/.config/conky/conkyrings/rings
 #exec --no-startup-id conky -bc ~/.config/conky/conkyrings/notes
 #exec_always --no-startup-id conky -bc ~/.config/conky/simpleone/conkyrc
-
+exec_always --no-startup-id betterlockscreen -u ~/Pictures/4kwalls
+exec_always --no-startup-id conky -bc ~/.config/conky/systemstats/systemstat.conky
 bindsym $super+Shift+plus border pixel 1
 bindsym $super+minus border none
 #Scratchpad Setup
@@ -127,12 +128,23 @@ bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioStop exec mpc stop
 # screen usabiity
-bindsym $super+o mode "Screen: [n]o,[s]mall,[j]rnl,[r]eset"
-mode "Screen: [n]o,[s]mall,[j]rnl,[r]eset" {
+bindsym $super+o mode "Gaps: [n]o,[s]mall,[r]eset,[zxcvhjkl] +|- inner|outer|l|r|t|b"
+mode "Gaps: [n]o,[s]mall,[r]eset,[zxcvhjkl] +|- inner|outer|l|r|t|b" {
 	bindsym n gaps inner current set 0; gaps outer current set 0
 	bindsym s gaps inner current set 5; gaps outer current set 5
-	bindsym j gaps inner current set 5; gaps outer current set 100
 	bindsym r gaps inner current set 10; gaps outer current set 13
+    bindsym z gaps inner current plus 10
+    bindsym x gaps inner current minus 10
+    bindsym c gaps outer current plus 10
+    bindsym v gaps outer current minus 10
+    bindsym h gaps right current minus 10
+    bindsym j gaps bottom current minus 10
+    bindsym k gaps top current minus 10
+    bindsym l gaps left current minus 10
+    bindsym ctrl+h gaps right current plus 10
+    bindsym ctrl+j gaps bottom current plus 10
+    bindsym ctrl+k gaps top current plus 10
+    bindsym ctrl+l gaps left current plus 10
     bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
@@ -371,7 +383,7 @@ colors {
     font pango:FuraCode Nerd Font 8
     #status_command exec ~/bin/mybar
 }
-set $i3lockwall i3lock-fancy # shutdown / restart / suspend...
+set $i3lockwall betterlockscreen --lock dimblur # shutdown / restart / suspend...
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Ctrl+s) shutdown
 mode "$mode_system" {
@@ -394,13 +406,14 @@ assign [class=mpv] 
 assign [title="Screenshot"] 
 assign [title='devdocsapidocumentation-nativefier-49fe5b'] $ws12
 # assign [class=emacs|Emacs] $ws19
-assign [class=Telegram|Weechat*|Kotatogram|Flock|flock|element-nightly] $ws20
+assign [class=Telegram|weechat*|Kotatogram|Flock|flock|element-nightly] $ws20
 assign [class=surf|Lariza|VirtualBox*] $ws18
 for_window [class=Terminology|appl|terminology] floating enable
 for_window [class=pavucontrol|Pavucontrol] floating enable
 for_window [class=viewnior|Viewnior|feh] floating enable
 assign [title="green-tunnel"] $ws17
 assign [title="TaskWarrior"] $ws3
+assign [title="weechat"] $ws4
 #assign [class=Fire fox|Transmission-gtk] 2
 #assign [class=Thun ar|File-roller] 3
 #assign [class=Gean y|Evince|Gucharmap|Soffice|libreoffice*] 4

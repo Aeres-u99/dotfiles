@@ -1,0 +1,108 @@
+conky.config = { 
+
+	background = true,
+	use_xft = true,
+	font = 'monospace:size=8',
+	xftalpha = 0.6,
+	update_interval = 1,
+	total_run_times = 0,
+	own_window = true,
+	own_window_transparent = true,
+	own_window_type = 'override',
+--	own_window_type = 'dock',
+	own_window_class = 'conky',
+	own_window_argb_visual = true,
+--	own_window_colour = '#263041',
+--  own_window_argb_value = 120,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = true,
+	stippled_borders = 1,
+	border_width = 1,
+	default_color = 'white',
+	default_shade_color = 'gray',
+	default_outline_color = 'black',
+	alignment = 'top_right',
+	gap_x = 25,
+	gap_y = 75,
+
+-- Misc Console #
+   out_to_console = false,
+   out_to_stderr = false,
+   extra_newline = false,
+
+   no_buffers = true,
+   cpu_avg_samples = 2,
+   net_avg_samples = 2,
+   override_utf8_locale = true,
+   use_spacer = 'right',
+   maximum_width = 400,
+   minimum_height = 800,
+   uppercase = true,
+
+};
+
+conky.text = [[
+#leet chars: ┤┤└└┴┴┐┐││┘┘┌┌├├┬┬┼┼┴┴── ││ ▽▼△▲▵▴▾▿
+${alignr}${offset -6}${execi 1000 fortune -s}
+${alignc}${offset 86}${font xftfont montserrat:size=10} Arch Linux ${font}
+${alignr}${offset -6}└──────────┐
+${alignr}${offset -6}${execi 30 task +regular list|grep 'regular' | wc -l} Tasks Pending Today ${machine} ─┤
+${alignr}${offset -6} ${kernel}: Kernel ─┤   │
+${alignr}${offset -6} ${uptime}: Uptime ─┤   │
+${alignr}${offset -6} ${execi 360 pacman -Qu | wc -l | tail}:  New updates ─┘   │
+${alignr}${offset -6}│
+${alignr}${offset -6}system ─┤
+${alignr}${offset -6} ${execi 1000 cat /proc/cpuinfo|grep 'model name'|sed -e 's/model name.*: //'| uniq | cut -c 1-39}: CPU ─┤   │
+${alignr}${offset -6}│   │   │
+${alignr}${offset -6}used ─┤   │   │
+${alignr}${offset -6} ${cpu cpu 1}%: cpu1 ─┤   │   │   │
+${alignr}${offset -6} ${cpu cpu 2}%: cpu2 ─┤   │   │   │
+${alignr}${offset -6} ${cpu cpu 3}%: cpu3 ─┤   │   │   │
+${alignr}${offset -6} ${cpu cpu 4}%: cpu4 ─┘   │   │   │
+${alignr}${offset -6} ${cpu cpu 5}%: cpu5 ─┘   │   │   │
+${alignr}${offset -6} ${cpu cpu 6}%: cpu6 ─┘   │   │   │
+${alignr}${offset -6} ${cpu cpu 7}%: cpu7 ─┘   │   │   │
+${alignr}${offset -6}│   │   │
+${alignr}${offset -6} $loadavg:  load ─┤   │   │
+${alignr}${offset -6} ${top name 1} ${top cpu 1} <─┤   │   │
+${alignr}${offset -6} ${top name 2} ${top cpu 2} <─┤   │   │
+${alignr}${offset -6} ${top name 3} ${top cpu 3} <─┤   │   │
+${alignr}${offset -6} ${top name 4} ${top cpu 4} <─┤   │   │
+${alignr}${offset -6} ${top name 5} ${top cpu 5} <─┘   │   │
+${alignr}${offset -6}│   │
+${alignr}${offset -6}Processes ─┤   │
+${alignr}${offset -6}$processes: ─ $running_processes ─┘   │   │
+${alignr}${offset -6}│   │
+${alignr}${offset -6}Temperatures ─┤   │
+${alignr}${offset -6} ${execi 5 sensors|grep 'Package id 0:'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C: cpu ─┤   │   │
+${alignr}${offset -6} ${execi 5 nvidia-settings -t -q [gpu]/GPUCoreTemp} °C: gpu ─┘   │   │
+${alignr}${offset -6}│   │
+${alignr}${offset -6}Memory ─┤   │
+${alignr}${offset -6} $memperc%: used ─┤   │   │
+${alignr}${offset -6} $mem/$memmax: ─┘    │   │   │
+${alignr}${offset -6} ${top name 1} ${top mem 1}  <─┤   │   │
+${alignr}${offset -6} ${top name 2} ${top mem 2}  <─┤   │   │
+${alignr}${offset -6} ${top name 3} ${top mem 3}  <─┤   │   │
+${alignr}${offset -6} ${top name 4} ${top mem 4}  <─┤   │   │
+${alignr}${offset -6} ${top name 5} ${top mem 5}  <─┘   │   │
+${alignr}${offset -6}   │
+${alignr}${offset -6}Disk Usage ─┘   │
+${alignr}${offset -6} $diskio_read:  read ─┤       │
+${alignr}${offset -6} $diskio_write: write ─┤       │
+${alignr}${offset -6} ${fs_used /}/${fs_size /}  /root ─┤       │
+${alignr}${offset -6} ${fs_bar 5,120 /}: ─┘     │       │
+${alignr}${offset -6} ${fs_used /home}/${fs_size /home}: /home ─┘       │
+${alignr}${offset -6} ${fs_bar 5,120 /home}: ─┘             │
+${alignr}${offset -6}Network ─┘
+${alignr}${offset -32} $nodename: hostname ─┤
+${alignr}${offset -32} ${execi 60 wget -qO- ifconfig.co}: Wan ─┤
+${alignr}${offset -32} ${addr wlan0}: Lan ─┤
+${alignr}${offset -32} ${downspeed wlan0} k/s: download ─┤
+${alignr}${offset -32} ${downspeedgraph wlan0 12,120 136311 11B014}: ─┘    │
+${alignr}${offset -32} ${upspeed wlan0} k/s:   upload ─┘
+${alignr}${offset -62} ${upspeedgraph wlan0 12,120 BA0B0B FC0707}: ─┘
+]];

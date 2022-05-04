@@ -26,7 +26,6 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'gyim/vim-boxdraw'
 " Vim Wiki for Notes needs
 Plug 'vimwiki/vimwiki'
@@ -62,15 +61,16 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 Plug 'dkarter/bullets.vim'
-" Plug 'vlime/vlime', {'rtp': 'vim/'}
-Plug 'Olical/vim-scheme', { 'for': 'scheme', 'on': 'SchemeConnect' }
-
+Plug 'Olical/conjure'
 " You'll need vim-sexp too for selecting forms.
 Plug 'guns/vim-sexp'
 
+
+" Golang development 
 " And while you're here, tpope's bindings make vim-sexp a little nicer to use.
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
-
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1 
 " Entertainment
 "Plug 'ryanss/vim-hackernews'
 
@@ -78,7 +78,6 @@ call plug#end()
 
 """ Python3 VirtualEnv
 let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
-
 """ Coloring
 syntax on
 " color dracula
@@ -244,8 +243,9 @@ endfunction
 """ Custom Mappings
 
 let mapleader=","
+let localleader="\\"
 nmap <leader>q :NERDTreeToggle<CR>
-nmap \ <leader>q
+" nmap \ <leader>q
 nmap <leader>w :TagbarToggle<CR>
 nmap <leader>ee :Colors<CR>
 nmap <leader>ea :AirlineTheme 
@@ -288,6 +288,38 @@ nnoremap <Leader>- :exe "resize -15"<CR>
 nnoremap <Leader>> :exe "vertical resize +15"<CR>
 nnoremap <Leader>< :exe "vertical resize -15"<CR>
 
+let g:rainbow_conf = {
+\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'Darkblue', 'darkcyan'],
+\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta', 'gray'],
+\	'guis': [''],
+\	'cterms': [''],
+\	'operators': '_,_',
+\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\	'separately': {
+\		'*': {},
+\		'markdown': {
+\			'parentheses_options': 'containedin=markdownCode contained',
+\		},
+\		'lisp': {
+\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3', 'darkcyan', 'darkgreen'],
+\		},
+\		'haskell': {
+\			'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold'],
+\		},
+\		'vim': {
+\			'parentheses_options': 'containedin=vimFuncBody',
+\		},
+\		'perl': {
+\			'syn_name_prefix': 'perlBlockFoldRainbow', 
+\		},
+\		'stylus': {
+\			'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup'], 
+\		},
+\		'css': 0,
+\	}
+\}
+
+
 "Turn on backup option
 set backup 
 "Where to store backups
@@ -305,9 +337,11 @@ au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 let g:airline_theme='transparent'
 " disable header folding
 let g:vim_markdown_folding_disabled = 1
-
 " do not use conceal feature, the implementation is not so good
 let g:vim_markdown_conceal = 0
+
+" Golang code
+autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
 
 " disable math tex conceal feature
 let g:tex_conceal = ""
@@ -320,6 +354,6 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 " set conceallevel=0
 let g:vimwiki_list = [{'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md'}]
 " Preview markdown
-let g:scheme_split_size = -20
+let g:scheme_split_size = -5
 
 command Mdpew !pandoc --from=gfm %:t -s --highlight-style kate --output=/tmp/temp.html && min /tmp/temp.html && rm /tmp/temp.html
