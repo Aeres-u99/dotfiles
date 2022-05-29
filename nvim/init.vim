@@ -21,7 +21,6 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'nightsense/forgotten'
 Plug 'zaki/zazen'
 Plug 'gabrielelana/vim-markdown'
-Plug 'severin-lemaignan/vim-minimap'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Markdown
 Plug 'godlygeek/tabular'
@@ -34,7 +33,7 @@ Plug 'nightsense/nemo'
 Plug 'yuttie/hydrangea-vim'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'rhysd/vim-color-spring-night'
-
+Plug 'rinx/nvim-minimap'
 " Functionalities
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
@@ -42,6 +41,7 @@ Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'dense-analysis/ale'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'ervandew/supertab'
@@ -289,7 +289,7 @@ nnoremap <Leader>> :exe "vertical resize +15"<CR>
 nnoremap <Leader>< :exe "vertical resize -15"<CR>
 
 let g:rainbow_conf = {
-\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'Darkblue', 'darkcyan'],
+\	'guifgs': ['lightpink', 'lightyellow', 'seagreen3', 'firebrick', 'Darkblue', 'darkcyan'],
 \	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta', 'gray'],
 \	'guis': [''],
 \	'cterms': [''],

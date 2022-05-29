@@ -38,7 +38,7 @@ bindsym $alt+v exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/4
 #exec --no-startup-id conky -bc ~/.config/conky/conkyrings/notes
 #exec_always --no-startup-id conky -bc ~/.config/conky/simpleone/conkyrc
 exec_always --no-startup-id betterlockscreen -u ~/Pictures/4kwalls
-exec_always --no-startup-id conky -bc ~/.config/conky/systemstats/systemstat.conky
+exec --no-startup-id conky -bc ~/.config/conky/systemstats/systemstat.conky
 bindsym $super+Shift+plus border pixel 1
 bindsym $super+minus border none
 #Scratchpad Setup
@@ -46,7 +46,7 @@ bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
 bindsym $super+period exec conky -c /home/akuma/.config/conky/test/conky-test.conky
 bindsym $super+comma exec termite -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 0.0.0.0 --port 9090 --verbose 'green-tunnel:*'";
-bindsym $super+x exec termite -t "TaskWarrior" -e "tmux new-session -t 'Tasks'";
+bindsym $super+Shift+f exec termite -t "TaskWarrior" -e "tmux new-session -t 'Tasks'";
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better
 
@@ -89,6 +89,9 @@ bindsym $super+Shift+Return exec sakura
 
 # start dmenu (a program launcher)
 bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
+# Install dmenu 2 to use this:
+bindsym $super+slash exec dmenu_run -fn 'Noto Sans:size=9' -i -b
+
 
 #bindsym $super+d exec dmenu_run
 bindsym $super+Shift+d exec "rofi -show drun -sidebar-mode -columns 1 -font 'Noto Sans 9'
@@ -117,8 +120,8 @@ bindsym XF86MonBrightnessUp exec xbright +1 && notify-send "Brightness: $(cat /s
 bindsym XF86MonBrightnessDown exec xbright -1 && notify-send "Brightness: $(cat /sys/class/backlight/radeon_bl0/brightness)" #  decrease screen brightness
 bindsym $super+i exec "xdotool getwindowfocus getwindowname >> /tmp/winid.log"
 # common apps keybinds
-bindsym $super+Print exec scrot '/home/akuma/Screenshots/Cheese_%a-%d%b%y_%H.%M.png' -e 'feh $f --title Screenshot' 
-bindsym $super+Shift+Print exec "flameshot gui"
+bindsym $super+shift+x exec scrot '/home/akuma/Screenshots/Cheese_%a-%d%b%y_%H.%M.png' -e 'feh $f --title Screenshot' 
+bindsym $super+x exec "flameshot gui"
 bindsym $super+Shift+h exec skippy-xd
 
 #change volume
@@ -192,7 +195,7 @@ bindsym $super+h split h
 bindsym $super+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $super+f fullscreen toggle
+bindsym $super+g fullscreen toggle
 
 # change container layout split
 # bindsym $super+Shift+S layout toggle split

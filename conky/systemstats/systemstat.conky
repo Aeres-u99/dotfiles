@@ -50,7 +50,7 @@ conky.text = [[
 ${alignr}${offset -6}${execi 1000 fortune -s}
 ${alignc}${offset 86}${font xftfont montserrat:size=10} Arch Linux ${font}
 ${alignr}${offset -6}└──────────┐
-${alignr}${offset -6}${execi 30 task +regular list|grep 'regular' | wc -l} Tasks Pending Today ${machine} ─┤
+${alignr}${offset -6}${font xftfont montserrat:size=10} ${execi 30 task +regular list|grep 'regular' | wc -l} Tasks Pending Today ${machine} ${font} ─┤
 ${alignr}${offset -6} ${kernel}: Kernel ─┤   │
 ${alignr}${offset -6} ${uptime}: Uptime ─┤   │
 ${alignr}${offset -6} ${execi 360 pacman -Qu | wc -l | tail}:  New updates ─┘   │
@@ -59,13 +59,14 @@ ${alignr}${offset -6}system ─┤
 ${alignr}${offset -6} ${execi 1000 cat /proc/cpuinfo|grep 'model name'|sed -e 's/model name.*: //'| uniq | cut -c 1-39}: CPU ─┤   │
 ${alignr}${offset -6}│   │   │
 ${alignr}${offset -6}used ─┤   │   │
-${alignr}${offset -6} ${cpu cpu 1}%: cpu1 ─┤   │   │   │
-${alignr}${offset -6} ${cpu cpu 2}%: cpu2 ─┤   │   │   │
-${alignr}${offset -6} ${cpu cpu 3}%: cpu3 ─┤   │   │   │
-${alignr}${offset -6} ${cpu cpu 4}%: cpu4 ─┘   │   │   │
-${alignr}${offset -6} ${cpu cpu 5}%: cpu5 ─┘   │   │   │
-${alignr}${offset -6} ${cpu cpu 6}%: cpu6 ─┘   │   │   │
-${alignr}${offset -6} ${cpu cpu 7}%: cpu7 ─┘   │   │   │
+${alignr}${offset -6} ${cpu cpu 1}%: cpu1 ${cpu cpu 1}%: cpu9   ─┤   │   │   │
+${alignr}${offset -6} ${cpu cpu 2}%: cpu2 ${cpu cpu 2}%: cpu10  ─┤   │   │   │
+${alignr}${offset -6} ${cpu cpu 3}%: cpu3 ${cpu cpu 3}%: cpu11  ─┤   │   │   │
+${alignr}${offset -6} ${cpu cpu 4}%: cpu4 ${cpu cpu 4}%: cpu12  ─┘   │   │   │
+${alignr}${offset -6} ${cpu cpu 5}%: cpu5 ${cpu cpu 5}%: cpu13  ─┤   │   │   │
+${alignr}${offset -6} ${cpu cpu 6}%: cpu6 ${cpu cpu 6}%: cpu14  ─┤   │   │   │
+${alignr}${offset -6} ${cpu cpu 7}%: cpu7 ${cpu cpu 7}%: cpu15  ─┤   │   │   │
+${alignr}${offset -6} ${cpu cpu 7}%: cpu8 ${cpu cpu 7}%: cpu16  ─┘   │   │   │
 ${alignr}${offset -6}│   │   │
 ${alignr}${offset -6} $loadavg:  load ─┤   │   │
 ${alignr}${offset -6} ${top name 1} ${top cpu 1} <─┤   │   │
