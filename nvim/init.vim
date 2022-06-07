@@ -25,7 +25,11 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'gyim/vim-boxdraw'
+" Plug 'gyim/vim-boxdraw'
+Plug 'jbyuki/venn.nvim'
+" To copy paste images inside vim
+Plug 'ekickx/clipboard-image.nvim'
+Plug 'ellisonleao/glow.nvim', {'branch': 'main'}
 " Vim Wiki for Notes needs
 Plug 'vimwiki/vimwiki'
 " Aethetics - Additional
@@ -247,6 +251,8 @@ let localleader="\\"
 nmap <leader>q :NERDTreeToggle<CR>
 " nmap \ <leader>q
 nmap <leader>w :TagbarToggle<CR>
+nmap <leader>cr :set cursorline!<CR>
+nmap <leader>rc :set cursorcolumn!<CR>
 nmap <leader>ee :Colors<CR>
 nmap <leader>ea :AirlineTheme 
 nmap <leader>e1 :call ColorDracula()<CR>
@@ -266,12 +272,15 @@ nmap <leader>s <C-w>s<C-w>j:terminal<CR>
 nmap <leader>vs <C-w>v<C-w>l:terminal<CR>
 nmap <leader>d <Plug>(pydocstring)
 nmap <leader>f :Files<CR>
-nmap <leader>g :Goyo<CR>
+nmap <leader>y :Goyo<CR>
+nmap <leader>z :PasteImg<CR>
+noremap <leader>g :Glow<CR>
+vmap f :VBox<CR>
 nmap <leader>h :RainbowParentheses!!<CR>
 nmap <leader>j :set filetype=journal<CR>
 nmap <leader>k :ColorToggle<CR>
-nmap <leader>v :set conceallevel=0
-nmap <leader>b :set virtualedit=all
+nmap <leader>v :set conceallevel=0<CR>
+nmap <leader>b :set virtualedit=all<CR>
 nmap <leader>l :Limelight!!<CR>
 xmap <leader>l :Limelight!!<CR>
 autocmd FileType python nmap <leader>x :0,$!~/.config/nvim/env/bin/python -m yapf<CR>
