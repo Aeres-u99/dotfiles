@@ -251,8 +251,6 @@ let localleader="\\"
 nmap <leader>q :NERDTreeToggle<CR>
 " nmap \ <leader>q
 nmap <leader>w :TagbarToggle<CR>
-nmap <leader>cr :set cursorline!<CR>
-nmap <leader>rc :set cursorcolumn!<CR>
 nmap <leader>ee :Colors<CR>
 nmap <leader>ea :AirlineTheme 
 nmap <leader>e1 :call ColorDracula()<CR>
@@ -333,7 +331,7 @@ let g:rainbow_conf = {
 set backup 
 "Where to store backups
 set backupdir=~/.vim/backup//
-
+set cursorline
 "Make backup before overwriting the current buffer
 set writebackup
 
@@ -351,10 +349,18 @@ let g:vim_markdown_conceal = 0
 
 " Golang code
 autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
-
+autocmd BufNewFile,BufRead Jenkinsfile set syntax=groovy
 " disable math tex conceal feature
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
+" Highlight lines
+"
+" Give ctrl+c a job when it is otherwise being wasted!
+" Now it toggles `hlsearch` while in NORMAL mode:
+nnoremap <silent> <c-c> :if (&hlsearch == 1) \| set nohlsearch \| else \| set hlsearch \| endif<cr>
+" highlight the visual selection after pressing enter.
+xnoremap <silent> <cr> "*y:silent! let searchTerm = '\V'.substitute(escape(@*, '\/'), "\n", '\\n', "g") <bar> let @/ = searchTerm <bar> echo '/'.@/ <bar> call histadd("search", searchTerm) <bar> set hls<cr>
+
 
 " support front matter of various format
 let g:vim_markdown_frontmatter = 1  " for YAML format
