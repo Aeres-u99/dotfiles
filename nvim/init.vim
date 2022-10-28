@@ -1,5 +1,4 @@
 """ Optixal's Neovim Init.vim
-
 """ Vim-Plug
 call plug#begin()
 " for vim
@@ -22,10 +21,12 @@ Plug 'nightsense/forgotten'
 Plug 'zaki/zazen'
 Plug 'gabrielelana/vim-markdown'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'rr-/vim-hexdec'
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 " Plug 'gyim/vim-boxdraw'
+Plug 'kshenoy/vim-signature'
 Plug 'jbyuki/venn.nvim'
 " To copy paste images inside vim
 Plug 'ekickx/clipboard-image.nvim'
@@ -354,7 +355,10 @@ autocmd BufNewFile,BufRead Jenkinsfile set syntax=groovy
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
 " Highlight lines
-"
+" Make theme always transparent
+au ColorScheme * hi Normal ctermbg=none guibg=none
+au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
+
 " Give ctrl+c a job when it is otherwise being wasted!
 " Now it toggles `hlsearch` while in NORMAL mode:
 nnoremap <silent> <c-c> :if (&hlsearch == 1) \| set nohlsearch \| else \| set hlsearch \| endif<cr>
