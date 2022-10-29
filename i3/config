@@ -38,7 +38,7 @@ bindsym $alt+v exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/4
 #exec --no-startup-id conky -bc ~/.config/conky/conkyrings/notes
 #exec_always --no-startup-id conky -bc ~/.config/conky/simpleone/conkyrc
 exec_always --no-startup-id betterlockscreen -u ~/Pictures/4kwalls
-exec_always --no-startup-id setxkbmap -option caps:swapescape
+exec_always --no-startup-id 'setxkbmap -option caps:swapescapes'
 exec --no-startup-id conky -bc ~/.config/conky/systemstats/systemstat.conky
 bindsym $super+Shift+plus border pixel 1
 bindsym $super+minus border none
@@ -196,7 +196,7 @@ bindsym $super+h split h
 bindsym $super+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $super+g fullscreen toggle
+bindsym $super+f fullscreen toggle
 
 # change container layout split
 # bindsym $super+Shift+S layout toggle split
@@ -206,51 +206,6 @@ bindsym $super+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $super+Shift+space focus mode_toggle
-
-#set $ws1   "[1: ⌘ ]"
-#set $ws2   "[2: ✠ ]"
-#set $ws3   "[3: ⏏ ]"
-#set $ws4   "[4: ✇ ]"
-#set $ws12  "[12: ✇ ]"
-#set $ws5   "[5: ♫ ]"
-#set $ws6   "[6: ⚔ ]"
-#set $ws7   "[7: ≒ ]"
-#set $ws8   "[8: ≒ ]"
-#set $ws9   "[9: ≒ ]"
-#set $ws0   "[0: ⎇ ]"
-#set $ws11  "[11: ☯ ]"
-#set $ws12  "[12: ✇ ]"
-#set $ws13  "[13: ✿ ]"
-#set $ws14  "[14: ❀ ]"
-#set $ws15  "[15: ✵ ]"
-#set $ws16  "[16: ♕ ]"
-#set $ws17  "[17: ♔ ]"
-#set $ws18  "[lariza]"
-#set $ws19  "[workspace]"
-#set $ws20  "[ ☠ Social ]"
-
-
-#set $ws1   "1: [1]"
-#set $ws2   "2: [2]"
-#set $ws3   "3: [3]"
-#set $ws4   "4: [4]"
-#set $ws5   "5: [5]"
-#set $ws6   "6: [6]"
-#set $ws7   "7: [7]"
-#set $ws8   "8: [8]"
-#set $ws9   "9: [9]"
-#set $ws0   "0: [0]"
-#set $ws11  "11: [11]"
-#set $ws12  "12: [12]"
-#set $ws13  "13: [13]"
-#set $ws14  "14: [14]"
-#set $ws15  "15: [15]"
-#set $ws16  "16: [16]"
-#set $ws17  "17: [bg]"
-#set $ws18  "18: [vm]"
-#set $ws19  "19: [E]"
-#set $ws20  "20: [☠]"
-#set $ws21  "21: [S]"
 
 set $ws1   "1 "
 set $ws2   "2 "

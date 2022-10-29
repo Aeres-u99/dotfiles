@@ -69,6 +69,8 @@ Plug 'dkarter/bullets.vim'
 Plug 'Olical/conjure'
 " You'll need vim-sexp too for selecting forms.
 Plug 'guns/vim-sexp'
+Plug 'krisajenkins/vim-pipe'
+Plug 'arp242/auto_mkdir2.vim'
 
 
 " Golang development 
@@ -86,7 +88,20 @@ let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
 """ Coloring
 syntax on
 " color dracula
-color hydrangea
+" color hydrangea
+
+color Tomorrow-Night-Bright
+" Ale configs
+"
+" Set this. Airline will handle the rest.
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
+set foldlevelstart=20
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_error = '▶▶'
+let g:ale_sign_warning = '⬢'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
 highlight Pmenu guibg=white guifg=black gui=bold
 highlight Comment gui=bold
 highlight Normal gui=none
@@ -327,7 +342,7 @@ let g:rainbow_conf = {
 \	}
 \}
 
-
+let g:vimpipe_invoke_map='<LocalLeader>o'
 "Turn on backup option
 set backup 
 "Where to store backups
