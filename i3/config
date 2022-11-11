@@ -76,10 +76,10 @@ bindsym $super+s layout stacking
 # Freeing it up in favour of Emacsclient
 bindsym $super+e exec "emacsclient -ncq"
 bindsym $super+t layout tabbed
-bindsym $super+l layout toggle all
+bindsym $super+a layout toggle all
 
-bindsym $super+j fullscreen disable;focus left;fullscreen enable
-bindsym $super+k fullscreen disable;focus right;fullscreen enable
+bindsym $super+Up fullscreen disable;focus left;fullscreen enable
+bindsym $super+Down fullscreen disable;focus right;fullscreen enable
 
 
 # start a terminal
@@ -123,7 +123,6 @@ bindsym $super+i exec "xdotool getwindowfocus getwindowname >> /tmp/winid.log"
 # common apps keybinds
 bindsym $super+shift+x exec scrot '/home/akuma/Screenshots/Cheese_%a-%d%b%y_%H.%M.png' -e 'feh $f --title Screenshot' 
 bindsym $super+x exec "flameshot gui"
-bindsym $super+Shift+h exec skippy-xd
 
 #change volume
 # music control
@@ -173,14 +172,14 @@ mode "[l]uakit,[m]in,[c]hrome,[f]irefox,[s]urf" {
 }
 
 # kill focused window
-bindsym $super+grave kill
+bindsym $super+Escape kill
 bindsym $alt+F4 kill
 
 # change focus
-bindsym $super+Left focus left
-bindsym $super+Down focus down
-bindsym $super+Up focus up
-bindsym $super+Right focus right
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
 
 # move focused window
 bindsym $super+Shift+Left move left
@@ -190,10 +189,10 @@ bindsym $super+Shift+Right move right
 
 
 # split in horizontal orientation
-bindsym $super+h split h
+bindsym $super+shift+h split h
 
 # split in vertical orientation
-bindsym $super+v split v
+bindsym $super+shift+minus split v
 
 # enter fullscreen mode for the focused container
 bindsym $super+f fullscreen toggle
