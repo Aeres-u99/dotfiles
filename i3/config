@@ -38,7 +38,7 @@ bindsym $alt+v exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/4
 #exec --no-startup-id conky -bc ~/.config/conky/conkyrings/notes
 #exec_always --no-startup-id conky -bc ~/.config/conky/simpleone/conkyrc
 exec_always --no-startup-id betterlockscreen -u ~/Pictures/4kwalls
-exec_always --no-startup-id 'setxkbmap -option caps:swapescapes'
+exec_always --no-startup-id setxkbmap -option caps:swapescape;notify-send "keys swapped"
 exec --no-startup-id conky -bc ~/.config/conky/systemstats/systemstat.conky
 bindsym $super+Shift+plus border pixel 1
 bindsym $super+minus border none
@@ -182,14 +182,14 @@ bindsym $super+k focus up
 bindsym $super+l focus right
 
 # move focused window
-bindsym $super+Shift+Left move left
-bindsym $super+Shift+Down move down
-bindsym $super+Shift+Up move up
-bindsym $super+Shift+Right move right
+bindsym $super+Shift+h move left
+bindsym $super+Shift+j move down
+bindsym $super+Shift+k move up
+bindsym $super+Shift+l move right
 
 
 # split in horizontal orientation
-bindsym $super+shift+h split h
+bindsym $super+shift+slash split h
 
 # split in vertical orientation
 bindsym $super+shift+minus split v
