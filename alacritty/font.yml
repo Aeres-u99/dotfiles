@@ -1,5 +1,11 @@
 font:
   normal:
-    Font  family: Hack Nerd Font Mono
-  size: 6.0
-
+    family: FiraMono Nerd Font Mono
+    style: Medium
+  bold:
+    family: FiraMono Nerd Font Mono
+    style: Bold
+  italic:
+    family: FiraMono Nerd Font Mono
+    style: Italic
+  size: 6
