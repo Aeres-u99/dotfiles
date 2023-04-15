@@ -10,8 +10,8 @@ font pango:FuraCode Nerd Font 10
 floating_modifier $super
 
 #i3-gaps
-gaps inner 3 
-gaps outer 5
+gaps inner 8
+gaps outer 10
 #border_radius 10
 #Initial setup
 
@@ -46,8 +46,8 @@ bindsym $super+minus border none
 bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
 bindsym $super+period exec conky -c /home/akuma/.config/conky/test/conky-test.conky
-bindsym $super+comma exec alacritty -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 0.0.0.0 --port 9090 --verbose 'green-tunnel:*'";
-bindsym $super+Shift+f exec alacritty -t "TaskWarrior" -e "tmux new-session -t 'Tasks'";
+bindsym $super+comma exec termite -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 0.0.0.0 --port 9090 --verbose 'green-tunnel:*'";
+bindsym $super+Shift+f exec termite -t "TaskWarrior" -e "tmux new-session -t 'Tasks'";
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better
 
@@ -83,7 +83,7 @@ bindsym $super+Down fullscreen disable;focus right;fullscreen enable
 
 # start a terminal
 #cuz urxvt is <3
-bindsym $super+Return exec alacritty
+bindsym $super+Return exec termite
 bindsym $super+Shift+Return exec sakura
 #I betrayed urxvt , mew heartbreaker UwU 
 
@@ -111,7 +111,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 #bindsym XF86HomePage workspace $ws18 ; exec google-chrome-stable
 bindsym XF86WWW exec surf www.duckduckgo.com
 bindsym XF86Mail exec google-chrome-stable www.gmail.com
-bindsym XF86Tools exec alacritty -e "mpd -v"
+bindsym XF86Tools exec termite -e "mpd -v"
 bindsym XF86Search exec rofi -show window -width 50 -font 'Noto Sans 9'
 
 for_window [class="^.*"] border pixel 0
