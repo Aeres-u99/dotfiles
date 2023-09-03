@@ -19,7 +19,7 @@ window:
     x: 10
     y: 10
 
-  opacity: 0.7
+  opacity: 0.4
 
   title: Alacritty
 
@@ -29,7 +29,7 @@ window:
 
 
 scrolling:
-  history: 5000
+  history: 50000
 
 cursor:
   style: 

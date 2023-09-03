@@ -11,10 +11,12 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'dracula/vim', { 'commit': '147f389f4275cec4ef43ebc25e2011c57b45cc00' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
 Plug 'junegunn/vim-journal'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'nightsense/forgotten'
@@ -22,9 +24,16 @@ Plug 'zaki/zazen'
 Plug 'gabrielelana/vim-markdown'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'rr-/vim-hexdec'
+Plug 'sindrets/diffview.nvim'
+Plug 'camspiers/animate.vim'
+Plug 'camspiers/lens.vim'
+Plug 'jsfaint/gen_tags.vim'
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+" Code Navigation
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 " Plug 'gyim/vim-boxdraw'
 Plug 'kshenoy/vim-signature'
 Plug 'jbyuki/venn.nvim'
@@ -87,10 +96,10 @@ call plug#end()
 let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
 """ Coloring
 syntax on
-" color dracula
+color dracula
+"color zazen
 " color hydrangea
-
-color Tomorrow-Night-Bright
+" color Tomorrow-Night-Bright
 " Ale configs
 "
 " Set this. Airline will handle the rest.
@@ -126,6 +135,11 @@ set encoding=utf-8
 set number
 set title
 
+" copy and paste
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
 """ Plugin Configurations
 
 " NERDTree
@@ -266,6 +280,7 @@ let mapleader=","
 let localleader="\\"
 nmap <leader>q :NERDTreeToggle<CR>
 " nmap \ <leader>q
+nmap <leader>g :GenCtags<CR>
 nmap <leader>w :TagbarToggle<CR>
 nmap <leader>ee :Colors<CR>
 nmap <leader>ea :AirlineTheme 
@@ -302,6 +317,11 @@ autocmd FileType python nmap <leader>x :0,$!~/.config/nvim/env/bin/python -m yap
 nmap <silent> <leader><leader> :noh<CR>
 nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>
+nmap <Leader>1 :call EisenhowerOpenSingle('1')<CR>
+nmap <Leader>2 :call EisenhowerOpenSingle('2')<CR>
+nmap <Leader>3 :call EisenhowerOpenSingle('3')<CR>
+nmap <Leader>4 :call EisenhowerOpenSingle('4')<CR>
+
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -310,6 +330,11 @@ nnoremap <Leader>+ :exe "resize +15"<CR>
 nnoremap <Leader>- :exe "resize -15"<CR>
 nnoremap <Leader>> :exe "vertical resize +15"<CR>
 nnoremap <Leader>< :exe "vertical resize -15"<CR>
+" Code Navigation
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 let g:rainbow_conf = {
 \	'guifgs': ['lightpink', 'lightyellow', 'seagreen3', 'firebrick', 'Darkblue', 'darkcyan'],
@@ -341,7 +366,8 @@ let g:rainbow_conf = {
 \		'css': 0,
 \	}
 \}
-
+" Code Navigation
+"
 let g:vimpipe_invoke_map='<LocalLeader>o'
 "Turn on backup option
 set backup 
@@ -350,7 +376,7 @@ set backupdir=~/.vim/backup//
 set cursorline
 "Make backup before overwriting the current buffer
 set writebackup
-
+set fillchars+=vert:\▏
 "Overwrite the original backup file
 set backupcopy=yes
 "set cursorline        " highlight current line

@@ -46,7 +46,7 @@ bindsym $super+minus border none
 bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
 bindsym $super+period exec conky -c /home/akuma/.config/conky/test/conky-test.conky
-bindsym $super+comma exec termite -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 0.0.0.0 --port 9090 --verbose 'green-tunnel:*'";
+bindsym $super+comma exec termite -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 0.0.0.0 --port 20069 --verbose 'green-tunnel:*'";
 bindsym $super+Shift+f exec termite -t "TaskWarrior" -e "tmux new-session -t 'Tasks'";
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better

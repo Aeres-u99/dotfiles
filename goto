@@ -2,7 +2,6 @@ alpineBox /home/akuma/Additionals/Boxes/alpineBox
 mptcp /home/akuma/SoopaProject/MPTCP
 i3 /home/akuma/.config/i3
 configs /home/akuma/.config
-books /home/akuma/Additionals/BooksPirated
 wiki /home/akuma/vimwiki
 foss /home/akuma/SoopaProject/FOSS
 projects /home/akuma/SoopaProject
@@ -46,3 +45,7 @@ kindlehack /home/akuma/Downloads/kidnle/crosscompile/devenv
 ictf /home/akuma/ctf/imaginaryctf/ctf/imaginaryctf
 uactf /home/akuma/ctf/uactf
 nightmare /home/akuma/SoopaProject/StudyCourses/reversing_and_exploit_development/nightmare
+MakeYourLisp /home/akuma/SoopaProject/Study/C/MakeyourLisp
+gomastering /home/akuma/go/mastering
+books /home/akuma/Additionals/Books
+infra /home/akuma/Additionals/Infrastructure
