@@ -46,7 +46,7 @@ bindsym $super+minus border none
 bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
 bindsym $super+period exec conky -c /home/akuma/.config/conky/test/conky-test.conky
-bindsym $super+comma exec termite -t "green-tunnel" -e "/home/akuma/node_modules/green-tunnel/bin/gt.js --ip 0.0.0.0 --port 20069 --verbose 'green-tunnel:*'";
+bindsym $super+comma exec termite -t "DPI-ByPass" -e "/home/akuma/bin/spoof-dpi --addr='0.0.0.0' --port=20069 --debug=true";
 bindsym $super+Shift+f exec termite -t "TaskWarrior" -e "tmux new-session -t 'Tasks'";
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better
@@ -84,7 +84,7 @@ bindsym $super+Down fullscreen disable;focus right;fullscreen enable
 # start a terminal
 #cuz urxvt is <3
 bindsym $super+Return exec termite
-bindsym $super+Shift+Return exec sakura
+bindsym $super+Shift+Return exec wezterm
 #I betrayed urxvt , mew heartbreaker UwU 
 
 # start dmenu (a program launcher)
@@ -304,7 +304,6 @@ colors {
 		background #1f1f1f
 		statusline #1f1f00
 		separator  #666666
-
 		
 		focused_workspace  #afafaf #1f1f1f #afafaf
 		active_workspace   #ffffff #ffffff #afafaf
@@ -324,8 +323,8 @@ colors {
 #		inactive_workspace #504945 #504945 #ebdbb2
 #		urgent_workspace   #cc241d #cc241d #504945
 #	}
-    #mode hide
-	#hidden_state hide
+    # mode hide
+	hidden_state hide
 	#modifier Mod1
 	position top
     #status_command i3blocks -c ~/.config/i3/i3blocks.conf
@@ -368,7 +367,7 @@ assign [class=surf|Lariza|VirtualBox*] $ws18
 for_window [class=Terminology|appl|terminology] floating enable
 for_window [class=pavucontrol|Pavucontrol] floating enable
 for_window [class=viewnior|Viewnior|feh] floating enable
-assign [title="green-tunnel"] $ws17
+assign [title="DPI-ByPass"] $ws17
 assign [title="TaskWarrior"] $ws3
 assign [title="weechat"] $ws4
 #assign [class=Fire fox|Transmission-gtk] 2

@@ -9,6 +9,8 @@ call plug#begin('~/.config/nvim/plugged')
 " Plug 'https://github.com/Valloric/YouCompleteMe'
 " Aesthetics - Main
 Plug 'dracula/vim', { 'commit': '147f389f4275cec4ef43ebc25e2011c57b45cc00' }
+
+" If you have nodejs
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'NLKNguyen/papercolor-theme'
@@ -19,7 +21,6 @@ Plug 'junegunn/seoul256.vim'
 Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
 Plug 'junegunn/vim-journal'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'nightsense/forgotten'
 Plug 'zaki/zazen'
 Plug 'gabrielelana/vim-markdown'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -27,7 +28,6 @@ Plug 'rr-/vim-hexdec'
 Plug 'sindrets/diffview.nvim'
 Plug 'camspiers/animate.vim'
 Plug 'camspiers/lens.vim'
-Plug 'jsfaint/gen_tags.vim'
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -96,9 +96,11 @@ call plug#end()
 let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
 """ Coloring
 syntax on
-color dracula
+color habamax
+"color dracula
+"color spring-night
 "color zazen
-" color hydrangea
+"color hydrangea
 " color Tomorrow-Night-Bright
 " Ale configs
 "
@@ -232,47 +234,8 @@ function! TrimWhitespace()
     call winrestview(l:save)
 endfunction
 
-" Dracula Mode (Dark)
-function! ColorDracula()
-    let g:airline_theme=''
-    color dracula
-    IndentLinesEnable
-" Transparent Background (For i3 and compton)
 highlight Normal guibg=NONE ctermbg=NONE
 highlight LineNr guibg=NONE ctermbg=NONE
-endfunction
-
-" Seoul256 Mode (Dark & Light)
-function! ColorSeoul256()
-    let g:airline_theme='silver'
-    color seoul256
-    IndentLinesDisable
-" Transparent Background (For i3 and compton)
-highlight Normal guibg=NONE ctermbg=NONE
-highlight LineNr guibg=NONE ctermbg=NONE
-endfunction
-
-" Forgotten Mode (Light)
-function! ColorForgotten()
-    " Light airline themes: tomorrow, silver, alduin
-    " Light colors: forgotten-light, nemo-light
-    let g:airline_theme='tomorrow'
-    color forgotten-light
-    IndentLinesDisable
-" Transparent Background (For i3 and compton)
-highlight Normal guibg=NONE ctermbg=NONE
-highlight LineNr guibg=NONE ctermbg=NONE
-endfunction
-
-" Zazen Mode (Black & White)
-function! ColorZazen()
-    let g:airline_theme='badcat'
-    color zazen
-    IndentLinesEnable
-" Transparent Background (For i3 and compton)
-highlight Normal guibg=NONE ctermbg=NONE
-highlight LineNr guibg=NONE ctermbg=NONE
-endfunction
 
 """ Custom Mappings
 
@@ -286,7 +249,6 @@ nmap <leader>ee :Colors<CR>
 nmap <leader>ea :AirlineTheme 
 nmap <leader>e1 :call ColorDracula()<CR>
 nmap <leader>e2 :call ColorSeoul256()<CR>
-nmap <leader>e3 :call ColorForgotten()<CR>
 nmap <leader>e4 :call ColorSeoul256()<CR>
 nmap <leader>e5 :call ColorZazen()<CR>
 nmap <leader>e6 :call ColorSeoul256()<CR>
@@ -311,6 +273,7 @@ nmap <leader>k :ColorToggle<CR>
 nmap <leader>v :set conceallevel=0<CR>
 nmap <leader>b :set virtualedit=all<CR>
 nmap <leader>l :Limelight!!<CR>
+nmap <C-p> <Plug>MarkdownPreviewToggle
 xmap <leader>l :Limelight!!<CR>
 autocmd FileType python nmap <leader>x :0,$!~/.config/nvim/env/bin/python -m yapf<CR>
 "nmap <leader>n :HackerNews best<CR>J
