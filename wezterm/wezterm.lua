@@ -3,7 +3,7 @@ local terminal_font = wezterm.font("MesloLGM Nerd Font Mono")
 local font = wezterm.font_with_fallback({"JetBrains Mono", "FiraCode Nerd Font", "Hack Nerd Font", "IBM Plex Mono", "FuraCode Nerd Font Retina", "Apple Symbols", "Arial Unicode MS", "BlexMono Nerd Font"})
 local act = wezterm.action
 local leader_key = {
-    key = 'x',
+    key = 'b',
     mods = 'CTRL',
     timeout_milliseconds = 1000,
 }
@@ -141,7 +141,7 @@ local mocha = {
     top = 30,
     bottom = 15,
     },
-    enable_tab_bar = true,
+    enable_tab_bar = false,
     hide_tab_bar_if_only_one_tab = true,
     tab_max_width = 105,
     show_tab_index_in_tab_bar = false,
@@ -165,7 +165,7 @@ local mocha = {
 
   -- The size of the font in the tab bar.
   -- Default to 10.0 on Windows but 12.0 on other systems
-  font_size = 35.0,
+  font_size = 16.0,
 
   -- The overall background color of the tab bar when
   -- the window is focused
