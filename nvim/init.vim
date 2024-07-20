@@ -71,7 +71,6 @@ Plug 'chrisbra/Colorizer'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 Plug 'vim-scripts/loremipsum'
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 Plug 'dkarter/bullets.vim'
@@ -173,12 +172,6 @@ let g:pydocstring_doq_path = '~/.config/nvim/env/bin/doq'
 " Supertab
 let g:SuperTabDefaultCompletionType = "<C-n>"
 
-" Ultisnips
-let g:UltiSnipsExpandTrigger="<C-Space>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<C-x>"
-
-" EasyAlign
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
