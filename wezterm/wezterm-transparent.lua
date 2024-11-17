@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm';
--- local terminal_font = wezterm.font("MesloLGSDZ Nerd Font Mono")
-local font = wezterm.font_with_fallback({"FiraCode Nerd Font", "JetBrains Mono", "Hack Nerd Font", "IBM Plex Mono", "FuraCode Nerd Font Retina", "Apple Symbols", "Arial Unicode MS", "BlexMono Nerd Font"})
+local terminal_font = wezterm.font("MesloLGSDZ Nerd Font Mono")
+local font = wezterm.font_with_fallback({"JetBrains Mono", "FiraCode Nerd Font", "Hack Nerd Font", "IBM Plex Mono", "FuraCode Nerd Font Retina", "Apple Symbols", "Arial Unicode MS", "BlexMono Nerd Font"})
 local act = wezterm.action
 local leader_key = {
     key = 'x',
@@ -28,42 +28,6 @@ local keymap = {
     mods = 'LEADER',
     action = act.Search { CaseInSensitiveString = 'hash' },
     },
-    { key = '1', mods = 'LEADER', action = act.ActivateTab(0) },
-    { key = '2', mods = 'LEADER', action = act.ActivateTab(1) },
-    { key = '3', mods = 'LEADER', action = act.ActivateTab(2) },
-    { key = '4', mods = 'LEADER', action = act.ActivateTab(3) },
-    { key = '5', mods = 'LEADER', action = act.ActivateTab(4) },
-    { key = '6', mods = 'LEADER', action = act.ActivateTab(5) },
-    { key = '7', mods = 'LEADER', action = act.ActivateTab(6) },
-    { key = '8', mods = 'LEADER', action = act.ActivateTab(7) },
-    { key = '9', mods = 'LEADER', action = act.ActivateTab(8) },
-    { key = '0', mods = 'LEADER', action = act.ActivateTab(9) },
-    -- Compare this with the older syntax shown in the section below
-    { key = '[', mods = 'LEADER', action = act.ActivateTabRelative(-1) },
-    { key = ']', mods = 'LEADER', action = act.ActivateTabRelative(1) },
-
-    {
-        key = 'H',
-        mods = 'LEADER',
-        action = act.AdjustPaneSize { 'Left', 5 },
-    },
-    {
-        key = 'J',
-        mods = 'LEADER',
-        action = act.AdjustPaneSize { 'Down', 5 },
-    },
-    { key = 'K', mods = 'LEADER', action = act.AdjustPaneSize { 'Up', 5 } },
-    {
-        key = 'L',
-        mods = 'LEADER',
-        action = act.AdjustPaneSize { 'Right', 5 },
-    },
-  {
-    key = 'b',
-        mods = 'LEADER',
-    action = act.RotatePanes 'CounterClockwise',
-  },
-  { key = 'n', mods = 'CTRL', action = act.RotatePanes 'Clockwise' },
     {
         key = 'C',
         mods = 'LEADER|SHIFT',
@@ -84,6 +48,16 @@ local keymap = {
         },
     },
     -- tab and pane navigation
+    {
+        key = 'n',
+            mods = 'LEADER',
+        action = wezterm.action.ActivateTabRelative(1),
+    },
+    {
+        key = 'p',
+        mods = 'LEADER',
+        action = wezterm.action.ActivateTabRelative(-1),
+    },
     {
         key = 'l',
         mods = 'LEADER',
@@ -150,12 +124,11 @@ local mocha = {
    crust = '#11111b',
 }
 
-local config = {
+    local config = {
     audible_bell = 'Disabled',
+    -- color_scheme = 'Belge (terminal.sexy)',
     color_scheme = 'Argonaut (Gogh)',
     -- color_scheme = 'Hardcore',
-    -- color_scheme = 'Apprentice (Gogh)',
-    -- color_scheme = 'Ashes (light) (terminal.sexy)',
     keys = keymap,
     leader = leader_key,
     set_environment_variables = {
@@ -168,18 +141,15 @@ local config = {
     top = 30,
     bottom = 15,
     },
-    foreground_text_hsb = {
-      brightness = 1.9,
-    },
     enable_tab_bar = true,
     hide_tab_bar_if_only_one_tab = true,
     tab_max_width = 105,
     show_tab_index_in_tab_bar = false,
     switch_to_last_active_tab_when_closing_tab = true,
-    window_background_opacity = 0.85,
+    window_background_opacity = 0.45,
     default_cursor_style = 'BlinkingBar',
     window_decorations = "RESIZE",
-    macos_window_background_blur = 20,
+    macos_window_background_blur = 10,
     scrollback_lines = 3500000,
     show_update_window = false,
     check_for_updates = false,
@@ -191,10 +161,11 @@ local config = {
   -- Whatever font is selected here, it will have the
   -- main font setting appended to it to pick up any
   -- fallback fonts you may have used there.
-  -- font = wezterm.font { family = 'Roboto', weight = 'Bold' },
+  font = wezterm.font { family = 'Roboto', weight = 'Bold' },
+
   -- The size of the font in the tab bar.
   -- Default to 10.0 on Windows but 12.0 on other systems
-    font_size = 20.0,
+  font_size = 35.0,
 
   -- The overall background color of the tab bar when
   -- the window is focused
@@ -203,9 +174,10 @@ local config = {
   -- The overall background color of the tab bar when
   -- the window is not focused
   inactive_titlebar_bg = '#333333',
-    }
 }
-local bar = wezterm.plugin.require("/home/akuma/.config/wezterm/plugins/bar_wezterm")
+}
+
+local bar = wezterm.plugin.require("/Users/akuma/.config/wezterm/plugins/bar_wezterm")
 bar.apply_to_config(config, {
         dividers = "slant_right"
     })

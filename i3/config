@@ -10,8 +10,8 @@ font pango:FuraCode Nerd Font 10
 floating_modifier $super
 
 #i3-gaps
-gaps inner 8
-gaps outer 10
+gaps inner 5
+gaps outer 5
 #border_radius 10
 #Initial setup
 
@@ -19,7 +19,7 @@ gaps outer 10
 # |                    autostart                          |
 # ---------------------------------------------------------
 # xrandr --output HDMI-1 --auto --right-of eDP-1
-exec_always --no-startup-id compton --config /home/akuma/.config/compton/compton2.conf 
+exec_always --no-startup-id picom --config /home/akuma/.config/picom/picom.conf 
 exec_always unclutter --timeout 5
 #exec_always --no-startup-id emacs --daemon
 exec --no-startup-id "thunar --daemon"
@@ -324,8 +324,8 @@ colors {
 #		urgent_workspace   #cc241d #cc241d #504945
 #	}
     # mode hide
-	hidden_state hide
-	#modifier Mod1
+	# hidden_state hide
+	modifier Mod1
 	position top
     #status_command i3blocks -c ~/.config/i3/i3blocks.conf
     #status_command i3status --config ~/.config/i3/i3status.conf
