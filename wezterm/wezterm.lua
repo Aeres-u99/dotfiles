@@ -163,10 +163,10 @@ local config = {
     },
     term = "xterm-256color",
     window_padding = {
-    left = 25,
-    right = 25,
-    top = 30,
-    bottom = 15,
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
     },
     foreground_text_hsb = {
       brightness = 1.9,
