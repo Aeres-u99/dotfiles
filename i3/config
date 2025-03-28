@@ -20,10 +20,8 @@ gaps outer 5
 # ---------------------------------------------------------
 # xrandr --output HDMI-1 --auto --right-of eDP-1
 exec_always --no-startup-id picom --config /home/akuma/.config/picom/picom.conf 
-exec_always unclutter --timeout 5
 #exec_always --no-startup-id emacs --daemon
-exec --no-startup-id "thunar --daemon"
-exec --no-startup-id nm-applet
+exec_always --no-startup-id nm-applet
 exec --no-startup-id dunst
 #exec_always --no-startup-id "autotiling"
 #bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
@@ -40,6 +38,7 @@ bindsym $alt+v exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/4
 exec_always --no-startup-id betterlockscreen -u ~/Pictures/4kwalls
 exec_always --no-startup-id setxkbmap -option caps:swapescape;notify-send "keys swapped"
 exec --no-startup-id conky -bc ~/.config/conky/systemstats/systemstat.conky
+exec --no-startup-id conky -bc ~/.config/conky/informant/inf-cyan.conkyrc
 bindsym $super+Shift+plus border pixel 1
 bindsym $super+minus border none
 #Scratchpad Setup
@@ -84,6 +83,7 @@ bindsym $super+Down fullscreen disable;focus right;fullscreen enable
 # start a terminal
 #cuz urxvt is <3
 bindsym $super+Return exec termite
+bindsym $super+$alt+Return exec termite --config ~/.config/termite/darkness
 bindsym $super+Shift+Return exec wezterm
 #I betrayed urxvt , mew heartbreaker UwU 
 
@@ -91,7 +91,9 @@ bindsym $super+Shift+Return exec wezterm
 bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
 # Install dmenu 2 to use this:
 bindsym $super+slash exec dmenu_run -fn 'Noto Sans:size=9' -i -b
-
+bindsym $super+ctrl+slash exec SUDO_ASKPASS=/home/akuma/bin/dmenu_password sudo -A $(dmenu -fn -i -b)
+bindsym $super+Control+j move workspace to output eDP-1
+bindsym $super+Control+k move workspace to output HDMI-1-0
 
 #bindsym $super+d exec dmenu_run
 bindsym $super+Shift+d exec "rofi -show drun -sidebar-mode -columns 1 -font 'Noto Sans 9'
@@ -114,7 +116,7 @@ bindsym XF86Mail exec google-chrome-stable www.gmail.com
 bindsym XF86Tools exec termite -e "mpd -v"
 bindsym XF86Search exec rofi -show window -width 50 -font 'Noto Sans 9'
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbright +1 && notify-send "Brightness: $(cat /sys/class/backlight/radeon_bl0/brightness)" # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbright -1 && notify-send "Brightness: $(cat /sys/class/backlight/radeon_bl0/brightness)" #  decrease screen brightness
@@ -357,13 +359,14 @@ mode "$mode_system" {
 bindsym $super+BackSpace mode "$mode_system"
 title_align center
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 0 
-assign [class=mpv] 
+for_window [class=".*"] border pixel 1
+# assign [class=mpv] 
 assign [title="Screenshot"] 
 assign [title='devdocsapidocumentation-nativefier-49fe5b'] $ws12
 # assign [class=emacs|Emacs] $ws19
-assign [class=Telegram|weechat*|Kotatogram|Flock|flock|element-nightly] $ws20
+assign [class=Telegram|weechat*|Kotatogram|Flock|flock|element-nightly|AyuGramDesktop|ayugram-desktop*] $ws20
 assign [class=surf|Lariza|VirtualBox*] $ws18
+assign [class=Xephyr*|xephyr*] $ws19
 for_window [class=Terminology|appl|terminology] floating enable
 for_window [class=pavucontrol|Pavucontrol] floating enable
 for_window [class=viewnior|Viewnior|feh] floating enable
