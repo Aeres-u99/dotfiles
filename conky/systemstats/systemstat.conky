@@ -1,21 +1,19 @@
 conky.config = { 
-
-	background = true,
+	background = false,
 	use_xft = true,
 	font = 'monospace:size=8',
-	xftalpha = 0.6,
+	xftalpha = 0.0,
 	update_interval = 1,
 	total_run_times = 0,
 	own_window = true,
 	own_window_transparent = true,
 	own_window_type = 'override',
---	own_window_type = 'dock',
-	own_window_class = 'conky',
+	own_window_class = 'Conky',
 	own_window_argb_visual = true,
 --	own_window_colour = '#263041',
 --  own_window_argb_value = 120,
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-	double_buffer = true,
+	double_buffer = false,
 	draw_shades = false,
 	draw_outline = false,
 	draw_borders = false,
@@ -25,7 +23,7 @@ conky.config = {
 	default_color = '#FFFFFF',
 	default_shade_color = 'gray',
 	default_outline_color = 'black',
-	alignment = 'top_right',
+	alignment = 'top_left',
 	gap_x = 25,
 	gap_y = 75,
 
@@ -47,7 +45,6 @@ conky.config = {
 
 conky.text = [[
 #leet chars: ┤┤└└┴┴┐┐││┘┘┌┌├├┬┬┼┼┴┴── ││ ▽▼△▲▵▴▾▿
-${alignr}${offset -6}${execi 1000 fortune -s}
 ${alignc}${offset 86}${font xftfont montserrat:size=10} Arch Linux ${font}
 ${alignr}${offset -6}└──────────┐
 ${alignr}${offset -6}${font xftfont montserrat:size=10} ${execi 30 task +regular list|grep 'regular' | wc -l} Tasks Pending Today ${machine} ${font} ─┤

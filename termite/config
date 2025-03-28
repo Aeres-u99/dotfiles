@@ -53,7 +53,7 @@ scrollbar = off
 foreground      = #ffffff
 foreground_bold = #cad0c4
 cursor          = #cad0c4
-background      = rgba(1, 1 , 1, 0.4)
+background      = rgba(1, 1 , 1, 0.9)
 
 # black
 #color0  = #121212

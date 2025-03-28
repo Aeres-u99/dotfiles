@@ -39,7 +39,7 @@ own_window_argb_value = 0,
 
 minimum_width = 200, 
 minimum_height = 200,
-maximum_width = 400,
+maximum_width = 450,
 
 gap_x = 20,--## left | right
 gap_y = 20,--## up | down
