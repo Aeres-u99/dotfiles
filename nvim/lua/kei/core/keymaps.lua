@@ -17,3 +17,4 @@ map('n', '<leader>r', ':NvimTreeRefresh<CR>', {noremap = true, silent = false})
 map('v', '<', '<gv', {noremap = true, silent = false})
 map('v', '>', '>gv', {noremap = true, silent = false})
 
+

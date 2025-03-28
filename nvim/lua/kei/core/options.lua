@@ -112,3 +112,4 @@ vim.wo.number = true
 
 vim.o.cursorline = true
 
+
