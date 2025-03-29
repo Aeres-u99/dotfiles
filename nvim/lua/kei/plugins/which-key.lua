@@ -6,6 +6,7 @@ return {
         local wk = require("which-key")
         local mappings = {
             { "<leader>E", "<cmd>e ~/.config/nvim/init.lua<cr>", desc = "Open nvim config", mode = "n" },
+            { "<leader>ut", "<cmd>UndotreeToggle<cr>", desc = "Undo Tree View", mode = "n" },
             { "<leader>x", "<cmd>bdelete<cr>" , desc = "Delete Buffer", mode = "n" },
             { "<leader>ff", "<cmd>Telescope find_files<cr>" , desc = "Search and Open Files", mode = "n" },
             { "<leader>fg", "<cmd>Telescope live_grep<cr>" , desc = "Live grep", mode = "n" },

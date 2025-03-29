@@ -2,6 +2,8 @@ return {
   -- Mason (LSP/DAP/Formatter Manager)
   {
     "williamboman/mason.nvim",
+    lazy = false, -- Load on startup
+    priority = 1000, -- Ensure it loads before other UI elements
     config = function()
       require("mason").setup()
     end,

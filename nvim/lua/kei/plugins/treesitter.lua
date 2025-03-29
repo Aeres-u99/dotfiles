@@ -12,14 +12,16 @@ return {
           "go",
           "python",
           "julia", -- Lisp-like syntax
-	  "zig",
-	  "vim",
+          "zig",
+          "vim",
           "tsv",
-	  "v",
+          "v",
           "gitcommit"
         },
         highlight = { enable = true },
         indent = { enable = true },
+        sync_install = false,
+        auto_install = false,
       })
     end,
   },
