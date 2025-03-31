@@ -17,4 +17,7 @@ map('n', '<leader>r', ':NvimTreeRefresh<CR>', {noremap = true, silent = false})
 map('v', '<', '<gv', {noremap = true, silent = false})
 map('v', '>', '>gv', {noremap = true, silent = false})
 
+vim.keymap.set('n', '<Space>', function()
+    return vim.fn.foldclosed('.') == -1 and 'zc' or 'zo'
+end, { expr = true, noremap = true, silent = true })
 

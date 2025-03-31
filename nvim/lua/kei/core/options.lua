@@ -62,8 +62,14 @@ vim.cmd("highlight EndOfBuffer ctermbg=0 ctermfg=0 guibg=0 guifg=0")
 -- Adjust the completeopt setting
 vim.opt.completeopt:remove("preview")
 
--- Set foldmethod to syntax (syntax-based folding)
-vim.opt.foldmethod = "syntax"
+-- -- Set foldmethod to syntax (syntax-based folding)
+-- vim.opt.foldmethod = "syntax"
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = ""
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 1
 
 -- Disable folding by default
 vim.opt.foldenable = false
@@ -111,5 +117,3 @@ vim.wo.wrap = false
 vim.wo.number = true
 
 vim.o.cursorline = true
-
-
