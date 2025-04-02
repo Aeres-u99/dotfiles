@@ -19,7 +19,7 @@ return {
             { "<leader>tp", "<cmd>TermExec cmd='python'<CR>", desc = "Open Python REPL", mode = "n" },
             { "<leader>tz", "<cmd>TermExec cmd='zsh'<CR>", desc = "Open ZSH Shell", mode = "n" },
             { "<leader>cg", function() vim.cmd("colorscheme gruvbox") end, desc = "Set Gruvbox", mode = "n" },
-            { "<leader>ct", function() vim.cmd("colorscheme tokyonight") end, desc = "Set Tokyonight", mode = "n" }
+            { "<leader>ct", function() vim.cmd("colorscheme tokyonight") end, desc = "Set Tokyonight", mode = "n" },
             { "<leader>at", function() vim.cmd("AerialToggle") end, desc = "Set Tokyonight", mode = "n" }
         }
 
