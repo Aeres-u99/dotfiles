@@ -332,7 +332,7 @@ colors {
     #status_command i3blocks -c ~/.config/i3/i3blocks.conf
     #status_command i3status --config ~/.config/i3/i3status.conf
     #status_command bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t solarized
-    status_command bumblebee-status -m nic pomodoro battery time disk:root memory date -p root.path=/ time.format="%H:%M" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp45s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t night-powerline 
+    status_command bumblebee-status -m nic pomodoro battery time disk:root memory date -p root.path=/ time.format="%H:%M" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp45s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t greyish-powerline
     #gruvbox-powerline
     #iceberg-dark-powerline
     #iceberg-powerline
