@@ -8,7 +8,7 @@ return {
             },
             view = {
                 width = 40, -- Set width to 40 as per your preference
-                side = "right",
+                side = "left",
             },
             renderer = {
                 group_empty = true,
