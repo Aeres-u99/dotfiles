@@ -20,7 +20,7 @@ return {
             { "<leader>tz", "<cmd>TermExec cmd='zsh'<CR>", desc = "Open ZSH Shell", mode = "n" },
             { "<leader>cg", function() vim.cmd("colorscheme gruvbox") end, desc = "Set Gruvbox", mode = "n" },
             { "<leader>ct", function() vim.cmd("colorscheme tokyonight") end, desc = "Set Tokyonight", mode = "n" },
-            { "<leader>at", function() vim.cmd("AerialToggle") end, desc = "Toggle Aerial", mode = "n" }
+            { "<leader>at", function() vim.cmd("AerialToggle") end, desc = "Toggle Aerial", mode = "n" },
             { "<leader>nt", function() vim.cmd("NvimTreeToggle") end, desc = "Toggle Nvim Tree", mode = "n" }
         }
         wk.add(mappings) -- Apply the mappings
