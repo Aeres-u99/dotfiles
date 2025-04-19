@@ -1,0 +1,71 @@
+# Connection
+mpd_host = "127.0.0.1"
+mpd_port = "6600"
+mpd_music_dir = "~/Music"
+mpd_connection_timeout = "5"
+mpd_crossfade_time = "1"
+
+## Unsupported mouse ##
+mouse_support = "no"
+mouse_list_scroll_whole_page = "no"
+
+## Navigation ##
+cyclic_scrolling = "yes"
+header_text_scrolling = "yes"
+jump_to_now_playing_song_at_start = "yes"
+lines_scrolled = "2"
+
+## Other ##
+system_encoding = "utf-8"
+regular_expressions = "extended"
+
+
+##
+## Appearance
+##
+
+## Interface'n'Columns ##
+user_interface = "alternative"
+default_place_to_search_in = "database"
+song_columns_list_format = "(3f)[239]{} (35)[246]{t|f} (30)[blue]{a} (30)[green]{b} (5f)[240]{l}"
+song_list_format = "{$5 %a$9 $1│$9 $8%t$9 }|{ $8%f$9}$R{$5%b $7}"
+song_status_format = "{{{$5%a$9}} $8-$9 {$2%t$9}|{$0%f$9}{ $8-$9 $3%b$9{ $8-$9 $5%y$9}}}"
+song_library_format = "{%n $8-$9 }{%t}|{%f}"
+now_playing_prefix = "$8$b ➤ "
+browser_playlist_prefix = "playlist"
+selected_item_prefix = ">"
+selected_item_suffix = "<"
+song_window_title_format = "{%t}|{%f} - {%a}"
+
+
+## I dont't like columns ##
+playlist_display_mode = "classic"
+browser_display_mode = "classic"
+search_engine_display_mode = "classic"
+
+## Colots of another elements ##
+header_window_color = "white"
+volume_color = "white"
+state_line_color = "white"
+state_flags_color = "white"
+main_window_color = "white"
+progressbar_elapsed_color = "white"
+statusbar_color = "white"
+
+## Selected tracks ##
+discard_colors_if_item_is_selected = "no"
+
+## Seeking ##
+incremental_seeking = "yes"
+seek_time = "1"
+
+## Visivility ##
+header_visibility = "yes"
+statusbar_visibility = "yes"
+titles_visibility = "yes"
+
+## Other ##
+progressbar_look = "───"
+colors_enabled = "yes"
+autocenter_mode = "yes"
+centered_cursor = "yes"
