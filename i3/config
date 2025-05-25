@@ -45,7 +45,7 @@ bindsym $super+minus border none
 bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
 bindsym $super+period exec conky -c /home/akuma/.config/conky/test/conky-test.conky
-bindsym $super+comma exec termite -t "DPI-ByPass" -e "/home/akuma/bin/spoof-dpi --addr='0.0.0.0' --port=20069 --debug=true";
+bindsym $super+comma exec termite -t "DPI-ByPass" -e "/home/akuma/bin/spoof-dpi --addr='0.0.0.0' --port=20069";
 bindsym $super+Shift+f exec termite -t "TaskWarrior" -e "tmux new-session -t 'Tasks'";
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better
@@ -342,6 +342,7 @@ colors {
     #status_command exec ~/bin/mybar
 }
 set $i3lockwall betterlockscreen --lock dimblur # shutdown / restart / suspend...
+set $poweroffscript bash -c "/home/akuma/bin/poweroff.script"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Ctrl+s) shutdown
 mode "$mode_system" {
@@ -350,7 +351,7 @@ mode "$mode_system" {
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym Ctrl+s exec $poweroffscript, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
