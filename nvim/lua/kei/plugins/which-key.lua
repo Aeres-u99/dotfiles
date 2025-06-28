@@ -21,7 +21,9 @@ return {
             { "<leader>cg", function() vim.cmd("colorscheme gruvbox") end, desc = "Set Gruvbox", mode = "n" },
             { "<leader>ct", function() vim.cmd("colorscheme tokyonight") end, desc = "Set Tokyonight", mode = "n" },
             { "<leader>at", function() vim.cmd("AerialToggle") end, desc = "Toggle Aerial", mode = "n" },
-            { "<leader>nt", function() vim.cmd("NvimTreeToggle") end, desc = "Toggle Nvim Tree", mode = "n" }
+            { "<leader>nt", function() vim.cmd("NvimTreeToggle") end, desc = "Toggle Nvim Tree", mode = "n" },
+            { "<leader>rm", function() vim.cmd("RenderMarkdowntoggle") end, desc = "Render Markdown Page", mode = "n" },
+            { "<leader>p", function() vim.cmd("PasteImage") end, desc = "Paste Image into Document", mode = "n" }
         }
         wk.add(mappings) -- Apply the mappings
     end

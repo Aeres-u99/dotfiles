@@ -40,6 +40,10 @@ return {
       lspconfig.clangd.setup({})
       lspconfig.gopls.setup({})
       lspconfig.julials.setup({})
+      lspconfig.marksman.setup({
+        cmd = { "marksman", "server" },
+        filetypes = { "markdown" },
+      })
     end,
   },
 }

@@ -10,6 +10,10 @@ return {
     config = function()
       local cmp = require("cmp")
       cmp.setup({
+        sources = cmp.config.sources({
+          { name = 'render-markdown' },
+          { name = 'nvim_lsp' }
+          }),
         mapping = cmp.mapping.preset.insert({
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),

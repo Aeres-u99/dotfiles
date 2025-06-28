@@ -70,50 +70,31 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 1
-
 -- Disable folding by default
 vim.opt.foldenable = false
-
 -- Set the initial fold level to 2
 vim.opt.foldlevel = 2
-
 -- Disables press Enter to continue
 vim.opt.shortmess = vim.o.shortmess .. 'c'
-
 vim.opt.hidden = true
-
 vim.opt.whichwrap = 'b,s,<,>,[,],h,l'
-
 vim.opt.pumheight = 10
-
 vim.o.fileencoding = 'utf-8'
-
 vim.opt.cmdheight = 2
-
 -- Defaults Split to Open below
 vim.opt.splitbelow = true
-
 -- Defaults Split to Open right
 vim.opt.splitright = true
-
 vim.opt.termguicolors = true
-
 vim.opt.conceallevel = 0
-
 vim.opt.showtabline = 2
-
 vim.opt.clipboard = "unnamedplus"
-
 vim.opt.hlsearch = true
-
 vim.opt.ignorecase = true
-
 vim.opt.scrolloff = 3
-
 vim.opt.sidescrolloff = 5
-
 vim.wo.wrap = false
-
 vim.wo.number = true
-
 vim.o.cursorline = true
+-- VimWiki Setup
+
