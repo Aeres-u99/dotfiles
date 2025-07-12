@@ -24,7 +24,6 @@ bin /home/akuma/bin
 nvim /home/akuma/.config/nvim
 defendtheweb /home/akuma/SoopaProject/hacking/CTF/defendtheweb
 tmp /home/akuma/tmp
-reversing /home/akuma/SoopaProject/Reversing
 pentest /home/akuma/Additionals/Boxes/pentest
 crackmes /home/akuma/Additionals/Boxes/crackmes
 tco /home/akuma/SoopaProject/FOSS/tco
@@ -61,3 +60,4 @@ projects-Ned /home/akuma/Projects/Ned
 projects-PersonalNotes /home/akuma/Projects/PersonalNotes
 projects-ThotVim /home/akuma/Projects/ThotVim
 projects-WAIG /home/akuma/Projects/WAIG
+reversing /home/akuma/Projects/ReverseEngineering
