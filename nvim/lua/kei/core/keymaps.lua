@@ -50,3 +50,6 @@ vim.keymap.set('n', '<leader>rr', function()
   print('🔁 Config reloaded!')
 end, { desc = 'Reload nvim config' })
 
+vim.o.updatetime = 250
+vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]
+

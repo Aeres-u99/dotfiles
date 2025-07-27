@@ -22,6 +22,7 @@ gaps outer 5
 exec_always --no-startup-id picom --config /home/akuma/.config/picom/picom.conf 
 #exec_always --no-startup-id emacs --daemon
 exec_always --no-startup-id nm-applet
+exec_always --no-startup-id copyq
 exec --no-startup-id dunst
 #exec_always --no-startup-id "autotiling"
 #bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
@@ -46,6 +47,7 @@ bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
 bindsym $super+period exec conky -c /home/akuma/.config/conky/test/conky-test.conky
 bindsym $super+comma exec termite -t "DPI-ByPass" -e "/home/akuma/bin/spoof-dpi --addr='0.0.0.0' --port=20069";
+bindsym $super+shift+comma exec /home/akuma/.local/bin/rofi-copyq
 bindsym $super+Shift+f exec termite -t "TaskWarrior" -e "tmux new-session -t 'Tasks'";
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better
