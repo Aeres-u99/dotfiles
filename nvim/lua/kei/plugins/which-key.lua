@@ -15,6 +15,7 @@ return {
             { "<leader>fh", "<cmd>Telescope help_tags<cr>" , desc = "List help tags", mode = "n" },
             { "<leader>fk", "<cmd>Telescope keymaps<cr>" , desc = "List keymaps", mode = "n" },
             { "<leader>fd", "<cmd>Telescope diagnostics<cr>" , desc = "List Diagnostics", mode = "n" },
+            { "<leader>fr", function() require('telescope').extensions.flutter.commands() end, desc = "Open command Flutter", mode = "n" },
             { "<leader>cc", function() vim.cmd("colorscheme catppuccin") end, desc = "Set Catppuccin", mode = "n" },
             { "<C-\\>", "<cmd>ToggleTerm<CR>", desc = "Toggle Terminal", mode = "n" },
             { "<leader>tp", "<cmd>TermExec cmd='python'<CR>", desc = "Open Python REPL", mode = "n" },
