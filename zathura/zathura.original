@@ -1,0 +1,3 @@
+set pages-per-row 1
+set scroll-page-aware true
+set scroll-full-overlap 0
