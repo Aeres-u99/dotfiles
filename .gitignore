@@ -1,3 +1,7 @@
+*Lib*/
+flutter/
+mpd/state
+mpd/log
 Windscribe/
 bleachbit/
 copyq/
