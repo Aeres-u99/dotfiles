@@ -76,8 +76,8 @@ ${alignr}${offset -6}Processes ─┤   │
 ${alignr}${offset -6}$processes: ─ $running_processes ─┘   │   │
 ${alignr}${offset -6}│   │
 ${alignr}${offset -6}Temperatures ─┤   │
-${alignr}${offset -6} ${execi 5 sensors|grep 'Package id 0:'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C: cpu ─┤   │   │
-${alignr}${offset -6} ${execi 5 nvidia-settings -t -q [gpu]/GPUCoreTemp} °C: gpu ─┘   │   │
+${alignr}${offset -6} ${execi 10 sensors|grep 'Package id 0:'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C: cpu ─┤   │   │
+${alignr}${offset -6} ${execi 10 nvidia-settings -t -q [gpu]/GPUCoreTemp} °C: gpu ─┘   │   │
 ${alignr}${offset -6}│   │
 ${alignr}${offset -6}Memory ─┤   │
 ${alignr}${offset -6} $memperc%: used ─┤   │   │

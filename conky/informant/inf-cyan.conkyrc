@@ -144,7 +144,7 @@ conky.text = [[
 ${font Roboto:pixelsize=20}${alignr} ${color0}Akuma${color}
 ${font Roboto:pixelsize=16}${alignr} ${color0}${execi 3 (mpc status | head -1)}${color}
 ${hr}${color}${voffset 1}
-${font Roboto:pixelsize=13}${alignr} ${color0}${execi 300 quote-offline}${color}
+${font Roboto:pixelsize=13}${alignr} ${color0}${execi 300 fortune}${color}
 ${hr}${color}${voffset 1}
 ${font Roboto:pixelsize=13}${alignr} USER: ${color0}${execi 5000 whoami}${color} ${color1}I${color} MACHINE: ${color0}$nodename${color} ${color1}I${color} UPTIME: ${color0}$uptime${color}
 ${font Roboto:pixelsize=13}${alignr} DISTRIBUTION: ${color0}${execi 6000 awk -F'=' '/DESCRIPTION/ {print $2}' /etc/lsb-release |sed 's/"//g'}${color} ${color1}I${color} VERSION: ${color0}${execi 6000 awk -F'=' '/DISTRIB_RELEASE=/ {printf $2" "} /CODENAME/ {print $2}' /etc/lsb-release}${color}

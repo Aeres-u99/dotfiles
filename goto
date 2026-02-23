@@ -23,7 +23,6 @@ bin /home/akuma/bin
 nvim /home/akuma/.config/nvim
 defendtheweb /home/akuma/SoopaProject/hacking/CTF/defendtheweb
 tmp /home/akuma/tmp
-pentest /home/akuma/Additionals/Boxes/pentest
 crackmes /home/akuma/Additionals/Boxes/crackmes
 tco /home/akuma/SoopaProject/FOSS/tco
 ctfnotes /home/akuma/vimwiki/CTFNotes
@@ -62,3 +61,10 @@ projects-WAIG /home/akuma/Projects/WAIG
 reversing /home/akuma/Projects/ReverseEngineering
 wiki /home/akuma/wiki
 Flutter /home/akuma/Projects/Flutter
+study-kafka /home/akuma/study/kafka
+gingor /home/akuma/go/gingor
+algorithms /home/akuma/SoopaProject/Study/algorithms
+pentest /home/akuma/Additionals/Boxes/linux/debian
+study /home/akuma/study
+irl /home/akuma/study/code/inmemory-rl
+neetcode /home/akuma/Projects/neetcode150
