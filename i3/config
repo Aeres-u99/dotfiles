@@ -20,6 +20,7 @@ gaps outer 5
 # ---------------------------------------------------------
 # xrandr --output HDMI-1 --auto --right-of eDP-1
 exec_always --no-startup-id picom --config /home/akuma/.config/picom/picom.conf 
+exec_always --no-startup-id bash /home/akuma/.config/polybar/script.sh
 #exec_always --no-startup-id emacs --daemon
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id copyq
@@ -302,47 +303,47 @@ mode "resize" {
 bindsym $super+r mode "resize"
 
 # panel
-bar {
-colors {
-		# Whole color settings
-		background #1f1f1f
-		statusline #1f1f00
-		separator  #666666
-		
-		focused_workspace  #afafaf #1f1f1f #afafaf
-		active_workspace   #ffffff #ffffff #afafaf
-		inactive_workspace #504945 #1f1f1f #afafaf
-		urgent_workspace   #2ab5b2 #2ab5b2 #504945
-	}
-#colors {
-# Solarized
-#		# Whole color settings
-#		background #3c383690
-#		statusline #ebdbb2
-#		separator  #666666
-#
-#		
-#		focused_workspace  #458588 #458588 #ebdbb2
-#		active_workspace   #1d2021 #83a598 #ebdbb2
-#		inactive_workspace #504945 #504945 #ebdbb2
-#		urgent_workspace   #cc241d #cc241d #504945
-#	}
-    # mode hide
-	# hidden_state hide
-	modifier Mod1
-	position top
-    #status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    #status_command i3status --config ~/.config/i3/i3status.conf
-    #status_command bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t solarized
-    status_command bumblebee-status -m nic pomodoro battery time disk:root memory date -p root.path=/ time.format="%H:%M" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp45s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t moonlight-powerline
-    #gruvbox-powerline
-    #iceberg-dark-powerline
-    #iceberg-powerline
-    #gruvbox-powerline #greyish-powerline
-    #font pango:DejaVu Sans Mono 9
-    font pango:FuraCode Nerd Font 8
-    #status_command exec ~/bin/mybar
-}
+## -- bar {
+## -- colors {
+## -- 		# Whole color settings
+## -- 		background #1f1f1f
+## -- 		statusline #1f1f00
+## -- 		separator  #666666
+## -- 		
+## -- 		focused_workspace  #afafaf #1f1f1f #afafaf
+## -- 		active_workspace   #ffffff #ffffff #afafaf
+## -- 		inactive_workspace #504945 #1f1f1f #afafaf
+## -- 		urgent_workspace   #2ab5b2 #2ab5b2 #504945
+## -- 	}
+## -- #colors {
+## -- # Solarized
+## -- #		# Whole color settings
+## -- #		background #3c383690
+## -- #		statusline #ebdbb2
+## -- #		separator  #666666
+## -- #
+## -- #		
+## -- #		focused_workspace  #458588 #458588 #ebdbb2
+## -- #		active_workspace   #1d2021 #83a598 #ebdbb2
+## -- #		inactive_workspace #504945 #504945 #ebdbb2
+## -- #		urgent_workspace   #cc241d #cc241d #504945
+## -- #	}
+## --     # mode hide
+## -- 	# hidden_state hide
+## -- 	modifier Mod1
+## -- 	position top
+## --     #status_command i3blocks -c ~/.config/i3/i3blocks.conf
+## --     #status_command i3status --config ~/.config/i3/i3status.conf
+## --     #status_command bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t solarized
+## --     status_command bumblebee-status -m nic pomodoro battery time disk:root memory date -p root.path=/ time.format="%H:%M" nic.exclude="lo,virbr,docker,vboxnet,veth,br,ham0,enp45s0,vnet1,anbox0" date.format="%a, %b %d %Y" -t moonlight-powerline
+## --     #gruvbox-powerline
+## --     #iceberg-dark-powerline
+## --     #iceberg-powerline
+## --     #gruvbox-powerline #greyish-powerline
+## --     #font pango:DejaVu Sans Mono 9
+## --     font pango:FuraCode Nerd Font 8
+## --     #status_command exec ~/bin/mybar
+## -- }
 set $i3lockwall betterlockscreen --lock dimblur # shutdown / restart / suspend...
 set $poweroffscript bash -c "/home/akuma/bin/poweroff.script"
 
