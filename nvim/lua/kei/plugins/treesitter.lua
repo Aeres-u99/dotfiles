@@ -2,21 +2,23 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" }, -- ensure it loads at right time
     config = function()
-      require("nvim-treesitter.configs").setup({
+      local ok, ts = pcall(require, "nvim-treesitter.configs")
+      if not ok then return end
+
+      ts.setup({
         ensure_installed = {
           "yaml",
           "json",
-          "hcl",   -- Terraform
+          "hcl",
           "cpp",
           "go",
           "python",
-          "julia", -- Lisp-like syntax
+          "julia",
           "zig",
           "vim",
-          "tsv",
-          "v",
-          "gitcommit"
+          "gitcommit",
         },
         highlight = { enable = true },
         indent = { enable = true },
@@ -26,4 +28,3 @@ return {
     end,
   },
 }
-

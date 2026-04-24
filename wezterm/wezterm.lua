@@ -194,7 +194,7 @@ local config = {
   -- font = wezterm.font { family = 'Roboto', weight = 'Bold' },
   -- The size of the font in the tab bar.
   -- Default to 10.0 on Windows but 12.0 on other systems
-    font_size = 20.0,
+    font_size = 11.0,
 
   -- The overall background color of the tab bar when
   -- the window is focused
@@ -205,8 +205,4 @@ local config = {
   inactive_titlebar_bg = '#333333',
     }
 }
-local bar = wezterm.plugin.require("/home/akuma/.config/wezterm/plugins/bar_wezterm")
-bar.apply_to_config(config, {
-        dividers = "slant_right"
-    })
 return config

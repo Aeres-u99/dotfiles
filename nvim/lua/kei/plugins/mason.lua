@@ -28,19 +28,31 @@ return {
   },
 
   -- LSP Configuration
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local lspconfig = require("lspconfig")
+{
+  "neovim/nvim-lspconfig",
+  config = function()
+    -- simple servers
+    local servers = {
+      "yamlls",
+      "terraformls",
+      "tflint",
+      "clangd",
+      "gopls",
+      "julials",
+    }
 
-      lspconfig.yamlls.setup({})
-      lspconfig.helm_ls.setup({ cmd = { "helm_ls", "serve" }, filetypes = { "helm" } })
-      lspconfig.terraformls.setup({})
-      lspconfig.tflint.setup({})
-      lspconfig.clangd.setup({})
-      lspconfig.gopls.setup({})
-      lspconfig.julials.setup({})
-    end,
-  },
+    for _, server in ipairs(servers) do
+      vim.lsp.config(server, {})
+      vim.lsp.enable(server)
+    end
+
+    -- special case: helm_ls
+    vim.lsp.config("helm_ls", {
+      cmd = { "helm_ls", "serve" },
+      filetypes = { "helm" },
+    })
+    vim.lsp.enable("helm_ls")
+  end,
+},
 }
 

@@ -19,18 +19,23 @@ gaps outer 5
 # |                    autostart                          |
 # ---------------------------------------------------------
 # xrandr --output HDMI-1 --auto --right-of eDP-1
+<<<<<<< HEAD
 exec_always --no-startup-id picom --config /home/akuma/.config/picom/picom.conf 
 exec_always --no-startup-id bash /home/akuma/.config/polybar/script.sh
+=======
+exec_always --no-startup-id picom --config /home/kei/.config/picom/picom.conf 
+exec_always --no-startup-id bash /home/kei/.config/polybar/script.sh
+>>>>>>> 5e9b976 (Aeres-u99 | Fixing Config structure and tmux config)
 #exec_always --no-startup-id emacs --daemon
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id copyq
 exec --no-startup-id dunst
 #exec_always --no-startup-id "autotiling"
-#bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/lofi/*
-exec_always feh --recursive --randomize --bg-fill /home/akuma/Pictures/4kwalls/*
-bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/minimal/
-bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/NiceWalls/*
-bindsym $alt+v exec feh --recursive --randomize --bg-fill /home/akuma/Pictures/4kwalls/*
+#bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/kei/Pictures/lofi/*
+exec_always feh --recursive --randomize --bg-fill /home/kei/Pictures/4kwalls/*
+bindsym $alt+m exec feh --recursive --randomize --bg-fill /home/kei/Pictures/minimal/
+bindsym $alt+n exec feh --recursive --randomize --bg-fill /home/kei/Pictures/NiceWalls/*
+bindsym $alt+v exec feh --recursive --randomize --bg-fill /home/kei/Pictures/4kwalls/*
 #exec --no-startup-id indicator-cpufreq
 #exec_always --no-startup-id conky -bc ~/.config/conky/syclo/syclo-cyan-topleft.conkyrc
 #exec_always --no-startup-id conky -bc ~/.config/conky/informant/inf-paper.conkyrc
@@ -46,9 +51,9 @@ bindsym $super+minus border none
 #Scratchpad Setup
 bindsym $super+Tab move scratchpad
 bindsym $super+u scratchpad show
-bindsym $super+period exec conky -c /home/akuma/.config/conky/test/conky-test.conky
-bindsym $super+comma exec termite -t "DPI-ByPass" -e "/home/akuma/bin/spoof-dpi --addr='0.0.0.0' --port=20069";
-bindsym $super+shift+comma exec /home/akuma/.local/bin/rofi-copyq
+bindsym $super+period exec conky -c /home/kei/.config/conky/test/conky-test.conky
+bindsym $super+comma exec termite -t "DPI-ByPass" -e "/home/kei/bin/spoof-dpi --addr='0.0.0.0' --port=20069";
+bindsym $super+shift+comma exec /home/kei/.local/bin/rofi-copyq
 bindsym $super+Shift+f exec termite -t "TaskWarrior" -e "tmux new-session -t 'Tasks'";
 #This is to handle the screen gaps, its important cuz sometimes I need to go gapless
 # or small gaps to utilize screeen better
@@ -86,7 +91,6 @@ bindsym $super+Down fullscreen disable;focus right;fullscreen enable
 # start a terminal
 #cuz urxvt is <3
 bindsym $super+Return exec termite
-bindsym $super+$alt+Return exec termite --config ~/.config/termite/darkness
 bindsym $super+Shift+Return exec wezterm
 #I betrayed urxvt , mew heartbreaker UwU 
 
@@ -94,7 +98,7 @@ bindsym $super+Shift+Return exec wezterm
 bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
 # Install dmenu 2 to use this:
 bindsym $super+slash exec dmenu_run -fn 'Noto Sans:size=9' -i -b
-bindsym $super+ctrl+slash exec SUDO_ASKPASS=/home/akuma/bin/dmenu_password sudo -A $(dmenu -fn -i -b)
+bindsym $super+ctrl+slash exec SUDO_ASKPASS=/home/kei/bin/dmenu_password sudo -A $(dmenu -fn -i -b)
 bindsym $super+Control+j move workspace to output eDP-1
 bindsym $super+Control+k move workspace to output HDMI-1-0
 
@@ -125,7 +129,7 @@ bindsym XF86MonBrightnessUp exec xbright +1 && notify-send "Brightness: $(cat /s
 bindsym XF86MonBrightnessDown exec xbright -1 && notify-send "Brightness: $(cat /sys/class/backlight/radeon_bl0/brightness)" #  decrease screen brightness
 bindsym $super+i exec "xdotool getwindowfocus getwindowname >> /tmp/winid.log"
 # common apps keybinds
-bindsym $super+shift+x exec scrot '/home/akuma/Screenshots/Cheese_%a-%d%b%y_%H.%M.png' -e 'feh $f --title Screenshot' 
+bindsym $super+shift+x exec scrot '/home/kei/Screenshots/Cheese_%a-%d%b%y_%H.%M.png' -e 'feh $f --title Screenshot' 
 bindsym $super+x exec "flameshot gui"
 
 #change volume
@@ -345,7 +349,7 @@ bindsym $super+r mode "resize"
 ## --     #status_command exec ~/bin/mybar
 ## -- }
 set $i3lockwall betterlockscreen --lock dimblur # shutdown / restart / suspend...
-set $poweroffscript bash -c "/home/akuma/bin/poweroff.script"
+set $poweroffscript bash -c "/home/kei/bin/poweroff.script"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Ctrl+s) shutdown
 mode "$mode_system" {
@@ -354,7 +358,7 @@ mode "$mode_system" {
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Ctrl+s exec $poweroffscript, mode "default"
+    bindsym Ctrl+s exec --no-startup-id shutdown -h now, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
