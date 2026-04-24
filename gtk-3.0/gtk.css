@@ -2,3 +2,8 @@
 padding: 20px;
 }
 
+vte-terminal,
+terminal-window {
+    padding: 10px 10px 10px 10px;
+    -vte-terminal-inner-border: 10px 10px 10px 10px;
+}

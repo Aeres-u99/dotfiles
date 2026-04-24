@@ -1,0 +1,9 @@
+server=http://10.147.17.42:8096
+token=ad01c2c7c9474f0890e60b9ed55ddd01
+userid=f25b14272dfb46ecaa699303c495501c
+ssl_verifyhost=false
+client=jftui
+device=aftokrator
+deviceid=6535763
+version=0.7.5
+try_local_files=no

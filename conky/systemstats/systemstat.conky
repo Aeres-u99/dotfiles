@@ -1,7 +1,7 @@
 conky.config = { 
 	background = false,
 	use_xft = true,
-	font = 'monospace:size=8',
+	font = 'monospace:size=9',
 	xftalpha = 0.0,
 	update_interval = 1,
 	total_run_times = 0,
