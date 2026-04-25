@@ -19,14 +19,8 @@ gaps outer 5
 # |                    autostart                          |
 # ---------------------------------------------------------
 # xrandr --output HDMI-1 --auto --right-of eDP-1
-<<<<<<< HEAD
 exec_always --no-startup-id picom --config /home/akuma/.config/picom/picom.conf 
 exec_always --no-startup-id bash /home/akuma/.config/polybar/script.sh
-=======
-exec_always --no-startup-id picom --config /home/kei/.config/picom/picom.conf 
-exec_always --no-startup-id bash /home/kei/.config/polybar/script.sh
->>>>>>> 5e9b976 (Aeres-u99 | Fixing Config structure and tmux config)
-#exec_always --no-startup-id emacs --daemon
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id copyq
 exec --no-startup-id dunst
