@@ -23,16 +23,7 @@ return {
           enabled = true,
           run_via_dap = false, -- set to true if you're using nvim-dap
         },
-        lsp = {
-          color = {
-            enabled = true,
-            background = false,
-            foreground = false,
-            virtual_text = true,
-            virtual_text_str = "■",
-          },
-
-        }
+        vim.lsp.document_color.enable(),
       }
     end,
   },
