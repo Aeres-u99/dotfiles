@@ -22,8 +22,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
-require("lazy").setup({
-	-- Install lazy plugins here
-	{import = "kei.plugins.colorscheme"},
-	{import = "kei.plugins"},
-})
+require('lazy').setup({ spec = { { import = 'kei.plugins' } } })
+-- require("lazy").setup({
+-- 	-- Install lazy plugins here
+-- 	{import = "kei.plugins.colorscheme"},
+-- 	{import = "kei.plugins"},
+-- })

@@ -3,7 +3,7 @@ local wezterm = require 'wezterm';
 local font = wezterm.font_with_fallback({"FiraCode Nerd Font", "JetBrains Mono", "Hack Nerd Font", "IBM Plex Mono", "FuraCode Nerd Font Retina", "Apple Symbols", "Arial Unicode MS", "BlexMono Nerd Font"})
 local act = wezterm.action
 local leader_key = {
-    key = 'x',
+    key = 'g',
     mods = 'CTRL',
     timeout_milliseconds = 1000,
 }
@@ -184,6 +184,7 @@ local config = {
     show_update_window = false,
     check_for_updates = false,
     check_for_updates_interval_seconds = 300000000000,
+    enable_osc52 = true,
     window_frame = {
   -- The font used in the tab bar.
   -- Roboto Bold is the default; this font is bundled

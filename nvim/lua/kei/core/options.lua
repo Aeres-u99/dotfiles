@@ -96,5 +96,6 @@ vim.opt.sidescrolloff = 5
 vim.wo.wrap = false
 vim.wo.number = true
 vim.o.cursorline = true
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
 -- VimWiki Setup
 
