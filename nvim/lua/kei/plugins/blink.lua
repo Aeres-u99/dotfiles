@@ -7,7 +7,7 @@ return {
     version = '*',
     opts = {
       keymap = {
-          ['<Tab>'] = { 'select_next', 'fallback' }, ['<S-Tab>'] = { 'select_prev', 'fallback' }, ['<CR>'] = { 'accept', 'fallback' }
+          ['<Tab>'] = { 'select_next', 'fallback' }, ['<S-Tab>'] = { 'select_prev', 'fallback' }, ['<C-Space>'] = { 'accept', 'fallback' }
       },
 
       appearance = {
