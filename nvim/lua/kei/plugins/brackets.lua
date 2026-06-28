@@ -1,24 +1,4 @@
 return {
-  -- Treesitter (syntax + parsing)
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    config = function()
-      require('nvim-treesitter.configs').setup({
-        ensure_installed = { 'lua', 'terraform', 'hcl' },
-
-        highlight = {
-          enable = true,
-        },
-
-        indent = {
-          enable = true,
-        },
-      })
-    end,
-  },
-
-  -- Autopairs (auto closing brackets)
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',

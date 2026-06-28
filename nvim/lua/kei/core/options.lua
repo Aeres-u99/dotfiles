@@ -81,6 +81,11 @@ vim.opt.whichwrap = 'b,s,<,>,[,],h,l'
 vim.opt.pumheight = 10
 vim.o.fileencoding = 'utf-8'
 vim.opt.cmdheight = 2
+vim.api.nvim_create_autocmd('FileType', {
+    callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+    end,
+})
 -- Defaults Split to Open below
 vim.opt.splitbelow = true
 -- Defaults Split to Open right
