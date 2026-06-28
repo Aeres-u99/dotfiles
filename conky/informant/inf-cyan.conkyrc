@@ -42,7 +42,7 @@ minimum_height = 200,
 maximum_width = 450,
 
 gap_x = 20,--## left | right
-gap_y = 20,--## up | down
+gap_y = 40,--## up | down
 
 alignment = 'top_right',
 --######################  End Window Settings  ###

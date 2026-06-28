@@ -34,12 +34,12 @@
 	selected-active-background:  @selbg;
 	active-background:           @selbg;
 
-	line-margin:                 2;
-	line-padding:                2;
+	line-margin:                 5;
+	line-padding:                5;
 	separator-style:             "none";
 	hide-scrollbar:              "true";
-	margin:                      0;
-	padding:                     0;
+	margin:                      2;
+	padding:                     1;
 }
 
 window {
@@ -52,7 +52,7 @@ window {
 }
 
 mainbox {
-	spacing:  0.8em;
+	spacing:  0.7em;
 	children: [ entry,listview ];
 }
 
@@ -65,7 +65,7 @@ button selected {
 
 inputbar {
 	padding: 5px;
-	spacing: 5px;
+	spacing: 2px;
 }
 
 listview {
@@ -74,12 +74,12 @@ listview {
 	cycle:   true;
 }
 
-element { padding: 10px; }
+element { padding: 1px; }
 
 entry {
 	expand:         false;
 	text-color:     @normal-foreground;
-	vertical-align: 1;
+	vertical-align: 2;
 	padding:        5px;
 }
 
@@ -101,7 +101,7 @@ element normal.active {
 element selected.normal {
 	background-color: @background-color;
 	text-color:       @selected-normal-foreground;
-	border:           0 3px solid 2 0;
+	border:           0px;
 	border-color:	  @active-background;
 }
 

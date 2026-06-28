@@ -145,4 +145,6 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "/home/akuma/.config/rofi/sidetab.rasi"
+//@theme "~/.config/rofi/sidetab.rasi"
+
+@theme "/usr/share/rofi/themes/sidebar.rasi"
